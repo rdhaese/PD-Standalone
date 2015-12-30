@@ -5,7 +5,11 @@
   <groupId>be.rdhaese.packetdelivery</groupId>
   <artifactId>standalone</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <modules>
+    <module>FrontEnd</module>
+    <module>Service</module>
+  </modules>
+  <packaging>pom</packaging>
 
   <name>standalone</name>
   <url>http://maven.apache.org</url>
