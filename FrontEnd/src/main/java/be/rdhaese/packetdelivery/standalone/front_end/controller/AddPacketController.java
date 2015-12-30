@@ -1,9 +1,9 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller;
 
-import be.rdhaese.project.App;
-import be.rdhaese.project.dto.PacketDTO;
-import be.rdhaese.project.dto.RegionDTO;
-import be.rdhaese.project.standalone_service.AddPacketService;
+import be.rdhaese.packetdelivery.dto.PacketDTO;
+import be.rdhaese.packetdelivery.dto.RegionDTO;
+import be.rdhaese.packetdelivery.standalone.front_end.App;
+import be.rdhaese.packetdelivery.standalone.service.AddPacketService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;

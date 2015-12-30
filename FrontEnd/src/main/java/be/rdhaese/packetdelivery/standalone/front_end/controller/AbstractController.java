@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,7 +47,7 @@ public abstract class AbstractController implements Initializable {
             OverviewController.setMessage(message);
         }
         Parent parent = (Parent) App.LOADER.load("overview");
-        ((Stage)oldScene.getWindow()).setScene(new Scene(parent, 800, 800));
+        ((Stage) oldScene.getWindow()).setScene(new Scene(parent, 800, 800));
     }
 
     protected boolean isEmpty(TextField textField) {

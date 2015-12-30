@@ -1,7 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller;
 
-import be.rdhaese.project.App;
-import be.rdhaese.project.standalone_service.AuthenticationService;
+import be.rdhaese.packetdelivery.standalone.front_end.App;
+import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;

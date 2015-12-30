@@ -1,5 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.front_end;
 
+import be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController;
+import be.rdhaese.packetdelivery.standalone.service.Impl.AuthenticationServiceImpl;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,9 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author Robin D'Haese
  */
-@SpringBootApplication
-public class App extends Application
-{
+@SpringBootApplication( scanBasePackages = "be.rdhaese.packetdelivery.standalone")
+public class App extends Application {
     public static final SpringFxmlLoader LOADER = new SpringFxmlLoader();
 
     public static void main( String[] args )

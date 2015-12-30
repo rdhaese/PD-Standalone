@@ -1,11 +1,12 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller;
 
-import be.rdhaese.project.App;
-import be.rdhaese.project.dto.ContactDetailsDTO;
-import be.rdhaese.project.list_item.EmailAddressListItem;
-import be.rdhaese.project.list_item.FaxNumberListItem;
-import be.rdhaese.project.list_item.PhoneNumberListItem;
-import be.rdhaese.project.standalone_service.EditContactInformationService;
+
+import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
+import be.rdhaese.packetdelivery.standalone.front_end.App;
+import be.rdhaese.packetdelivery.standalone.front_end.list_item.EmailAddressListItem;
+import be.rdhaese.packetdelivery.standalone.front_end.list_item.FaxNumberListItem;
+import be.rdhaese.packetdelivery.standalone.front_end.list_item.PhoneNumberListItem;
+import be.rdhaese.packetdelivery.standalone.service.EditContactInformationService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
