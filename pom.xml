@@ -40,7 +40,7 @@
   </parent>
 
   <dependencies>
-
+    <!--Spring related dependencies-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
@@ -52,7 +52,7 @@
       <version>4.2.4.RELEASE</version>
     </dependency>
 
-
+    <!--Test frameworks-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
