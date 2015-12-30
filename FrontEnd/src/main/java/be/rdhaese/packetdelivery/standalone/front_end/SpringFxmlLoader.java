@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 public class SpringFxmlLoader {
 
-    public static final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppLauncher.class);
+    public static final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(App.class);
 
     public Object load(String fxmlFileName) {
         try (InputStream fxmlStream = SpringFxmlLoader.class

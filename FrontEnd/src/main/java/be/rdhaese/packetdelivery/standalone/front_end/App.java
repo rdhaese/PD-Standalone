@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Robin D'Haese
  */
 @SpringBootApplication
-public class AppLauncher extends Application
+public class App extends Application
 {
     public static final SpringFxmlLoader LOADER = new SpringFxmlLoader();
 
@@ -20,7 +20,7 @@ public class AppLauncher extends Application
     {
         launch(args);
     }
-    
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = (Parent) LOADER.load("login-form");

@@ -1,0 +1,10 @@
+.tferror{
+    -fx-text-box-border: red ;
+    -fx-focus-color: red ;
+}
+
+.cberror{
+    -fx-text-box-border: red;
+    -fx-border-color: red ;
+    -fx-focus-color: red ;
+}
