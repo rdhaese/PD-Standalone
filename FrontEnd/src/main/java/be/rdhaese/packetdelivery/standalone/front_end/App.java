@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * Created on 30/12/2015.
@@ -14,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Robin D'Haese
  */
 @SpringBootApplication( scanBasePackages = "be.rdhaese.packetdelivery.standalone")
+@EnableAspectJAutoProxy
 public class App extends Application {
     public static final SpringFxmlLoader LOADER = new SpringFxmlLoader();
 
