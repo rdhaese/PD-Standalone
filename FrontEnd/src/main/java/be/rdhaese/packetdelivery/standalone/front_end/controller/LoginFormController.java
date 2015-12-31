@@ -35,6 +35,7 @@ public class LoginFormController {
     @Autowired
     private AuthenticationService authenticationService;
 
+
     public void authenticate() throws IOException {
         if(noEmptyFields()){
             if (authenticationService.authenticate(txtUsername.getText(), txtUsername.getText())){

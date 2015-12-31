@@ -1,6 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.service.Impl;
 
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -10,15 +11,13 @@ import org.springframework.web.client.RestTemplate;
  * @author Robin D'Haese
  */
 @Service
-public class AuthenticationServiceImpl implements AuthenticationService {
-    private static final String URI = "http://localhost:8080/authenticate/?username={username}&password={password}";
-
+public class AuthenticationServiceImpl extends AbstractService implements AuthenticationService {
     private String loggedInUser = null;
 
     public boolean authenticate(String username, String password) {
         RestTemplate restTemplate = new RestTemplate();
         boolean isAuthenticated = false;
-        if (isAuthenticated = restTemplate.getForObject(URI, boolean.class, username, password)) {
+        if (isAuthenticated = restTemplate.getForObject(getUris().getAuthenticatePath(), boolean.class, username, password)) {
             loggedInUser = username;
         }
         return isAuthenticated;

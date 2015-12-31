@@ -17,13 +17,11 @@ import java.util.Date;
  * @author Robin D'Haese
  */
 @Service
-public class AddPacketServiceImpl implements AddPacketService {
-    private static final String ADD_PACKET_URI = "http://localhost:8080/packet/add";
-    private static final String GET_REGIONS_URI = "http://localhost:8080/regions/all";
+public class AddPacketServiceImpl extends AbstractService implements AddPacketService {
 
     public Collection<RegionDTO> getRegions(){
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<RegionDTO[]> response = restTemplate.getForEntity(GET_REGIONS_URI, RegionDTO[].class);
+        ResponseEntity<RegionDTO[]> response = restTemplate.getForEntity(getUris().getAllRegionsPath(), RegionDTO[].class);
         return Arrays.asList(response.getBody());
     }
 
@@ -31,6 +29,6 @@ public class AddPacketServiceImpl implements AddPacketService {
         packetDTO.setPacketStatus("NORMAL");
         packetDTO.setStatusChangedOn(new Date());
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForObject(ADD_PACKET_URI, packetDTO, String.class);
+        return restTemplate.postForObject(getUris().getAddPacketPath(), packetDTO, String.class);
     }
 }

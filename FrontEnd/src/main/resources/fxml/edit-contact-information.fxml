@@ -166,7 +166,7 @@
                                                 <Insets top="5.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label text="E-mail address:" GridPane.rowIndex="1" />
+                                        <Label text="E-mail ip:" GridPane.rowIndex="1" />
                                     </children>
                                 </GridPane>
                             </content>
