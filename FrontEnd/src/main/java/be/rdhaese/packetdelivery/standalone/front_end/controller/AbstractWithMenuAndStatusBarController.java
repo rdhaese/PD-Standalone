@@ -1,6 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller;
 
 import be.rdhaese.packetdelivery.standalone.front_end.App;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.impl.OverviewControllerImpl;
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,8 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +24,7 @@ import java.util.ResourceBundle;
  *
  * @author Robin D'Haese
  */
-public abstract class AbstractController implements Initializable {
+public abstract class AbstractWithMenuAndStatusBarController implements Initializable {
 
     @FXML
     protected Label lblLoggedInUsername;
@@ -44,7 +43,7 @@ public abstract class AbstractController implements Initializable {
 
     protected void showOverview(Scene oldScene, String message) {
         if (message != null) {
-            OverviewController.setMessage(message);
+            OverviewControllerImpl.setMessage(message);
         }
         Parent parent = (Parent) App.LOADER.load("overview");
         ((Stage) oldScene.getWindow()).setScene(new Scene(parent, 800, 800));

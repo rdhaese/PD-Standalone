@@ -5,6 +5,6 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller;
  *
  * @author Robin D'Haese
  */
-public interface FromUrlController extends CancelableController{
-    void loadInformation();
+public interface CancelableController {
+    void cancel();
 }

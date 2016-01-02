@@ -1,7 +1,5 @@
 package be.rdhaese.packetdelivery.standalone.front_end;
 
-import be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController;
-import be.rdhaese.packetdelivery.standalone.service.Impl.AuthenticationServiceImpl;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

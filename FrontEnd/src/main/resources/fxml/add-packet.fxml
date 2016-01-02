@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -26,156 +23,156 @@
             </children>
         </AnchorPane>
     </bottom>
-   <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <top>
-            <GridPane BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Add Packet" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Button fx:id="btnGetInformationFromURL" mnemonicParsing="false" onAction="#informationFromURL" text="Get Information From URL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets top="10.0" />
-                     </GridPane.margin></Button>
-                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets right="10.0" top="10.0" />
-                     </GridPane.margin></Button>
-                  <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
-               </children>
-            </GridPane>
-         </top>
-         <center>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <GridPane HBox.hgrow="ALWAYS" stylesheets="@/css/error-styles.css">
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <top>
+                <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
-                     <children>
-                        <Label text="Client Information" GridPane.columnSpan="3" GridPane.halignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
+                    <children>
+                        <Label text="Add Packet" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets left="10.0" top="10.0" />
+                            </GridPane.margin>
                         </Label>
-                        <Label text="Name:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Label text="Email:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <Label text="Phone:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                        <TextField fx:id="txtClientName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtClientEmail" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtClientPhone" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                        <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" />
-                        <Label text="Street:" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                        <Label text="Number:" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                        <Label text="Mailbox:" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-                        <Label text="City:" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-                        <Label text="Postal Code:" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-                        <TextField fx:id="txtClientStreet" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-                        <TextField fx:id="txtClientNumber" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField fx:id="txtClientMailbox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <TextField fx:id="txtClientCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
-                        <TextField fx:id="txtClientPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                        <Label text="(optional)" GridPane.columnIndex="2" GridPane.rowIndex="7">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </GridPane>
-                  <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <GridPane HBox.hgrow="ALWAYS" stylesheets="@/css/error-styles.css">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="Delivery Information" GridPane.columnSpan="3" GridPane.halignment="CENTER">
-                         <font>
-                             <Font name="System Bold" size="15.0" />
-                         </font>
-                         </Label>
-                        <Label text="Name:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Label text="Email:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <Label text="Phone:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                        <TextField fx:id="txtDeliveryName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtDeliveryEmail" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtDeliveryPhone" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                        <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" />
-                        <Label text="Street:" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                        <Label text="Number:" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                        <Label text="Mailbox:" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-                        <Label text="City:" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-                        <Label text="Postal Code:" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-                        <Label text="Region:" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
-                        <TextField fx:id="txtDeliveryStreet" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-                        <TextField fx:id="txtDeliveryNumber" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField fx:id="txtDeliveryMailbox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <TextField fx:id="txtDeliveryCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
-                        <TextField fx:id="txtDeliveryPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                        <ComboBox fx:id="cmbbxDeliveryRegion" prefHeight="31.0" prefWidth="148.0" promptText="Pick Region" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" />
-                        <Label text="(optional)" GridPane.columnIndex="2" GridPane.rowIndex="7">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </GridPane>
-               </children>
-            </HBox>
-         </center>
-         <bottom>
-            <Button fx:id="btnAddPacket" mnemonicParsing="false" onAction="#addPacket" prefHeight="31.0" prefWidth="661.0" text="Add Packet" BorderPane.alignment="CENTER" />
-         </bottom>
-      </BorderPane>
-   </center>
+                        <Button fx:id="btnGetInformationFromURL" mnemonicParsing="false" onAction="#informationFromURL" text="Get Information From URL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets top="10.0" />
+                            </GridPane.margin></Button>
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets right="10.0" top="10.0" />
+                            </GridPane.margin></Button>
+                        <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+            </top>
+            <center>
+                <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <GridPane HBox.hgrow="ALWAYS" stylesheets="@/css/error-styles.css">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Client Information" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Name:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                <Label text="Email:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                <Label text="Phone:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                <TextField fx:id="txtClientName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtClientEmail" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtClientPhone" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+                                <Label text="Street:" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                <Label text="Number:" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                                <Label text="Mailbox:" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                                <Label text="City:" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                                <Label text="Postal Code:" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                                <TextField fx:id="txtClientStreet" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                <TextField fx:id="txtClientNumber" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <TextField fx:id="txtClientMailbox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <TextField fx:id="txtClientCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+                                <TextField fx:id="txtClientPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <Label text="(optional)" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font size="10.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </GridPane>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <GridPane HBox.hgrow="ALWAYS" stylesheets="@/css/error-styles.css">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Delivery Information" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Name:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                <Label text="Email:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                <Label text="Phone:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                <TextField fx:id="txtDeliveryName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtDeliveryEmail" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtDeliveryPhone" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+                                <Label text="Street:" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                <Label text="Number:" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                                <Label text="Mailbox:" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                                <Label text="City:" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                                <Label text="Postal Code:" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                                <Label text="Region:" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                                <TextField fx:id="txtDeliveryStreet" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                <TextField fx:id="txtDeliveryNumber" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <TextField fx:id="txtDeliveryMailbox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <TextField fx:id="txtDeliveryCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+                                <TextField fx:id="txtDeliveryPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <ComboBox fx:id="cmbbxDeliveryRegion" prefHeight="31.0" prefWidth="148.0" promptText="Pick Region" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" />
+                                <Label text="(optional)" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font size="10.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </center>
+            <bottom>
+                <Button fx:id="btnAddPacket" mnemonicParsing="false" onAction="#addPacket" prefHeight="31.0" prefWidth="661.0" text="Add Packet" BorderPane.alignment="CENTER" />
+            </bottom>
+        </BorderPane>
+    </center>
 </BorderPane>

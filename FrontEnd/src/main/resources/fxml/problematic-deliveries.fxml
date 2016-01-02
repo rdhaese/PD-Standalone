@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" stylesheets="@/css/error-styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <ToolBar fx:id="menuPlaceHolder" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </top>
+
+
+    <bottom>
+        <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="14.0" layoutY="4.0" text="Logged in as:" />
+                <Label fx:id="lblLoggedInUsername" layoutX="109.0" layoutY="4.0" text="loggedInUsername">
+                    <font>
+                        <Font name="System Italic" size="15.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </bottom>
+    <center>
+        <!--content-->
+    </center>
+</BorderPane>

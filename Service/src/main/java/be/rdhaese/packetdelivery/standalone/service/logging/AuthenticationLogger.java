@@ -1,13 +1,10 @@
 package be.rdhaese.packetdelivery.standalone.service.logging;
 
-import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,15 +17,14 @@ import org.springframework.stereotype.Component;
 public class AuthenticationLogger {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationLogger.class);
-    @Autowired
-    private AuthenticationService authenticationService;
 
     @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.standalone.service.AuthenticationService.authenticate(..))", returning = "loggedIn")
-    public void onAuthenticationAttempt(JoinPoint joinPoint, boolean loggedIn){
+    public void afterAuthenticationAttempt(JoinPoint joinPoint, boolean loggedIn){
+        String username = joinPoint.getArgs()[0].toString();
         if(loggedIn){
-            logger.info(String.format("Logged in as: %s", authenticationService.getLoggedInUser()));
+            logger.info(String.format("Logged in as: %s", username));
         } else {
-            logger.warn(String.format("Failed login attempt with username: %s", joinPoint.getArgs()[0]));
+            logger.warn(String.format("Failed login attempt with username: %s", username));
         }
     }
 }
