@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SpringFxmlLoader {
+public class SpringFxmlLoader{
 
     public static final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(App.class);
 
