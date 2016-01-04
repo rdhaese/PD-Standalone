@@ -1,12 +1,12 @@
 package be.rdhaese.packetdelivery.standalone.service.logging;
 
+import be.rdhaese.packetdelivery.standalone.service.logging.impl.AddPacketLoggerImpl;
+import be.rdhaese.packetdelivery.standalone.service.logging.impl.AuthenticationLoggerImpl;
+import be.rdhaese.packetdelivery.standalone.service.logging.impl.EditContactInformationLoggerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowire;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 
 /**
@@ -19,17 +19,17 @@ public class LoggingConfiguration {
 
     @Bean(name = "addPacketLoggerBean")
     public Logger addPacketLogger(){
-        return LoggerFactory.getLogger(AddPacketLogger.class);
+        return LoggerFactory.getLogger(AddPacketLoggerImpl.class);
     }
 
     @Bean(name = "authenticationLoggerBean")
     public Logger authenticationLogger(){
-        return LoggerFactory.getLogger(AuthenticationLogger.class);
+        return LoggerFactory.getLogger(AuthenticationLoggerImpl.class);
     }
 
 
     @Bean(name = "editContactInformationLoggerBean")
     public Logger editContactInformationLogger(){
-        return LoggerFactory.getLogger(EditContactInformationLogger.class);
+        return LoggerFactory.getLogger(EditContactInformationLoggerImpl.class);
     }
 }
