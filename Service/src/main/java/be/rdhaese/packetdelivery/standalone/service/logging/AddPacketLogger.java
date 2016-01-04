@@ -6,7 +6,9 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,7 +20,11 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class AddPacketLogger {
 
-    private static final Logger logger = org.slf4j.LoggerFactory.getLogger(AddPacketLogger.class);
+    @Autowired
+    @Qualifier("addPacketLoggerBean")
+    private Logger logger;
+
+//    private static Logger logger = LoggerFactory.getLogger(AddPacketLogger.class);
 
     @Autowired
     private AuthenticationService authenticationService;

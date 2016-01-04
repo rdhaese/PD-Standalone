@@ -1,6 +1,9 @@
 package be.rdhaese.packetdelivery.standalone.service.logging;
 
 import org.aspectj.lang.annotation.Aspect;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,9 +15,10 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class EditContactInformationLogger {
 
-    public void afterGettingContactInformation(){
+    @Autowired
+    @Qualifier("editContactInformationLoggerBean")
+    private Logger logger;
 
-    }
 
     public void afterSavingContactInformation(){
 

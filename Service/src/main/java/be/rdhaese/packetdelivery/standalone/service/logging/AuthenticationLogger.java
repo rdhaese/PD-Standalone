@@ -5,6 +5,8 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,8 +18,11 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class AuthenticationLogger {
 
-    private static final Logger logger = LoggerFactory.getLogger(AuthenticationLogger.class);
+    @Autowired
+    @Qualifier("authenticationLoggerBean")
+    private Logger logger;
 
+    //TODO LOGGING NOT WORKING
     @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.standalone.service.AuthenticationService.authenticate(..))", returning = "loggedIn")
     public void afterAuthenticationAttempt(JoinPoint joinPoint, boolean loggedIn){
         String username = joinPoint.getArgs()[0].toString();
