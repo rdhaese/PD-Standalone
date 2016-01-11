@@ -7,6 +7,4 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller;
  */
 public interface CancelableController {
     void cancel();
-
-    //change to test jenkins
 }
