@@ -8,8 +8,10 @@ import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
  *
  * @author Robin D'Haese
  */
-public interface EditContactInformationService {
+public interface ContactInformationService {
     ContactDetailsDTO get();
 
     boolean save(ContactDetailsDTO contactDetailsDTO);
+
+    String getCompanyName();
 }

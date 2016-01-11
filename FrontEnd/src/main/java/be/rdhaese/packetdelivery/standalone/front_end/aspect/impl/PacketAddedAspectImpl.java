@@ -1,5 +1,6 @@
-package be.rdhaese.packetdelivery.standalone.front_end.aspect;
+package be.rdhaese.packetdelivery.standalone.front_end.aspect.impl;
 
+import be.rdhaese.packetdelivery.standalone.front_end.aspect.PacketAddedAspect;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import net.glxn.qrgen.javase.QRCode;
@@ -23,7 +24,7 @@ import java.util.Optional;
 @Component
 @Aspect
 public class PacketAddedAspectImpl implements PacketAddedAspect {
-
+    //TODO externalize Strings
     @Override
     @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.standalone.service.AddPacketService.addPacket(..))", returning = "packetId")
     public void afterAddingPacket(String packetId){

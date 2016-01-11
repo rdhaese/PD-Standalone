@@ -2,10 +2,13 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 
 import be.rdhaese.packetdelivery.standalone.front_end.App;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractInitializableController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController;
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
+import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
@@ -16,7 +19,8 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created on 21/12/2015.
@@ -24,23 +28,29 @@ import java.io.IOException;
  * @author Robin D'Haese
  */
 @Controller
-public class LoginFormControllerImpl implements LoginFormController {
+public class LoginFormControllerImpl extends AbstractInitializableController implements LoginFormController {
 
+    @FXML
+    Label lblCompanyName;
     @FXML
     TextField txtUsername;
     @FXML
     PasswordField txtPassword;
     @FXML
-    Label errorMessage;
+    Label lblErrorMessage;
 
-    @Autowired
-    private AuthenticationService authenticationService;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        String companyName = contactInformationService.getCompanyName();
+//        Stage stage = (Stage) txtUsername.getScene().getWindow();
+//        stage.setTitle(companyName);
+        lblCompanyName.setText(companyName);
+    }
 
-
-    public void authenticate(){
-        if(noEmptyFields()){
-            if (authenticationService.authenticate(txtUsername.getText(), txtUsername.getText())){
-                errorMessage.setVisible(false);
+    public void authenticate() {
+        if (noEmptyFields()) {
+            if (authenticationService.authenticate(txtUsername.getText(), txtUsername.getText())) {
+                lblErrorMessage.setVisible(false);
                 Stage stage = (Stage) txtUsername.getScene().getWindow();
                 Parent parent = (Parent) App.LOADER.load("overview");
                 stage.setScene(new Scene(parent, 800, 800));
@@ -48,22 +58,22 @@ public class LoginFormControllerImpl implements LoginFormController {
                 showUnableToAuthenticateNotification();
             }
         } else {
-            errorMessage.setText("Please fill in all fields.");
-            errorMessage.setVisible(true);
+            lblErrorMessage.setText("Please fill in all fields.");
+            lblErrorMessage.setVisible(true);
         }
     }
 
     private void showUnableToAuthenticateNotification() {
-        errorMessage.setText("Unable to authenticate, please check your credentials");
-        errorMessage.setVisible(true);
+        lblErrorMessage.setText("Unable to authenticate, please check your credentials");
+        lblErrorMessage.setVisible(true);
     }
 
     private boolean noEmptyFields() {
         return !isEmpty(txtUsername) & !isEmpty(txtPassword);
     }
 
-    private boolean isEmpty(TextField control){
-        if (control.getText().trim().isEmpty()){
+    private boolean isEmpty(TextField control) {
+        if (control.getText().trim().isEmpty()) {
             markForError(control);
             return true;
         }

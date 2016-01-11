@@ -45,6 +45,7 @@ public class BackEndProperties {
         private String authenticate;
         private String contactInformation;
         private String saveContactInformation;
+        private String companyName;
 
         public String getAllRegions() {
             return allRegions;
@@ -84,6 +85,14 @@ public class BackEndProperties {
 
         public void setSaveContactInformation(String saveContactInformation) {
             this.saveContactInformation = saveContactInformation;
+        }
+
+        public String getCompanyName() {
+            return companyName;
+        }
+
+        public void setCompanyName(String companyName) {
+            this.companyName = companyName;
         }
     }
 }

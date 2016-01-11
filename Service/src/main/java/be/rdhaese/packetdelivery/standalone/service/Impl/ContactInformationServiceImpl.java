@@ -1,7 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.service.Impl;
 
 import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
-import be.rdhaese.packetdelivery.standalone.service.EditContactInformationService;
+import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Robin D'Haese
  */
 @Service
-public class EditContactInformationServiceImpl extends AbstractService implements EditContactInformationService {
+public class ContactInformationServiceImpl extends AbstractService implements ContactInformationService {
 
     public ContactDetailsDTO get() {
         RestTemplate restTemplate = new RestTemplate();
@@ -23,5 +23,11 @@ public class EditContactInformationServiceImpl extends AbstractService implement
     public boolean save(ContactDetailsDTO contactDetailsDTO) {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.postForObject(getUris().getSaveContactInformationPath(), contactDetailsDTO, boolean.class);
+    }
+
+    @Override
+    public String getCompanyName() {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(getUris().getCompanyNamePath(), String.class);
     }
 }

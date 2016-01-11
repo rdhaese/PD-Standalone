@@ -3,6 +3,9 @@ package be.rdhaese.packetdelivery.standalone.service.util;
 import be.rdhaese.packetdelivery.standalone.service.properties.BackEndProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.net.URI;
+
 import static java.lang.String.format;
 /**
  * Created on 31/12/2015.
@@ -19,24 +22,32 @@ public class UriUtil {
         return format("http://%s:%s", backEndProperties.getIp(), backEndProperties.getPort());
     }
 
+    public String getWithServerPath(String path){
+        return format("%s/%s", getServerPath(), path);
+    }
+
     public String getAllRegionsPath(){
-        return format("%s/%s", getServerPath(), getUris().getAllRegions());
+        return getWithServerPath(getUris().getAllRegions());
     }
 
     public String getAddPacketPath(){
-        return format("%s/%s", getServerPath(), getUris().getAddPacket());
+        return getWithServerPath(getUris().getAddPacket());
     }
 
     public String getAuthenticatePath(){
-        return format("%s/%s", getServerPath(), getUris().getAuthenticate());
+        return getWithServerPath(getUris().getAuthenticate());
     }
 
     public String getContactInformationPath(){
-        return format("%s/%s", getServerPath(), getUris().getContactInformation());
+        return getWithServerPath(getUris().getContactInformation());
     }
 
     public String getSaveContactInformationPath(){
-        return format("%s/%s", getServerPath(), getUris().getSaveContactInformation());
+        return getWithServerPath(getUris().getSaveContactInformation());
+    }
+
+    public String getCompanyNamePath() {
+        return getWithServerPath(getUris().getCompanyName());
     }
 
     private BackEndProperties.Uris getUris(){

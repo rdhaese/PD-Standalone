@@ -3,6 +3,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller;
 import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.impl.OverviewControllerImpl;
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
+import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,16 +25,13 @@ import java.util.ResourceBundle;
  *
  * @author Robin D'Haese
  */
-public abstract class AbstractWithMenuAndStatusBarController implements Initializable {
+public abstract class AbstractWithMenuAndStatusBarController extends AbstractInitializableController {
 
     @FXML
     protected Label lblLoggedInUsername;
 
     @FXML
     protected ToolBar menuPlaceHolder;
-
-    @Autowired
-    private AuthenticationService authenticationService;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

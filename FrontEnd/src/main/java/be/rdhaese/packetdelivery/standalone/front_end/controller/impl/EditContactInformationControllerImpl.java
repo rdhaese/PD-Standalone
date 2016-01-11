@@ -8,7 +8,7 @@ import be.rdhaese.packetdelivery.standalone.front_end.controller.EditContactInfo
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.EmailAddressListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.FaxNumberListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.PhoneNumberListItem;
-import be.rdhaese.packetdelivery.standalone.service.EditContactInformationService;
+import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,9 +32,6 @@ import java.util.ResourceBundle;
  */
 @Controller
 public class EditContactInformationControllerImpl extends AbstractWithMenuAndStatusBarController implements EditContactInformationController {
-
-    @Autowired
-    private EditContactInformationService editContactInformationService;
 
     @FXML
     private TextField txtCompanyName;
@@ -79,7 +76,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ContactDetailsDTO contactDetailsDTO = editContactInformationService.get();
+        ContactDetailsDTO contactDetailsDTO = contactInformationService.get();
         if (contactDetailsDTO != null) {
             txtCompanyName.setText(contactDetailsDTO.getCompanyName());
             taAboutText.setText(contactDetailsDTO.getAboutText());
@@ -132,7 +129,8 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             addPhoneNumbersBeforeSave(contactDetailsDTO);
             addFaxNumbersBeforeSave(contactDetailsDTO);
             addEmailAddressesBeforeSave(contactDetailsDTO);
-            if (editContactInformationService.save(contactDetailsDTO)) {
+            if (contactInformationService.save(contactDetailsDTO)) {
+                ((Stage)txtCompanyName.getScene().getWindow()).setTitle(contactDetailsDTO.getCompanyName());
                 showOverview(txtCompanyName.getScene(), "Contact details edited successfully");
             } else {
                 markForError(btnSave);

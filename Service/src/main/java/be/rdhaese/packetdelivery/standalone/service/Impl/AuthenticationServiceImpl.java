@@ -16,7 +16,7 @@ public class AuthenticationServiceImpl extends AbstractService implements Authen
 
     public boolean authenticate(String username, String password) {
         RestTemplate restTemplate = new RestTemplate();
-        boolean isAuthenticated = false;
+        boolean isAuthenticated;
         if (isAuthenticated = restTemplate.getForObject(getUris().getAuthenticatePath(), boolean.class, username, password)) {
             loggedInUser = username;
         }
