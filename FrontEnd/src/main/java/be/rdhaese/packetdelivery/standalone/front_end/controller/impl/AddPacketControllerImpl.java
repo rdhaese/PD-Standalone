@@ -82,7 +82,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
         Parent root = (Parent) App.LOADER.load(FXMLS.FROM_URL.toString());
         Stage stage = new Stage();
         stage.setTitle(getMessage("fromUrl.title"));
-        stage.setScene(new Scene(root, 450, 450));
+        stage.setScene(new Scene(root, 450, 150));
         stage.show();
     }
 

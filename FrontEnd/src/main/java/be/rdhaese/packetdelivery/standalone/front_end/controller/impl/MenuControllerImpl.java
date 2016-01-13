@@ -32,7 +32,8 @@ public class MenuControllerImpl extends AbstractController implements MenuContro
         Parent root = (Parent) App.LOADER.load(FXMLS.ABOUT.toString());
         Stage stage = new Stage();
         stage.setTitle(getMessage("about.title"));
-        stage.setScene(new Scene(root, 200, 450));
+        stage.setScene(new Scene(root, 220, 270));
+        stage.setResizable(false);
         stage.show();
     }
 
