@@ -1,18 +1,30 @@
 package be.rdhaese.packetdelivery.standalone.front_end.list_item;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Component;
+
 /**
  * Created on 27/12/2015.
  *
  * @author Robin D'Haese
  */
 public class PhoneNumberListItem {
+
+    private MessageSource messageSource;
+
     private String phoneNumberTitle;
     private String phoneNumber;
 
-    public PhoneNumberListItem() {
+    public PhoneNumberListItem(MessageSource messageSource) {
+        this.messageSource = messageSource;
     }
 
-    public PhoneNumberListItem(String phoneNumberTitle, String phoneNumber) {
+    public PhoneNumberListItem(MessageSource messageSource, String phoneNumberTitle, String phoneNumber) {
+        this(messageSource);
         this.phoneNumberTitle = phoneNumberTitle;
         this.phoneNumber = phoneNumber;
     }
@@ -35,7 +47,7 @@ public class PhoneNumberListItem {
 
     @Override
     public String toString() {
-        return String.format("Title: %s - Phone Number: %s", phoneNumberTitle, phoneNumber);
+        return messageSource.getMessage("listItem.phoneNumber", new Object[]{phoneNumberTitle, phoneNumber}, LocaleContextHolder.getLocale());
     }
 
     public String getPhoneNumberTitle() {

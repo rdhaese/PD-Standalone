@@ -3,6 +3,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController;
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,7 +28,6 @@ public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarControll
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("initialize: " + message);
         if (message != null){
             lblMessage.setText(message);
             lblMessage.setVisible(true);
@@ -38,26 +38,26 @@ public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarControll
 
     public void addPacket(){
         Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load("add-packet");
+        Parent parent = (Parent) App.LOADER.load(FXMLS.ADD_PACKET.toString());
         Scene scene = new Scene(parent, 800, 800);
         stage.setScene(scene);
     }
 
     public void editContactInformation(){
         Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load("edit-contact-information");
+        Parent parent = (Parent) App.LOADER.load(FXMLS.EDIT_CONTACT_INFORMATION.toString());
         stage.setScene(new Scene(parent, 800, 800));
     }
 
     public void lostPackets(){
         Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load("lost-packets");
+        Parent parent = (Parent) App.LOADER.load(FXMLS.LOST_PACKETS.toString());
         stage.setScene(new Scene(parent, 800, 800));
     }
 
     public void problematicDeliveries(){
         Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load("problematic-deliveries");
+        Parent parent = (Parent) App.LOADER.load(FXMLS.PROBLEMATIC_DELIVERIES.toString());
         stage.setScene(new Scene(parent, 800, 800));
     }
 

@@ -1,5 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
+import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.FromUrlController;
 import javafx.fxml.FXML;
@@ -16,16 +17,11 @@ import java.util.ResourceBundle;
  * @author Robin D'Haese
  */
 @Controller
-public class FromUrlControllerImpl extends AbstractWithMenuAndStatusBarController implements FromUrlController {
+public class FromUrlControllerImpl extends AbstractController implements FromUrlController {
 
     @FXML
     private TextField txtUrl;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //Do nothing
-        //Super wants to initialize a menu and status bar, other functions are similar
-    }
 
     public void loadInformation(){
         if (!isEmpty(txtUrl)){

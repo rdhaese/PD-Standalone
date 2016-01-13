@@ -5,6 +5,7 @@ import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AddPacketController;
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.AddPacketService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ import java.util.ResourceBundle;
 @Controller
 public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarController implements AddPacketController {
 
+    private static final String COMBOBOX_ERROR_STYLE_CLASS = "cberror";
     @Autowired
     private AddPacketService addPacketService;
 
@@ -72,19 +74,14 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             cmbbxDeliveryRegion = new ComboBox<>();
         }
         Collection<RegionDTO> regions = addPacketService.getRegions();
-        for (Object region : regions){
-            System.out.println(region);
-            System.out.println(region.getClass());
-            System.out.println(region.toString());
-        }
-       cmbbxDeliveryRegion.getItems().addAll(regions);
+        cmbbxDeliveryRegion.getItems().addAll(regions);
         super.initialize(location, resources);
     }
 
     public void informationFromURL() {
-        Parent root = (Parent) App.LOADER.load("from-url");
+        Parent root = (Parent) App.LOADER.load(FXMLS.FROM_URL.toString());
         Stage stage = new Stage();
-        stage.setTitle("Get Information From URL");
+        stage.setTitle(getMessage("fromUrl.title"));
         stage.setScene(new Scene(root, 450, 450));
         stage.show();
     }
@@ -99,7 +96,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
         PacketDTO packetDTO = new PacketDTO();
         if (allInputIsValid(packetDTO)) {
             addPacketService.addPacket(packetDTO);
-            showOverview(txtClientName.getScene(), "Packet added successfully");
+            showOverview(txtClientName.getScene(), getMessage("toolbar.message.packetAddedSuccessful"));
         }
         //Do nothing -> Keep showing form, so input can be corrected.
     }
@@ -287,15 +284,15 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
 
     private void removeComboBoxErrorStyleIfNeeded(Control control) {
         ObservableList<String> styleClass = control.getStyleClass();
-        if (styleClass.contains("cberror")) {
-            styleClass.remove("cberror");
+        if (styleClass.contains(COMBOBOX_ERROR_STYLE_CLASS)) {
+            styleClass.remove(COMBOBOX_ERROR_STYLE_CLASS);
         }
     }
 
     private void markComboBoxForError(Control control) {
         ObservableList<String> styleClass = control.getStyleClass();
-        if (!styleClass.contains("cberror")) {
-            styleClass.add("cberror");
+        if (!styleClass.contains(COMBOBOX_ERROR_STYLE_CLASS)) {
+            styleClass.add(COMBOBOX_ERROR_STYLE_CLASS);
         }
     }
 }

@@ -6,6 +6,9 @@ import javafx.scene.control.ButtonType;
 import net.glxn.qrgen.javase.QRCode;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
@@ -24,10 +27,19 @@ import java.util.Optional;
 @Component
 @Aspect
 public class PacketAddedAspectImpl implements PacketAddedAspect {
+
+    private static final String IMAGE_EXTENSION = "jpg";
+    private static final String IMAGE_TEXT = "Packet ID";
+    private static final String LOCATION_TO_SAVE = String.format("%s%spacket-delivery-system%scodes%s",
+            System.getProperty("user.home"), File.separator, File.separator, File.separator);
+
+    @Autowired
+    private MessageSource messageSource;
+
     //TODO externalize Strings
     @Override
     @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.standalone.service.AddPacketService.addPacket(..))", returning = "packetId")
-    public void afterAddingPacket(String packetId){
+    public void afterAddingPacket(String packetId) {
         try {
             BufferedImage image = createQRCodeImage(packetId);
             File qrCode = saveImage(packetId, image);
@@ -39,33 +51,25 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
         }
     }
 
-    private static void askForPrint(String packetID, File qrCode) throws IOException {
+    private void askForPrint(String packetID, File qrCode) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Print QR-Code");
-        alert.setHeaderText(String.format("Packet ID: %s", packetID));
-        alert.setContentText(String.format("Start printing QR-code for packet %s?", packetID));
+        alert.setTitle(messageSource.getMessage("askForPrint.title", null, LocaleContextHolder.getLocale()));
+        alert.setHeaderText(messageSource.getMessage("askForPrint.header", new Object[]{packetID}, LocaleContextHolder.getLocale()));
+        alert.setContentText(messageSource.getMessage("askForPrint.content", new Object[]{packetID}, LocaleContextHolder.getLocale()));
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             Desktop.getDesktop().print(qrCode);
         }
         //Do nothing if OK is not clicked.
     }
 
     private File saveImage(String packetID, BufferedImage image) throws IOException {
-        File f = new File(String.format("%s%s.jpg", getLocationsToSave(), packetID)); //TODO, location on mac and linux? Should be known before presenting
+        File f = new File(String.format("%s%s.%s", LOCATION_TO_SAVE, packetID, IMAGE_EXTENSION)); //TODO, location on mac and linux? Should be known before presenting
         if (!f.exists()) {
             f.createNewFile();
         }
-        ImageIO.write(image, "jpg", f);
+        ImageIO.write(image, IMAGE_EXTENSION, f);
         return f;
-    }
-
-    private String getLocationsToSave() throws IOException {
-        String textualPath = String.format("%s%spacket-delivery-system%scodes%s",
-                System.getProperty("user.home"),
-                File.separator, File.separator, File.separator);
-        Paths.get(textualPath).toFile().mkdirs();
-        return textualPath;
     }
 
     private BufferedImage createQRCodeImage(String packetID) throws IOException {
@@ -77,7 +81,7 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     private void addText(String packetID, Graphics g) {
         g.setFont(g.getFont().deriveFont(20f));
         g.setColor(Color.black);
-        g.drawString("Packet ID:", 10, 20);
+        g.drawString(IMAGE_TEXT, 10, 20);
         g.drawString(packetID, 10, 240);
         g.dispose();
     }

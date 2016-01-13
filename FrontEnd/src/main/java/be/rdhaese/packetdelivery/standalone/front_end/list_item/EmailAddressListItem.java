@@ -1,5 +1,12 @@
 package be.rdhaese.packetdelivery.standalone.front_end.list_item;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Component;
+
 /**
  * Created on 27/12/2015.
  *
@@ -7,13 +14,17 @@ package be.rdhaese.packetdelivery.standalone.front_end.list_item;
  */
 public class EmailAddressListItem {
 
+    private MessageSource messageSource;
+
     private String emailAddressTitle;
     private String emailAddress;
 
-    public EmailAddressListItem() {
+    public EmailAddressListItem(MessageSource messageSource) {
+        this.messageSource = messageSource;
     }
 
-    public EmailAddressListItem(String emailAddress, String emailAddressTitle) {
+    public EmailAddressListItem(MessageSource messageSource, String emailAddress, String emailAddressTitle) {
+        this(messageSource);
         this.emailAddress = emailAddress;
         this.emailAddressTitle = emailAddressTitle;
     }
@@ -36,7 +47,7 @@ public class EmailAddressListItem {
 
     @Override
     public String toString() {
-        return String.format("Title: %s - Email Address: %s", emailAddressTitle, emailAddress);
+        return messageSource.getMessage("listItem.emailAddress", new Object[]{emailAddressTitle, emailAddress}, LocaleContextHolder.getLocale());
     }
 
     public String getEmailAddressTitle() {
