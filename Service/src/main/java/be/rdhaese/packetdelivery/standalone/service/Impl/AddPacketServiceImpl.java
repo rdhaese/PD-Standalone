@@ -2,6 +2,7 @@ package be.rdhaese.packetdelivery.standalone.service.Impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
+import be.rdhaese.packetdelivery.standalone.service.AbstractService;
 import be.rdhaese.packetdelivery.standalone.service.AddPacketService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

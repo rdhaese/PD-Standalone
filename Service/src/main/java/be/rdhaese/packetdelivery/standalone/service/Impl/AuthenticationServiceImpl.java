@@ -1,7 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.service.Impl;
 
+import be.rdhaese.packetdelivery.standalone.service.AbstractService;
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

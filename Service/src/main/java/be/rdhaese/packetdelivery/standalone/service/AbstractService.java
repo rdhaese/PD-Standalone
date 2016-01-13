@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.service.Impl;
+package be.rdhaese.packetdelivery.standalone.service;
 
 import be.rdhaese.packetdelivery.standalone.service.util.UriUtil;
 import org.springframework.beans.factory.annotation.Autowired;
