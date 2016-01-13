@@ -1,5 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.front_end;
 
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -23,9 +24,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class App extends Application {
 
-    @Autowired
-    private ContactInformationService contactInformationService;
-
     public static final SpringFxmlLoader LOADER = new SpringFxmlLoader();
 
     public static void main( String[] args )
@@ -35,10 +33,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        Parent root = (Parent) LOADER.load("login-form");
+        Parent root = (Parent) LOADER.load(FXMLS.LOGIN_FORM.toString());
         primaryStage.setScene(new Scene(root, 800, 800));
-//        primaryStage.setTitle(contactInformationService.getCompanyName());
         primaryStage.show();
     }
 }

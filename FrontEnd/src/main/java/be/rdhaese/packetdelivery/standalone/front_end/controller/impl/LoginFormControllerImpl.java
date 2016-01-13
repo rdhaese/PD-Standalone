@@ -4,6 +4,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractInitializableController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController;
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
 import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
 import javafx.collections.ObservableList;
@@ -17,6 +18,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
@@ -42,8 +45,6 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String companyName = contactInformationService.getCompanyName();
-//        Stage stage = (Stage) txtUsername.getScene().getWindow();
-//        stage.setTitle(companyName);
         lblCompanyName.setText(companyName);
     }
 
@@ -52,19 +53,19 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
             if (authenticationService.authenticate(txtUsername.getText(), txtUsername.getText())) {
                 lblErrorMessage.setVisible(false);
                 Stage stage = (Stage) txtUsername.getScene().getWindow();
-                Parent parent = (Parent) App.LOADER.load("overview");
+                Parent parent = (Parent) App.LOADER.load(FXMLS.OVERVIEW.toString());
                 stage.setScene(new Scene(parent, 800, 800));
             } else {
                 showUnableToAuthenticateNotification();
             }
         } else {
-            lblErrorMessage.setText("Please fill in all fields.");
+            lblErrorMessage.setText(getMessage("login.emptyFields"));
             lblErrorMessage.setVisible(true);
         }
     }
 
     private void showUnableToAuthenticateNotification() {
-        lblErrorMessage.setText("Unable to authenticate, please check your credentials");
+        lblErrorMessage.setText(getMessage("login.unableToAuthenticate"));
         lblErrorMessage.setVisible(true);
     }
 
@@ -73,7 +74,7 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
     }
 
     private boolean isEmpty(TextField control) {
-        if (control.getText().trim().isEmpty()) {
+        if (super.isEmpty(control)) {
             markForError(control);
             return true;
         }
@@ -81,17 +82,4 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
         return false;
     }
 
-    private void markForError(Control control) {
-        ObservableList<String> styleClass = control.getStyleClass();
-        if (!styleClass.contains("tferror")) {
-            styleClass.add("tferror");
-        }
-    }
-
-    private void removeErrorStyleIfNeeded(Control control) {
-        ObservableList<String> styleClass = control.getStyleClass();
-        if (styleClass.contains("tferror")) {
-            styleClass.remove("tferror");
-        }
-    }
 }

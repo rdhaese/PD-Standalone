@@ -1,5 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.front_end;
 
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import javafx.fxml.FXMLLoader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,7 +18,7 @@ public class SpringFxmlLoader{
 
     public Object load(String fxmlFileName) {
         try (InputStream fxmlStream = SpringFxmlLoader.class
-                .getResource(String.format("/fxml/%s.fxml", fxmlFileName)).openStream()){
+                .getResource(String.format("%s%s%s", FXMLS.LOCATION, fxmlFileName, FXMLS.EXTENSION)).openStream()){
             //TODO log entry
             FXMLLoader loader = new FXMLLoader();
             loader.setControllerFactory(applicationContext::getBean);

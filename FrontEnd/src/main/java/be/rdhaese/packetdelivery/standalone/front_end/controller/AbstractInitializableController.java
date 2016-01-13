@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author Robin D'Haese
  */
-public abstract class AbstractInitializableController implements Initializable {
+public abstract class AbstractInitializableController extends AbstractController implements Initializable {
     @Autowired
     protected AuthenticationService authenticationService;
     @Autowired

@@ -17,12 +17,16 @@ import java.util.ResourceBundle;
 @Configuration
 public class FrontEndConfig {
 
+    private static final String CLASSPATH = "classpath:";
+    private static final String MESSAGES_LOCATION= "locale/messages";
+    private static final String ENCODING = "UTF-8";
+
     //used by spring
     @Bean
     public ReloadableResourceBundleMessageSource messageSource(){
         ReloadableResourceBundleMessageSource rrbms = new ReloadableResourceBundleMessageSource();
-        rrbms.setBasename("classpath:locale/messages");
-        rrbms.setDefaultEncoding("UTF-8");
+        rrbms.setBasename(String.format("%s%s", CLASSPATH, MESSAGES_LOCATION));
+        rrbms.setDefaultEncoding(ENCODING);
         rrbms.setUseCodeAsDefaultMessage(true);
         return rrbms;
     }
@@ -30,6 +34,6 @@ public class FrontEndConfig {
     //used by javafx
     @Bean
     public ResourceBundle resourceBundle(){
-        return ResourceBundle.getBundle("locale/messages");
+        return ResourceBundle.getBundle(MESSAGES_LOCATION);
     }
 }

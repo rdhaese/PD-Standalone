@@ -1,34 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController">
+
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController">
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@/css/error-styles.css" BorderPane.alignment="CENTER">
+      <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="442.0" vgap="5.0" BorderPane.alignment="TOP_CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+         </rowConstraints>
          <children>
-            <Label text="%login.login" />
-            <Label layoutX="14.0" layoutY="34.0" text="%login.username" />
-            <Label layoutX="16.0" layoutY="71.0" text="%login.password" />
-            <TextField fx:id="txtUsername" layoutX="88.0" layoutY="29.0" prefHeight="31.0" prefWidth="321.0" />
-            <PasswordField fx:id="txtPassword" layoutX="88.0" layoutY="66.0" prefHeight="31.0" prefWidth="321.0" />
-            <Button fx:id="btnAuthenticate" layoutX="88.0" layoutY="107.0" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="321.0" text="%login.button" />
-            <Label fx:id="lblErrorMessage" layoutX="14.0" layoutY="146.0" prefHeight="21.0" prefWidth="395.0" text="Unable to authenticate, please check your credentials." textAlignment="CENTER" textFill="RED" visible="false" />
+            <Label fx:id="lblCompanyName" contentDisplay="CENTER" text="CompanyName" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" />
+            <Label text="%login.login" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Label text="%login.username" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="%login.password" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="txtUsername" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <PasswordField fx:id="txtPassword" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Button fx:id="btnAuthenticate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="321.0" text="%login.button" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label fx:id="lblErrorMessage" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="395.0" text="Unable to authenticate, please check your credentials." textAlignment="CENTER" textFill="RED" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
          </children>
-      </Pane>
+      </GridPane>
    </center>
-   <top>
-      <Label fx:id="lblCompanyName" text="CompanyName" BorderPane.alignment="CENTER" />
-   </top>
    <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </right>
-   <bottom>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </bottom>
+   <top>
+      <VBox maxHeight="1.0" maxWidth="1.0" minHeight="1.0" minWidth="1.0" prefHeight="1.0" prefWidth="1.0" BorderPane.alignment="CENTER" />
+   </top>
 </BorderPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -37,7 +38,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label text="Add Packet" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                        <Label text="%addPacket.title" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
@@ -45,11 +46,11 @@
                                 <Insets left="10.0" top="10.0" />
                             </GridPane.margin>
                         </Label>
-                        <Button fx:id="btnGetInformationFromURL" mnemonicParsing="false" onAction="#informationFromURL" text="Get Information From URL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Button fx:id="btnGetInformationFromURL" mnemonicParsing="false" onAction="#informationFromURL" text="%addPacket.button.fromUrl" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets top="10.0" />
                             </GridPane.margin></Button>
-                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets right="10.0" top="10.0" />
                             </GridPane.margin></Button>
@@ -60,7 +61,7 @@
             <center>
                 <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <GridPane HBox.hgrow="ALWAYS" stylesheets="@/css/error-styles.css">
+                        <GridPane stylesheets="@/css/error-styles.css" HBox.hgrow="ALWAYS">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -113,7 +114,7 @@
                             </padding>
                         </GridPane>
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <GridPane HBox.hgrow="ALWAYS" stylesheets="@/css/error-styles.css">
+                        <GridPane stylesheets="@/css/error-styles.css" HBox.hgrow="ALWAYS">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

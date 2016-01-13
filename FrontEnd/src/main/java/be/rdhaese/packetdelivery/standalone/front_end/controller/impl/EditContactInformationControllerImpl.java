@@ -5,6 +5,7 @@ import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.EditContactInformationController;
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.EmailAddressListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.FaxNumberListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.PhoneNumberListItem;
@@ -98,7 +99,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
 
     private void initializePhoneNumbers(ContactDetailsDTO contactDetailsDTO) {
         for (Map.Entry<String, String> phoneNumber : contactDetailsDTO.getPhoneNumbers().entrySet()) {
-            PhoneNumberListItem phoneNumberListItem = new PhoneNumberListItem();
+            PhoneNumberListItem phoneNumberListItem = new PhoneNumberListItem(messageSource);
             phoneNumberListItem.setPhoneNumberTitle(phoneNumber.getKey());
             phoneNumberListItem.setPhoneNumber(phoneNumber.getValue());
             lvPhoneNumbers.getItems().add(phoneNumberListItem);
@@ -107,7 +108,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
 
     private void initializeFaxNumbers(ContactDetailsDTO contactDetailsDTO) {
         for (Map.Entry<String, String> faxNumber : contactDetailsDTO.getFaxNumbers().entrySet()) {
-            FaxNumberListItem faxNumberListItem = new FaxNumberListItem();
+            FaxNumberListItem faxNumberListItem = new FaxNumberListItem(messageSource);
             faxNumberListItem.setFaxNumberTitle(faxNumber.getKey());
             faxNumberListItem.setFaxNumber(faxNumber.getValue());
             lvFaxNumbers.getItems().add(faxNumberListItem);
@@ -116,7 +117,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
 
     private void initializeEmailAddresses(ContactDetailsDTO contactDetailsDTO) {
         for (Map.Entry<String, String> emailAddress : contactDetailsDTO.getEmailAddresses().entrySet()) {
-            EmailAddressListItem emailAddressListItem = new EmailAddressListItem();
+            EmailAddressListItem emailAddressListItem = new EmailAddressListItem(messageSource);
             emailAddressListItem.setEmailAddressTitle(emailAddress.getKey());
             emailAddressListItem.setEmailAddress(emailAddress.getValue());
             lvEmailAdresses.getItems().add(emailAddressListItem);
@@ -131,10 +132,10 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             addEmailAddressesBeforeSave(contactDetailsDTO);
             if (contactInformationService.save(contactDetailsDTO)) {
                 ((Stage)txtCompanyName.getScene().getWindow()).setTitle(contactDetailsDTO.getCompanyName());
-                showOverview(txtCompanyName.getScene(), "Contact details edited successfully");
+                showOverview(txtCompanyName.getScene(), getMessage("toolbar.message.contactDetailsEditedSuccessful"));
             } else {
                 markForError(btnSave);
-                btnSave.getTooltip().setText("Something went wrong saving the contact details. Please try again later...");
+                btnSave.getTooltip().setText(getMessage("contactInformation.button.save.error"));
             }
         }
     }
@@ -230,24 +231,24 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
 
     public void cancel() {
         Stage stage = (Stage) txtCompanyName.getScene().getWindow();
-        Parent root = (Parent) App.LOADER.load("overview");
+        Parent root = (Parent) App.LOADER.load(FXMLS.OVERVIEW.toString());
         stage.setScene(new Scene(root, 800, 800));
         stage.show();
     }
 
     public void onPhoneNumberTitleTextfieldChanged() {
-        PhoneNumberListItem phoneNumberListItem = new PhoneNumberListItem();
+        PhoneNumberListItem phoneNumberListItem = new PhoneNumberListItem(messageSource);
         phoneNumberListItem.setPhoneNumberTitle(txtPhoneNumberTitle.getText());
         if (lvPhoneNumbers.getItems().contains(phoneNumberListItem)) {
-            btnAddPhoneNumber.setText("Save");
+            btnAddPhoneNumber.setText(getMessage("contactInformation.button.save"));
         } else {
-            btnAddPhoneNumber.setText("Add");
+            btnAddPhoneNumber.setText(getMessage("contactInformation.button.add"));
         }
     }
 
     public void addPhoneNumber() {
         //TODO validate input ->  number format
-        PhoneNumberListItem phoneNumberListItem = new PhoneNumberListItem();
+        PhoneNumberListItem phoneNumberListItem = new PhoneNumberListItem(messageSource);
         if (validateInput(phoneNumberListItem)) {
             int index;
             if ((index = lvPhoneNumbers.getItems().indexOf(phoneNumberListItem)) != -1) {
@@ -290,7 +291,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         PhoneNumberListItem phoneNumberListItem;
         if ((phoneNumberListItem = lvPhoneNumbers.getSelectionModel().getSelectedItem()) != null) {
             lvPhoneNumbers.getItems().remove(phoneNumberListItem);
-            btnAddPhoneNumber.setText("Add");
+            btnAddPhoneNumber.setText(getMessage("contactInformation.button.add"));
         }
     }
 
@@ -299,23 +300,23 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         if ((phoneNumberListItem = lvPhoneNumbers.getSelectionModel().getSelectedItem()) != null) {
             txtPhoneNumberTitle.setText(phoneNumberListItem.getPhoneNumberTitle());
             txtPhoneNumber.setText(phoneNumberListItem.getPhoneNumber());
-            btnAddPhoneNumber.setText("Save");
+            btnAddPhoneNumber.setText(getMessage("contactInformation.button.save"));
         }
     }
 
     public void onFaxNumberTitleTextfieldChanged() {
-        FaxNumberListItem faxNumberListItem = new FaxNumberListItem();
+        FaxNumberListItem faxNumberListItem = new FaxNumberListItem(messageSource);
         faxNumberListItem.setFaxNumberTitle(txtFaxNumberTitle.getText());
         if (lvFaxNumbers.getItems().contains(faxNumberListItem)) {
-            btnAddFaxNumber.setText("Save");
+            btnAddFaxNumber.setText(getMessage("contactInformation.button.save"));
         } else {
-            btnAddFaxNumber.setText("Add");
+            btnAddFaxNumber.setText(getMessage("contactInformation.button.add"));
         }
     }
 
     public void addFaxNumber() {
         //TODO validate input ->  number format
-        FaxNumberListItem faxNumberListItem = new FaxNumberListItem();
+        FaxNumberListItem faxNumberListItem = new FaxNumberListItem(messageSource);
         if (validateInput(faxNumberListItem)) {
             int index;
             if ((index = lvFaxNumbers.getItems().indexOf(faxNumberListItem)) != -1) {
@@ -358,7 +359,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         FaxNumberListItem faxNumberListItem;
         if ((faxNumberListItem = lvFaxNumbers.getSelectionModel().getSelectedItem()) != null) {
             lvFaxNumbers.getItems().remove(faxNumberListItem);
-            btnAddFaxNumber.setText("Add");
+            btnAddFaxNumber.setText(getMessage("contactInformation.button.add"));
         }
     }
 
@@ -367,23 +368,23 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         if ((faxNumberListItem = lvFaxNumbers.getSelectionModel().getSelectedItem()) != null) {
             txtFaxNumberTitle.setText(faxNumberListItem.getFaxNumberTitle());
             txtFaxNumber.setText(faxNumberListItem.getFaxNumber());
-            btnAddFaxNumber.setText("Save");
+            btnAddFaxNumber.setText(getMessage("contactInformation.button.save"));
         }
     }
 
     public void onEmailAddressTitleTextfieldChanged() {
-        EmailAddressListItem emailAddressListItem = new EmailAddressListItem();
+        EmailAddressListItem emailAddressListItem = new EmailAddressListItem(messageSource);
         emailAddressListItem.setEmailAddressTitle(txtEmailAddressTitle.getText());
         if (lvEmailAdresses.getItems().contains(emailAddressListItem)) {
-            btnAddEmailAddress.setText("Save");
+            btnAddEmailAddress.setText(getMessage("contactInformation.button.save"));
         } else {
-            btnAddEmailAddress.setText("Add");
+            btnAddEmailAddress.setText(getMessage("contactInformation.button.add"));
         }
     }
 
     public void addEmailAddress() {
         //TODO validate input ->  email format
-        EmailAddressListItem emailAddressListItem = new EmailAddressListItem();
+        EmailAddressListItem emailAddressListItem = new EmailAddressListItem(messageSource);
         if (validateInput(emailAddressListItem)) {
             int index;
             if ((index = lvEmailAdresses.getItems().indexOf(emailAddressListItem)) != -1) {
@@ -426,7 +427,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         EmailAddressListItem emailAddressListItem;
         if ((emailAddressListItem = lvEmailAdresses.getSelectionModel().getSelectedItem()) != null) {
             lvEmailAdresses.getItems().remove(emailAddressListItem);
-            btnAddEmailAddress.setText("Add");
+            btnAddEmailAddress.setText(getMessage("contactInformation.button.add"));
         }
     }
 
@@ -435,7 +436,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         if ((emailAddressListItem = lvEmailAdresses.getSelectionModel().getSelectedItem()) != null) {
             txtEmailAddressTitle.setText(emailAddressListItem.getEmailAddressTitle());
             txtEmailAddress.setText(emailAddressListItem.getEmailAddress());
-            btnAddEmailAddress.setText("Save");
+            btnAddEmailAddress.setText(getMessage("contactInformation.button.save"));
         }
     }
 }

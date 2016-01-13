@@ -1,7 +1,9 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.standalone.front_end.App;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.MenuController;
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Controller;
  * @author Robin D'Haese
  */
 @Controller
-public class MenuControllerImpl implements MenuController {
+public class MenuControllerImpl extends AbstractController implements MenuController {
 
     @FXML
     private MenuBar menuBar;
@@ -27,9 +29,9 @@ public class MenuControllerImpl implements MenuController {
     private AuthenticationService authenticationService;
 
     public void about(){
-        Parent root = (Parent) App.LOADER.load("about");
+        Parent root = (Parent) App.LOADER.load(FXMLS.ABOUT.toString());
         Stage stage = new Stage();
-        stage.setTitle("About");
+        stage.setTitle(getMessage("about.title"));
         stage.setScene(new Scene(root, 200, 450));
         stage.show();
     }
@@ -37,7 +39,7 @@ public class MenuControllerImpl implements MenuController {
     public void logout(){
         authenticationService.logout();
         Stage stage = (Stage) menuBar.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load("login-form");
+        Parent parent = (Parent) App.LOADER.load(FXMLS.LOGIN_FORM.toString());
         stage.setScene(new Scene(parent, 800, 800));
     }
 

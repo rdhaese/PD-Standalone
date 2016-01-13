@@ -1,18 +1,30 @@
 package be.rdhaese.packetdelivery.standalone.front_end.list_item;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Component;
+
 /**
  * Created on 27/12/2015.
  *
  * @author Robin D'Haese
  */
 public class FaxNumberListItem {
+
+    private MessageSource messageSource;
+
     private String faxNumberTitle;
     private String faxNumber;
 
-    public FaxNumberListItem() {
+    public FaxNumberListItem(MessageSource messageSource) {
+        this.messageSource = messageSource;
     }
 
-    public FaxNumberListItem(String faxNumberTitle, String faxNumber) {
+    public FaxNumberListItem(MessageSource messageSource, String faxNumberTitle, String faxNumber) {
+        this(messageSource);
         this.faxNumberTitle = faxNumberTitle;
         this.faxNumber = faxNumber;
     }
@@ -35,7 +47,7 @@ public class FaxNumberListItem {
 
     @Override
     public String toString() {
-        return String.format("Title: %s - Fax Number: %s", faxNumberTitle, faxNumber);
+        return messageSource.getMessage("listItem.faxNumber", new Object[]{faxNumberTitle, faxNumber}, LocaleContextHolder.getLocale());
     }
 
     public String getFaxNumberTitle() {
