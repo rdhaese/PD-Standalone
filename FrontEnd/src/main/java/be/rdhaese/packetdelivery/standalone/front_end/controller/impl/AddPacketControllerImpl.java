@@ -143,6 +143,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
 
     private boolean validateClientEmail(PacketDTO packetDTO) {
         if (!isEmpty(txtClientEmail)) {
+
             packetDTO.setClientEmail(txtClientEmail.getText());
             removeErrorStyleIfNeeded(txtClientEmail);
             return true;

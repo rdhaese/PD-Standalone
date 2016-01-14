@@ -15,7 +15,7 @@
     <bottom>
         <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="14.0" layoutY="4.0" text="Logged in as:" />
+                <Label layoutX="14.0" layoutY="4.0" text="%toolbar.loggedInAs" />
                 <Label fx:id="lblLoggedInUsername" layoutX="109.0" layoutY="4.0" text="loggedInUsername">
                     <font>
                         <Font name="System Italic" size="15.0" />
@@ -81,29 +81,29 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label text="Client Information" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                <Label text="%addPacket.clientInfo" GridPane.columnSpan="3" GridPane.halignment="CENTER">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
                                 </Label>
-                                <Label text="Name:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                <Label text="Email:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                <Label text="Phone:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                <Label text="%addPacket.name" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                <Label text="%addPacket.email" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                <Label text="%addPacket.phone" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                                 <TextField fx:id="txtClientName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                                 <TextField fx:id="txtClientEmail" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                                 <TextField fx:id="txtClientPhone" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                                 <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" />
-                                <Label text="Street:" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                                <Label text="Number:" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                                <Label text="Mailbox:" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-                                <Label text="City:" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-                                <Label text="Postal Code:" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                                <Label text="%addPacket.street" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                <Label text="%addPacket.number" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                                <Label text="%addPacket.mailbox" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                                <Label text="%addPacket.city" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                                <Label text="%addPacket.postalCode" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
                                 <TextField fx:id="txtClientStreet" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
                                 <TextField fx:id="txtClientNumber" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                 <TextField fx:id="txtClientMailbox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                 <TextField fx:id="txtClientCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
                                 <TextField fx:id="txtClientPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                <Label text="(optional)" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                <Label text="%addPacket.optional" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                     <font>
                                         <Font size="10.0" />
                                     </font>
@@ -134,31 +134,31 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label text="Delivery Information" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                <Label text="%addPacket.deliveryInfo" GridPane.columnSpan="3" GridPane.halignment="CENTER">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
                                 </Label>
-                                <Label text="Name:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                <Label text="Email:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                <Label text="Phone:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                <Label text="%addPacket.name" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                <Label text="%addPacket.email" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                <Label text="%addPacket.phone" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                                 <TextField fx:id="txtDeliveryName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                                 <TextField fx:id="txtDeliveryEmail" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                                 <TextField fx:id="txtDeliveryPhone" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                                 <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" />
-                                <Label text="Street:" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                                <Label text="Number:" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                                <Label text="Mailbox:" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-                                <Label text="City:" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-                                <Label text="Postal Code:" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-                                <Label text="Region:" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                                <Label text="%addPacket.street" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                <Label text="%addPacket.number" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                                <Label text="%addPacket.mailbox" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                                <Label text="%addPacket.city" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                                <Label text="%addPacket.postalCode" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                                <Label text="%addPacket.region" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
                                 <TextField fx:id="txtDeliveryStreet" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
                                 <TextField fx:id="txtDeliveryNumber" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                 <TextField fx:id="txtDeliveryMailbox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                 <TextField fx:id="txtDeliveryCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
                                 <TextField fx:id="txtDeliveryPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                <ComboBox fx:id="cmbbxDeliveryRegion" prefHeight="31.0" prefWidth="148.0" promptText="Pick Region" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" />
-                                <Label text="(optional)" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                <ComboBox fx:id="cmbbxDeliveryRegion" prefHeight="31.0" prefWidth="148.0" promptText="%addPacket.pickRegion" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" />
+                                <Label text="%addPacket.optional" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                     <font>
                                         <Font size="10.0" />
                                     </font>
@@ -172,7 +172,7 @@
                 </HBox>
             </center>
             <bottom>
-                <Button fx:id="btnAddPacket" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPacket" text="Add Packet" BorderPane.alignment="CENTER">
+                <Button fx:id="btnAddPacket" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPacket" text="%addPacket.button.add" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin></Button>
