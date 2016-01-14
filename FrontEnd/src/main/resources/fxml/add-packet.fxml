@@ -50,7 +50,7 @@
                             <GridPane.margin>
                                 <Insets top="10.0" />
                             </GridPane.margin></Button>
-                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets right="10.0" top="10.0" />
                             </GridPane.margin></Button>
@@ -172,7 +172,10 @@
                 </HBox>
             </center>
             <bottom>
-                <Button fx:id="btnAddPacket" mnemonicParsing="false" onAction="#addPacket" prefHeight="31.0" prefWidth="661.0" text="Add Packet" BorderPane.alignment="CENTER" />
+                <Button fx:id="btnAddPacket" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPacket" text="Add Packet" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin></Button>
             </bottom>
         </BorderPane>
     </center>

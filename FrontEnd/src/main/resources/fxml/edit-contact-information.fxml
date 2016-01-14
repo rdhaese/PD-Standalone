@@ -34,6 +34,7 @@
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -45,8 +46,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
@@ -58,7 +58,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>
                 </Label>
-                <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="3" GridPane.rowIndex="8" GridPane.rowSpan="7">
+                <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="3" GridPane.rowIndex="8" GridPane.rowSpan="6">
                     <tabs>
                         <Tab text="%contactInformation.phoneNumbers">
                             <content>
@@ -80,19 +80,28 @@
                                     <children>
                                         <TextField fx:id="txtPhoneNumberTitle" onKeyReleased="#onPhoneNumberTitleTextfieldChanged" GridPane.columnIndex="1">
                                             <GridPane.margin>
-                                                <Insets top="5.0" />
+                                                <Insets top="10.0" />
                                             </GridPane.margin>
                                         </TextField>
-                                        <Button fx:id="btnAddPhoneNumber" mnemonicParsing="false" onAction="#addPhoneNumber" text="%contactInformation.button.add" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                        <ListView fx:id="lvPhoneNumbers" onMouseClicked="#onPhoneNumbersClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="4" />
-                                        <Button fx:id="btnRemovePhoneNumber" mnemonicParsing="false" onAction="#removePhoneNumber" text="%contactInformation.button.remove" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                                        <Button fx:id="btnAddPhoneNumber" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPhoneNumber" text="%contactInformation.button.add" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin>
+                              </Button>
+                                        <ListView fx:id="lvPhoneNumbers" onMouseClicked="#onPhoneNumbersClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="5" />
                                         <Label text="%contactInformation.phoneNumbers.title">
                                             <GridPane.margin>
-                                                <Insets top="5.0" />
+                                                <Insets top="10.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label text="%contactInformation.phoneNumbers.phoneNumber" GridPane.rowIndex="1" />
-                                        <TextField fx:id="txtPhoneNumber" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="%contactInformation.phoneNumbers.phoneNumber" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin></Label>
+                                        <TextField fx:id="txtPhoneNumber" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin></TextField>
                                     </children>
                                 </GridPane>
                             </content>
@@ -115,21 +124,30 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Button fx:id="btnRemoveFaxNumber" mnemonicParsing="false" onAction="#removeFaxNumber" text="%contactInformation.button.remove" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                                        <ListView fx:id="lvFaxNumbers" onMouseClicked="#onFaxNumbersClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="4" />
-                                        <Button fx:id="btnAddFaxNumber" mnemonicParsing="false" onAction="#addFaxNumber" text="%contactInformation.button.add" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                        <Button fx:id="btnAddFaxNumber" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addFaxNumber" text="%contactInformation.button.add" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin>
+                              </Button>
+                                        <ListView fx:id="lvFaxNumbers" onMouseClicked="#onFaxNumbersClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="5" />
                                         <TextField fx:id="txtFaxNumberTitle" onKeyReleased="#onFaxNumberTitleTextfieldChanged" GridPane.columnIndex="1">
                                             <GridPane.margin>
-                                                <Insets top="5.0" />
+                                                <Insets top="10.0" />
                                             </GridPane.margin>
                                         </TextField>
-                                        <TextField fx:id="txtFaxNumber" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtFaxNumber" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin></TextField>
                                         <Label text="%contactInformation.faxNumbers.title">
                                             <GridPane.margin>
-                                                <Insets top="5.0" />
+                                                <Insets top="10.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label text="%contactInformation.faxNumbers.faxNumber" GridPane.rowIndex="1" />
+                                        <Label text="%contactInformation.faxNumbers.faxNumber" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin></Label>
                                     </children>
                                 </GridPane>
                             </content>
@@ -152,21 +170,30 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Button fx:id="btnRemoveEmailAddress" mnemonicParsing="false" onAction="#removeEmailAddress" text="%contactInformation.button.remove" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                                        <ListView fx:id="lvEmailAdresses" onMouseClicked="#onEmailAddressesClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="4" />
-                                        <Button fx:id="btnAddEmailAddress" mnemonicParsing="false" onAction="#addEmailAddress" text="%contactInformation.button.add" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                        <Button fx:id="btnAddEmailAddress" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addEmailAddress" text="%contactInformation.button.add" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin>
+                              </Button>
+                                        <ListView fx:id="lvEmailAdresses" onMouseClicked="#onEmailAddressesClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="5" />
                                         <TextField fx:id="txtEmailAddressTitle" onKeyReleased="#onEmailAddressTitleTextfieldChanged" GridPane.columnIndex="1">
                                             <GridPane.margin>
-                                                <Insets top="5.0" />
+                                                <Insets top="10.0" />
                                             </GridPane.margin>
                                         </TextField>
-                                        <TextField fx:id="txtEmailAddress" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtEmailAddress" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin></TextField>
                                         <Label text="%contactInformation.emailAddresses.title">
                                             <GridPane.margin>
-                                                <Insets top="5.0" />
+                                                <Insets top="10.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label text="%contactInformation.emailAddresses.emailAddress" GridPane.rowIndex="1" />
+                                        <Label text="%contactInformation.emailAddresses.emailAddress" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin></Label>
                                     </children>
                                 </GridPane>
                             </content>
@@ -177,6 +204,9 @@
                             </content>
                         </Tab>
                     </tabs>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
                 </TabPane>
                 <Label text="%contactInformation.companyName" GridPane.rowIndex="2" />
                 <Label text="%contactInformation.street" GridPane.rowIndex="3" />
@@ -195,24 +225,17 @@
                     </font>
                 </Label>
                 <TextField fx:id="txtPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
-                    <children>
-                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="%button.cancel">
-                            <HBox.margin>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                            </HBox.margin>
-                        </Button>
-                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#save" text="%contactInformation.button.save">
-                            <HBox.margin>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                            </HBox.margin>
-                        </Button>
-                    </children>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </HBox>
-                <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                  <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#save" text="%contactInformation.button.save" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="14">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+                  </Button>
+                  <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+                  </Button>
+                <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

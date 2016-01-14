@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController">
    <center>
       <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="442.0" vgap="5.0" BorderPane.alignment="TOP_CENTER">
@@ -38,7 +37,7 @@
             </Label>
             <TextField fx:id="txtUsername" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
             <PasswordField fx:id="txtPassword" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-            <Button fx:id="btnAuthenticate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="321.0" text="%login.button" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Button fx:id="btnAuthenticate" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="321.0" text="%login.button" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
             <Label fx:id="lblErrorMessage" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="395.0" text="%login.unableToAuthenticate" textAlignment="CENTER" textFill="RED" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
          </children>
       </GridPane>

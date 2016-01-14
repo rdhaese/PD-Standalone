@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  *
  * @author Robin D'Haese
  */
-public class PhoneNumberListItem {
+public class PhoneNumberListItem{
 
     private MessageSource messageSource;
 

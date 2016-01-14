@@ -6,6 +6,7 @@ import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.EditContactInformationController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
+import be.rdhaese.packetdelivery.standalone.front_end.event.RemoveListItemAction;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.EmailAddressListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.FaxNumberListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.list_item.PhoneNumberListItem;
@@ -13,10 +14,7 @@ import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,6 +73,8 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     @FXML
     private Button btnSave;
 
+    private ContextMenu contextMenu;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ContactDetailsDTO contactDetailsDTO = contactInformationService.get();
@@ -104,6 +104,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             phoneNumberListItem.setPhoneNumber(phoneNumber.getValue());
             lvPhoneNumbers.getItems().add(phoneNumberListItem);
         }
+       addContextMenu(lvPhoneNumbers);
     }
 
     private void initializeFaxNumbers(ContactDetailsDTO contactDetailsDTO) {
@@ -113,6 +114,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             faxNumberListItem.setFaxNumber(faxNumber.getValue());
             lvFaxNumbers.getItems().add(faxNumberListItem);
         }
+        addContextMenu(lvFaxNumbers);
     }
 
     private void initializeEmailAddresses(ContactDetailsDTO contactDetailsDTO) {
@@ -122,6 +124,14 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             emailAddressListItem.setEmailAddress(emailAddress.getValue());
             lvEmailAdresses.getItems().add(emailAddressListItem);
         }
+        addContextMenu(lvEmailAdresses);
+    }
+
+    private void addContextMenu(ListView<?> listView){
+        MenuItem menuItem = new MenuItem("Remove");
+        menuItem.setOnAction(new RemoveListItemAction(listView));
+        contextMenu = new ContextMenu(menuItem);
+        listView.setContextMenu(contextMenu);
     }
 
     public void save() {
@@ -301,6 +311,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             txtPhoneNumberTitle.setText(phoneNumberListItem.getPhoneNumberTitle());
             txtPhoneNumber.setText(phoneNumberListItem.getPhoneNumber());
             btnAddPhoneNumber.setText(getMessage("contactInformation.button.save"));
+
         }
     }
 
