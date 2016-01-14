@@ -16,7 +16,8 @@ public enum FXMLS{
     LOST_PACKETS("lost-packets"),
     MENU_BAR("menu-bar"),
     OVERVIEW("overview"),
-    PROBLEMATIC_DELIVERIES("problematic-deliveries")
+    PROBLEMATIC_DELIVERIES("problematic-deliveries"),
+    PROBLEMATIC_DELIVERY("problematic-delivery")
     ;
 
     public static final String LOCATION = "/fxml/";

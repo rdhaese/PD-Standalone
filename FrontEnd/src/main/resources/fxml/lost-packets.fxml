@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" stylesheets="@/css/error-styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.LostPacketsController">
     <top>
         <ToolBar fx:id="menuPlaceHolder" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </top>
@@ -25,6 +25,59 @@
         </AnchorPane>
     </bottom>
     <center>
-       <!--content-->
+        <BorderPane>
+        <top>
+            <GridPane BorderPane.alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label text="%lostPackets.title" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                        <font>
+                            <Font name="System Bold" size="18.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets left="10.0" top="10.0" />
+                        </GridPane.margin>
+                    </Label>
+
+                    <Button fx:id="btnCancel" onAction="#cancel" cancelButton="true" mnemonicParsing="false" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                        <GridPane.margin>
+                            <Insets right="10.0" top="10.0" />
+                        </GridPane.margin></Button>
+                    <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                </children>
+            </GridPane>
+        </top>
+         <center>
+            <TableView fx:id="tvLostPackets" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="tcPacketId" editable="false" prefWidth="150.0" text="%lostPackets.table.id" />
+                <TableColumn fx:id="tcDateMarkedAsLost" editable="false" minWidth="0.0" prefWidth="158.0" text="%lostPackets.table.dateMarkedAsLost" />
+                  <TableColumn fx:id="tcClient" editable="false" minWidth="0.0" prefWidth="183.0" sortable="false" text="%lostPackets.table.client" />
+                  <TableColumn fx:id="tcDelivery" editable="false" minWidth="0.0" prefWidth="158.0" sortable="false" text="%lostPackets.table.delivery" />
+                  <TableColumn fx:id="tcActions" minWidth="0.0" prefWidth="101.0" sortable="false" text="%lostPackets.table.actions">
+                     <columns>
+                        <TableColumn fx:id="tcFound" prefWidth="75.0" text="%lostPackets.table.actions.markAsFound" />
+                        <TableColumn fx:id="tcRemove" prefWidth="75.0" text="%lostPackets.table.actions.remove" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%lostPackets.button.save" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
+        </BorderPane>
     </center>
 </BorderPane>
