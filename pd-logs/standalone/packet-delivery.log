@@ -79,3 +79,57 @@
 14/01/2016-12:07:15.666 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
 14/01/2016-12:08:21.806 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
 14/01/2016-12:10:18.304 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/01/2016-15:40:53.880 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-16:43:48.456 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-16:55:08.820 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-16:57:38.503 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:00:37.332 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:02:16.739 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:04:48.272 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:06:02.453 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:08:47.511 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:12:08.708 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:19:21.890 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:20:41.750 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:23:26.202 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:26:46.687 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:32:14.515 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:33:00.282 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:34:23.351 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:36:45.097 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:42:04.706 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:42:47.105 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:45:17.906 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-17:46:09.313 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:13:02.000 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:49:54.051 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:50:39.722 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:52:30.225 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:00:43.036 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:06:21.686 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:47:32.210 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:50:23.325 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:50:48.601 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:53:08.623 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:53:54.228 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:55:35.432 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:56:29.564 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:00:54.997 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:03:32.437 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:04:40.912 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:05:25.042 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:06:08.176 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:07:19.181 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:08:05.043 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:11:53.032 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:37:26.002 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:37:46.062 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:43:39.050 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:43:56.379 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: b; With id: B_-B-15012016-00001
+15/01/2016-20:45:44.356 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:48:20.735 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:48:40.387 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: b; With id: B_-BB-15012016-00001
+15/01/2016-20:48:51.091 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: c; With id: C_-C-15012016-00002
+15/01/2016-20:51:41.770 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:52:04.213 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: b; With id: B_-BB-15012016-00001
+15/01/2016-20:52:20.304 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: c; With id: C_-C-15012016-00002
