@@ -26,8 +26,18 @@ public class LostPacketTableItem {
         this.delivery.set(delivery);
         this.found.set(found);
         this.remove.set(remove);
+
+        this.found.addListener(cl -> {if (this.found.getValue().equals(true)){this.remove.set(false);}});
+        this.remove.addListener(cl -> {if (this.remove.getValue().equals(true)){this.found.set(false);}});
     }
 
+    public static void main(String... args){
+        //TODO in test
+        LostPacketTableItem lostPacketTableItem = new LostPacketTableItem("bla", "bla", "bla", "bla", false, false);
+        lostPacketTableItem.setRemove(true);
+        lostPacketTableItem.setFound(true);
+        System.out.println(lostPacketTableItem.getRemove());
+    }
     public String getPacketId() {
         return packetId.get();
     }
