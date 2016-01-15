@@ -46,6 +46,17 @@ public class BackEndProperties {
         private String contactInformation;
         private String saveContactInformation;
         private String companyName;
+        private String lostPackets;
+        private String markLostPacketsAsFound;
+        private String removeLostPacketsFromSystem;
+
+        public String getLostPackets() {
+            return lostPackets;
+        }
+
+        public void setLostPackets(String lostPackets) {
+            this.lostPackets = lostPackets;
+        }
 
         public String getAllRegions() {
             return allRegions;
@@ -93,6 +104,22 @@ public class BackEndProperties {
 
         public void setCompanyName(String companyName) {
             this.companyName = companyName;
+        }
+
+        public String getMarkLostPacketsAsFound() {
+            return markLostPacketsAsFound;
+        }
+
+        public void setMarkLostPacketsAsFound(String markLostPacketsAsFound) {
+            this.markLostPacketsAsFound = markLostPacketsAsFound;
+        }
+
+        public String getRemoveLostPacketsFromSystem() {
+            return removeLostPacketsFromSystem;
+        }
+
+        public void setRemoveLostPacketsFromSystem(String removeLostPacketsFromSystem) {
+            this.removeLostPacketsFromSystem = removeLostPacketsFromSystem;
         }
     }
 }

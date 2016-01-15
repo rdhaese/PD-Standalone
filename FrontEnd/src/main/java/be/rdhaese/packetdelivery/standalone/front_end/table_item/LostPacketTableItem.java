@@ -13,13 +13,16 @@ public class LostPacketTableItem {
     private SimpleStringProperty dateMarkedAsLost = new SimpleStringProperty();
     private SimpleStringProperty client = new SimpleStringProperty();
     private SimpleStringProperty delivery = new SimpleStringProperty();
-    private SimpleBooleanProperty found = new SimpleBooleanProperty();
-    private SimpleBooleanProperty remove = new SimpleBooleanProperty();
+    private SimpleBooleanProperty found = new SimpleBooleanProperty(false);
+    private SimpleBooleanProperty remove = new SimpleBooleanProperty(false);
 
     public LostPacketTableItem() {
+        this.found.addListener(cl -> {if (this.found.getValue().equals(true)){this.remove.set(false);}});
+        this.remove.addListener(cl -> {if (this.remove.getValue().equals(true)){this.found.set(false);}});
     }
 
     public LostPacketTableItem(String packetId, String dateMarkedAsLost, String client, String delivery, boolean found, boolean remove) {
+        this();
         this.packetId.set(packetId);
         this.dateMarkedAsLost.set(dateMarkedAsLost);
         this.client.set(client);
@@ -28,6 +31,13 @@ public class LostPacketTableItem {
         this.remove.set(remove);
     }
 
+    public static void main(String... args){
+        //TODO in test
+        LostPacketTableItem lostPacketTableItem = new LostPacketTableItem("bla", "bla", "bla", "bla", false, false);
+        lostPacketTableItem.setRemove(true);
+        lostPacketTableItem.setFound(true);
+        System.out.println(lostPacketTableItem.getRemove());
+    }
     public String getPacketId() {
         return packetId.get();
     }

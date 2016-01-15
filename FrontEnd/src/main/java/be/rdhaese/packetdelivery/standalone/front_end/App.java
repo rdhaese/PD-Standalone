@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = (Parent) LOADER.load(FXMLS.LOGIN_FORM.toString());
-        primaryStage.setScene(new Scene(root, 800, 800));
+        primaryStage.setScene(new Scene(root, 1024, 768));
         primaryStage.show();
     }
 }

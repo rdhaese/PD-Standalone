@@ -52,9 +52,7 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
         if (noEmptyFields()) {
             if (authenticationService.authenticate(txtUsername.getText(), txtUsername.getText())) {
                 lblErrorMessage.setVisible(false);
-                Stage stage = (Stage) txtUsername.getScene().getWindow();
-                Parent parent = (Parent) App.LOADER.load(FXMLS.OVERVIEW.toString());
-                stage.setScene(new Scene(parent, 800, 800));
+                showOverview(lblErrorMessage.getScene(), null);
             } else {
                 showUnableToAuthenticateNotification();
             }

@@ -79,11 +79,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void informationFromURL() {
-        Parent root = (Parent) App.LOADER.load(FXMLS.FROM_URL.toString());
-        Stage stage = new Stage();
-        stage.setTitle(getMessage("fromUrl.title"));
-        stage.setScene(new Scene(root, 450, 150));
-        stage.show();
+        showInNewWindow(FXMLS.FROM_URL, "fromUrl.title", 450, 150 , false);
     }
 
     public void cancel() {
@@ -143,7 +139,6 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
 
     private boolean validateClientEmail(PacketDTO packetDTO) {
         if (!isEmpty(txtClientEmail)) {
-
             packetDTO.setClientEmail(txtClientEmail.getText());
             removeErrorStyleIfNeeded(txtClientEmail);
             return true;

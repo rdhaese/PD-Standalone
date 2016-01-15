@@ -20,9 +20,6 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
 
     @Override
     public void cancel() {
-        Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent root = (Parent) App.LOADER.load(FXMLS.PROBLEMATIC_DELIVERIES.toString());
-        stage.setScene(new Scene(root, 800, 800));
-        stage.show();
+        showScene(lblLoggedInUsername.getScene(), FXMLS.PROBLEMATIC_DELIVERIES);
     }
 }
