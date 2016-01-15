@@ -33,12 +33,27 @@ public abstract class AbstractController {
         return getMessage(key, null);
     }
 
+    protected void showScene(Scene oldScene, FXMLS newScene){
+        Stage stage = (Stage) oldScene.getWindow();
+        Parent parent = (Parent) App.LOADER.load(newScene.toString());
+        Scene scene = new Scene(parent, 1024, 768);
+        stage.setScene(scene);
+
+    }
     protected void showOverview(Scene oldScene, String message) {
         if (message != null) {
             OverviewControllerImpl.setMessage(message);
         }
-        Parent parent = (Parent) App.LOADER.load(FXMLS.OVERVIEW.toString());
-        ((Stage) oldScene.getWindow()).setScene(new Scene(parent, 800, 800));
+       showScene(oldScene, FXMLS.OVERVIEW);
+    }
+
+    protected void showInNewWindow(FXMLS scene, String titleMessageSourceKey, int width, int height, boolean resizable){
+        Parent root = (Parent) App.LOADER.load(scene.toString());
+        Stage stage = new Stage();
+        stage.setTitle(getMessage(titleMessageSourceKey));
+        stage.setScene(new Scene(root, width, height));
+        stage.setResizable(resizable);
+        stage.show();
     }
 
     protected boolean isEmpty(TextInputControl textInputControl) {

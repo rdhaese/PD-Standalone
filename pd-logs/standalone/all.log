@@ -431,3 +431,81 @@
 15/01/2016-17:46:00.504 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 17:46:00 CET 2016]; root of context hierarchy
 15/01/2016-17:46:04.443 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
 15/01/2016-17:46:09.313 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:12:52.353 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 18:12:52 CET 2016]; root of context hierarchy
+15/01/2016-18:12:56.221 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-18:13:02.000 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:49:44.716 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 18:49:44 CET 2016]; root of context hierarchy
+15/01/2016-18:49:49.062 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-18:49:54.051 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:50:32.792 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 18:50:32 CET 2016]; root of context hierarchy
+15/01/2016-18:50:36.615 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-18:50:39.722 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-18:51:27.513 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2bd5f3c5: startup date [Fri Jan 15 18:51:27 CET 2016]; root of context hierarchy
+15/01/2016-18:51:31.493 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-18:52:30.225 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:00:35.282 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:00:35 CET 2016]; root of context hierarchy
+15/01/2016-19:00:39.229 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:00:43.036 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:06:12.559 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:06:12 CET 2016]; root of context hierarchy
+15/01/2016-19:06:16.653 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:06:21.686 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:47:15.881 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:47:15 CET 2016]; root of context hierarchy
+15/01/2016-19:47:19.792 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:47:32.210 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:50:15.523 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:50:15 CET 2016]; root of context hierarchy
+15/01/2016-19:50:19.568 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:50:23.325 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:50:39.185 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:50:39 CET 2016]; root of context hierarchy
+15/01/2016-19:50:43.468 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:50:48.601 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:52:57.314 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:52:57 CET 2016]; root of context hierarchy
+15/01/2016-19:53:01.373 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:53:08.623 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:53:40.491 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:53:40 CET 2016]; root of context hierarchy
+15/01/2016-19:53:44.408 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:53:54.228 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:55:26.744 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:55:26 CET 2016]; root of context hierarchy
+15/01/2016-19:55:31.113 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:55:35.432 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-19:56:17.200 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 19:56:17 CET 2016]; root of context hierarchy
+15/01/2016-19:56:21.484 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-19:56:29.564 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:00:44.930 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:00:44 CET 2016]; root of context hierarchy
+15/01/2016-20:00:49.334 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:00:54.997 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:03:13.586 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:03:13 CET 2016]; root of context hierarchy
+15/01/2016-20:03:18.375 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:03:32.437 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:04:30.819 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2d6e8792: startup date [Fri Jan 15 20:04:30 CET 2016]; root of context hierarchy
+15/01/2016-20:04:35.449 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:04:40.912 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:05:06.604 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:05:06 CET 2016]; root of context hierarchy
+15/01/2016-20:05:11.954 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:05:25.042 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:05:57.727 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:05:57 CET 2016]; root of context hierarchy
+15/01/2016-20:06:03.666 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:06:08.176 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:07:08.268 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:07:08 CET 2016]; root of context hierarchy
+15/01/2016-20:07:13.638 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:07:19.181 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:07:53.819 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:07:53 CET 2016]; root of context hierarchy
+15/01/2016-20:07:57.327 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:08:05.043 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:11:43.186 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:11:43 CET 2016]; root of context hierarchy
+15/01/2016-20:11:48.049 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:11:53.032 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:37:15.205 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:37:15 CET 2016]; root of context hierarchy
+15/01/2016-20:37:20.353 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:37:26.002 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:37:46.062 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:43:39.050 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:43:56.379 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: b; With id: B_-B-15012016-00001
+15/01/2016-20:45:31.216 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Fri Jan 15 20:45:31 CET 2016]; root of context hierarchy
+15/01/2016-20:45:35.820 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/01/2016-20:45:44.356 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+15/01/2016-20:48:20.735 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:48:40.387 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: b; With id: B_-BB-15012016-00001
+15/01/2016-20:48:51.091 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: c; With id: C_-C-15012016-00002
+15/01/2016-20:51:41.770 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
+15/01/2016-20:52:04.213 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: b; With id: B_-BB-15012016-00001
+15/01/2016-20:52:20.304 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: c; With id: C_-C-15012016-00002

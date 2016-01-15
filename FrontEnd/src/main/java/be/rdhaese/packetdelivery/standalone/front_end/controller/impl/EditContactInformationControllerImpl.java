@@ -240,10 +240,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     public void cancel() {
-        Stage stage = (Stage) txtCompanyName.getScene().getWindow();
-        Parent root = (Parent) App.LOADER.load(FXMLS.OVERVIEW.toString());
-        stage.setScene(new Scene(root, 800, 800));
-        stage.show();
+       showOverview(txtCompanyName.getScene(), null);
     }
 
     public void onPhoneNumberTitleTextfieldChanged() {

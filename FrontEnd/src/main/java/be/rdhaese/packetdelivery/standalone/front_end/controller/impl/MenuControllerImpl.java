@@ -29,19 +29,12 @@ public class MenuControllerImpl extends AbstractController implements MenuContro
     private AuthenticationService authenticationService;
 
     public void about(){
-        Parent root = (Parent) App.LOADER.load(FXMLS.ABOUT.toString());
-        Stage stage = new Stage();
-        stage.setTitle(getMessage("about.title"));
-        stage.setScene(new Scene(root, 220, 270));
-        stage.setResizable(false);
-        stage.show();
+        showInNewWindow(FXMLS.ABOUT, "about.title", 220, 270, false);
     }
 
     public void logout(){
         authenticationService.logout();
-        Stage stage = (Stage) menuBar.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load(FXMLS.LOGIN_FORM.toString());
-        stage.setScene(new Scene(parent, 800, 800));
+        showScene(menuBar.getScene(), FXMLS.LOGIN_FORM);
     }
 
     public void exit(){

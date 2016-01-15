@@ -53,4 +53,16 @@ public class UriUtil {
     private BackEndProperties.Uris getUris(){
         return backEndProperties.getUris();
     }
+
+    public String getLostPacketsPath() {
+        return getWithServerPath(getUris().getLostPackets());
+    }
+
+    public String getMarkLostPacketsAsFoundPath() {
+        return getWithServerPath(getUris().getMarkLostPacketsAsFound());
+    }
+
+    public String getRemoveLostPacketsFromSystemPath() {
+        return getWithServerPath(getUris().getRemoveLostPacketsFromSystem());
+    }
 }

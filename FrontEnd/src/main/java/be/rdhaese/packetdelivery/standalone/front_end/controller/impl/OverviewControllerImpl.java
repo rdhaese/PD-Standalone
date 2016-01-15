@@ -37,30 +37,24 @@ public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarControll
     }
 
     public void addPacket(){
-        Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load(FXMLS.ADD_PACKET.toString());
-        Scene scene = new Scene(parent, 800, 800);
-        stage.setScene(scene);
+        showScene(getScene(), FXMLS.ADD_PACKET);
     }
 
     public void editContactInformation(){
-        Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load(FXMLS.EDIT_CONTACT_INFORMATION.toString());
-        stage.setScene(new Scene(parent, 800, 800));
+        showScene(getScene(), FXMLS.EDIT_CONTACT_INFORMATION);
     }
 
     public void lostPackets(){
-        Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load(FXMLS.LOST_PACKETS.toString());
-        stage.setScene(new Scene(parent, 800, 800));
+       showScene(getScene(), FXMLS.LOST_PACKETS);
     }
 
     public void problematicDeliveries(){
-        Stage stage = (Stage) lblLoggedInUsername.getScene().getWindow();
-        Parent parent = (Parent) App.LOADER.load(FXMLS.PROBLEMATIC_DELIVERIES.toString());
-        stage.setScene(new Scene(parent, 800, 800));
+        showScene(getScene(), FXMLS.PROBLEMATIC_DELIVERIES);
     }
 
+    private Scene getScene(){
+        return lblMessage.getScene();
+    }
     public static String getMessage() {
         return message;
     }

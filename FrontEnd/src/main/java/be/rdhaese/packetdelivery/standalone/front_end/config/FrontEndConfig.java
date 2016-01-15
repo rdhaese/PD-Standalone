@@ -6,6 +6,8 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -20,6 +22,7 @@ public class FrontEndConfig {
     private static final String CLASSPATH = "classpath:";
     private static final String MESSAGES_LOCATION= "locale/messages";
     private static final String ENCODING = "UTF-8";
+    private static final String DATE_PATTERN = "dd/MM/yyyy";
 
     //used by spring
     @Bean
@@ -35,5 +38,10 @@ public class FrontEndConfig {
     @Bean
     public ResourceBundle resourceBundle(){
         return ResourceBundle.getBundle(MESSAGES_LOCATION);
+    }
+
+    @Bean
+    public DateFormat dateFormat(){
+        return new SimpleDateFormat(DATE_PATTERN);
     }
 }
