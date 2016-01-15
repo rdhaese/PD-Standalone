@@ -133,3 +133,4 @@
 15/01/2016-20:51:41.770 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-15012016-00000
 15/01/2016-20:52:04.213 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: b; With id: B_-BB-15012016-00001
 15/01/2016-20:52:20.304 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: c; With id: C_-C-15012016-00002
+15/01/2016-21:09:49.707 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
