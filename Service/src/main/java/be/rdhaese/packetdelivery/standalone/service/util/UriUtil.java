@@ -65,4 +65,8 @@ public class UriUtil {
     public String getRemoveLostPacketsFromSystemPath() {
         return getWithServerPath(getUris().getRemoveLostPacketsFromSystem());
     }
+
+    public String getProblematicPacketsPath() {
+        return getWithServerPath(getUris().getProblematicPackets());
+    }
 }
