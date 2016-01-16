@@ -58,7 +58,7 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                      <TableView fx:id="tvProblematicDeliveries" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                      <TableView fx:id="tvProblematicPackets" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <columns>
                               <TableColumn fx:id="tcPacketId" editable="false" prefWidth="150.0" text="%problematicDeliveries.table.id" />
                               <TableColumn fx:id="tcDateMarkedAsProblematic" editable="false" minWidth="0.0" prefWidth="158.0" text="%problematicDeliveries.table.dateMarkedAsProblematic" />

@@ -4,6 +4,7 @@ import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.service.AbstractService;
 import be.rdhaese.packetdelivery.standalone.service.ProblematicPacketsService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import java.util.Collection;
  *
  * @author Robin D'Haese
  */
+@Service
 public class ProblematicPacketsServiceImpl extends AbstractService implements ProblematicPacketsService {
 
 

@@ -1,24 +1,19 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
-import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveriesController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
-import be.rdhaese.packetdelivery.standalone.front_end.table_item.LostPacketTableItem;
 import be.rdhaese.packetdelivery.standalone.front_end.table_item.ProblematicPacketTableItem;
-import be.rdhaese.packetdelivery.standalone.service.LostPacketsService;
 import be.rdhaese.packetdelivery.standalone.service.ProblematicPacketsService;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.stage.Stage;
+import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -39,9 +34,9 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
 
     @Autowired
     private DateFormat dateFormat;
-
     @Autowired
     private ProblematicPacketsService problematicPacketsService;
+
     @FXML
     private TableView<ProblematicPacketTableItem> tvProblematicPackets;
     @FXML
@@ -62,7 +57,20 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
         initializeTableColumns();
         FilteredList<ProblematicPacketTableItem> lostPackets = insertItemsFromBackEnd();
         bindIdFilter(lostPackets);
+        showDetailsIfRowClicked();
         super.initialize(location, resources);
+    }
+
+    private void showDetailsIfRowClicked() {
+        tvProblematicPackets.setRowFactory(rf -> {
+            TableRow<ProblematicPacketTableItem> row = new TableRow<ProblematicPacketTableItem>();
+            row.setOnMouseClicked(e -> {
+                String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
+                ProblematicDeliveryControllerImpl.setCurrentPacket(packetId);
+                showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
+            });
+            return row;
+        } );
     }
 
     private void bindIdFilter(FilteredList<ProblematicPacketTableItem> lostPackets) {
@@ -81,7 +89,7 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     }
 
     private FilteredList<ProblematicPacketTableItem> insertItemsFromBackEnd() {
-        Collection<ProblematicPacketTableItem> problematicPacketTableItems = mapToTableItems(ProblematicPacketsService.getProblematicPackets());
+        Collection<ProblematicPacketTableItem> problematicPacketTableItems = mapToTableItems(problematicPacketsService.getProblematicPackets());
         FilteredList<ProblematicPacketTableItem> filterableProblematicPacketTableItems = new FilteredList<>(FXCollections.observableArrayList(problematicPacketTableItems));
         tvProblematicPackets.setItems(filterableProblematicPacketTableItems);
         return filterableProblematicPacketTableItems;
@@ -96,7 +104,7 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
 
     private Collection<ProblematicPacketTableItem> mapToTableItems(Collection<PacketDTO> problematicPackets) {
         List<ProblematicPacketTableItem> problematicPacketTableItems = new ArrayList<>();
-        for (PacketDTO problematicPacket : problematicPackets){
+        for (PacketDTO problematicPacket : problematicPackets) {
             problematicPacketTableItems.add(mapToTableItem(problematicPacket));
         }
         return problematicPacketTableItems;

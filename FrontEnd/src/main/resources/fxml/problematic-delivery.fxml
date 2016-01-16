@@ -27,4 +27,7 @@
     <center>
         <!-- CONTENT -->
     </center>
+   <center>
+      <Label fx:id="lblCurrentPacket" text="Label" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
