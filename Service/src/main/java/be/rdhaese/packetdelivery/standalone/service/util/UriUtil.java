@@ -69,4 +69,16 @@ public class UriUtil {
     public String getProblematicPacketsPath() {
         return getWithServerPath(getUris().getProblematicPackets());
     }
+
+    public String getProblematicPacketPath() {
+        return  getWithServerPath(getUris().getProblematicPacket());
+    }
+
+    public String getReSendProblematicPacketPath() {
+        return getWithServerPath(getUris().getReSendProblematicPacket());
+    }
+
+    public String getReturnToSenderProblematicPacketPath() {
+        return getWithServerPath(getUris().getReturnToSenderProblematicPacket());
+    }
 }

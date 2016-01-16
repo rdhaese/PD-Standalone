@@ -25,4 +25,23 @@ public class ProblematicPacketsServiceImpl extends AbstractService implements Pr
         ResponseEntity<PacketDTO[]> response = restTemplate.getForEntity(getUris().getProblematicPacketsPath(), PacketDTO[].class);
         return Arrays.asList(response.getBody());
     }
+
+    @Override
+    public PacketDTO getProblematicPacket(String packetId) {
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<PacketDTO> response = restTemplate.getForEntity(getUris().getProblematicPacketPath(), PacketDTO.class, packetId);
+        return response.getBody();
+    }
+
+    @Override
+    public void reSend(String packetId) {
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Boolean> response = restTemplate.postForEntity(getUris().getReSendProblematicPacketPath(), packetId, Boolean.class);
+    }
+
+    @Override
+    public void returnToSender(String packetId) {
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Boolean> response = restTemplate.postForEntity(getUris().getReturnToSenderProblematicPacketPath(), packetId, Boolean.class);
+    }
 }

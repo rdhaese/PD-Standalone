@@ -50,6 +50,9 @@ public class BackEndProperties {
         private String markLostPacketsAsFound;
         private String removeLostPacketsFromSystem;
         private String problematicPackets;
+        private String problematicPacket;
+        private String reSendProblematicPacket;
+        private String returnToSenderProblematicPacket;
 
         public String getLostPackets() {
             return lostPackets;
@@ -129,6 +132,30 @@ public class BackEndProperties {
 
         public void setProblematicPackets(String problematicPackets) {
             this.problematicPackets = problematicPackets;
+        }
+
+        public String getProblematicPacket() {
+            return problematicPacket;
+        }
+
+        public void setProblematicPacket(String problematicPacket) {
+            this.problematicPacket = problematicPacket;
+        }
+
+        public String getReSendProblematicPacket() {
+            return reSendProblematicPacket;
+        }
+
+        public void setReSendProblematicPacket(String reSendProblematicPacket) {
+            this.reSendProblematicPacket = reSendProblematicPacket;
+        }
+
+        public String getReturnToSenderProblematicPacket() {
+            return returnToSenderProblematicPacket;
+        }
+
+        public void setReturnToSenderProblematicPacket(String returnToSenderProblematicPacket) {
+            this.returnToSenderProblematicPacket = returnToSenderProblematicPacket;
         }
     }
 }

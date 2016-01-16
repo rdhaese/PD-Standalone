@@ -11,4 +11,10 @@ import java.util.Collection;
  */
 public interface ProblematicPacketsService {
     Collection<PacketDTO> getProblematicPackets();
+
+    PacketDTO getProblematicPacket(String packetId);
+
+    void reSend(String currentPacket);
+
+    void returnToSender(String currentPacket);
 }

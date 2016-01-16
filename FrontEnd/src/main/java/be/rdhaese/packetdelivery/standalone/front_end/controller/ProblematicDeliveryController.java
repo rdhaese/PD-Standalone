@@ -6,4 +6,8 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller;
  * @author Robin D'Haese
  */
 public interface ProblematicDeliveryController extends CancelableController{
+
+    void editAddress();
+    void reSend();
+    void returnToSender();
 }

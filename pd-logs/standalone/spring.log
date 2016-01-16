@@ -398,3 +398,11 @@
 16/01/2016-13:11:17.494 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
 16/01/2016-13:12:00.222 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Sat Jan 16 13:12:00 CET 2016]; root of context hierarchy
 16/01/2016-13:12:04.231 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+16/01/2016-18:23:54.165 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Sat Jan 16 18:23:54 CET 2016]; root of context hierarchy
+16/01/2016-18:23:58.179 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+16/01/2016-18:26:41.221 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Sat Jan 16 18:26:41 CET 2016]; root of context hierarchy
+16/01/2016-18:26:45.988 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+16/01/2016-18:29:06.656 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Sat Jan 16 18:29:06 CET 2016]; root of context hierarchy
+16/01/2016-18:29:10.747 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+16/01/2016-19:05:31.297 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Sat Jan 16 19:05:31 CET 2016]; root of context hierarchy
+16/01/2016-19:05:34.916 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
