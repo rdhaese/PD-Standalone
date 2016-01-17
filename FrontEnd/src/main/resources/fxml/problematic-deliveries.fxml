@@ -55,23 +55,37 @@
                     </children>
                 </GridPane>
             </top>
-            <center>
-                <TableView fx:id="tvProblematicDeliveries" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <columns>
-                        <TableColumn fx:id="tcPacketId" editable="false" prefWidth="150.0" text="%problematicDeliveries.table.id" />
-                        <TableColumn fx:id="tcDateMarkedAsProblematic" editable="false" minWidth="0.0" prefWidth="158.0" text="%problematicDeliveries.table.dateMarkedAsProblematic" />
-                        <TableColumn fx:id="tcClient" editable="false" minWidth="0.0" prefWidth="183.0" sortable="false" text="%problematicDeliveries.table.client" />
-                        <TableColumn fx:id="tcDelivery" editable="false" minWidth="0.0" prefWidth="158.0" sortable="false" text="%problematicDeliveries.table.delivery" />
-                    </columns>
-                </TableView>
-            </center>
-            <bottom>
-                <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%problematicDeliveries.button.save" BorderPane.alignment="CENTER">
-                    <BorderPane.margin>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                      <TableView fx:id="tvProblematicPackets" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                              <TableColumn fx:id="tcPacketId" editable="false" prefWidth="150.0" text="%problematicDeliveries.table.id" />
+                              <TableColumn fx:id="tcDateMarkedAsProblematic" editable="false" minWidth="0.0" prefWidth="158.0" text="%problematicDeliveries.table.dateMarkedAsProblematic" />
+                              <TableColumn fx:id="tcClient" editable="false" minWidth="0.0" prefWidth="183.0" sortable="false" text="%problematicDeliveries.table.client" />
+                              <TableColumn fx:id="tcDelivery" editable="false" minWidth="0.0" prefWidth="158.0" sortable="false" text="%problematicDeliveries.table.delivery" />
+                          </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                      </TableView>
+               </center>
+               <top>
+                  <HBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="%problematicDeliveries.filterOnId">
+                           <graphic>
+                              <TextField fx:id="txtIdFilter" />
+                           </graphic>
+                        </Label>
+                     </children>
+                     <BorderPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </BorderPane.margin>
-                </Button>
-            </bottom>
+                     </BorderPane.margin>
+                  </HBox>
+               </top>
+            </BorderPane>
+         </center>
         </BorderPane>
     </center>
 </BorderPane>

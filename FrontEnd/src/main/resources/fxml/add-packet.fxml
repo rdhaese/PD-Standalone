@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@/css/error-styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.AddPacketController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" stylesheets="@/css/error-styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.AddPacketController">
     <top>
         <ToolBar fx:id="menuPlaceHolder" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </top>

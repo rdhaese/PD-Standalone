@@ -61,9 +61,14 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Collection<LostPacketTableItem> packetDTOs = mapToTableItems(lostPacketsService.getLostPackets());
-        FilteredList<LostPacketTableItem> lostPackets = new FilteredList<LostPacketTableItem>(FXCollections.observableArrayList(packetDTOs));
-        txtIdFilter.textProperty().addListener((observable, oldValue, newValue) ->{
+        initializeTableColumns();
+        FilteredList<LostPacketTableItem> lostPackets = insertItemsFromBackEnd();
+        bindIdFilter(lostPackets);
+        super.initialize(location, resources);
+    }
+
+    private void bindIdFilter(FilteredList<LostPacketTableItem> lostPackets) {
+        txtIdFilter.textProperty().addListener((observable, oldValue, newValue) -> {
             lostPackets.setPredicate(lostPacketTableItem -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
@@ -75,6 +80,16 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
                 return false;
             });
         });
+    }
+
+    private FilteredList<LostPacketTableItem> insertItemsFromBackEnd() {
+        Collection<LostPacketTableItem> lostPacketTableItems = mapToTableItems(lostPacketsService.getLostPackets());
+        FilteredList<LostPacketTableItem> filterableLostPacketTableItems = new FilteredList<>(FXCollections.observableArrayList(lostPacketTableItems));
+        tvLostPackets.setItems(filterableLostPacketTableItems);
+        return filterableLostPacketTableItems;
+    }
+
+    private void initializeTableColumns() {
         tcPacketId.setCellValueFactory(f -> f.getValue().packetIdProperty());
         tcDateMarkedAsLost.setCellValueFactory(f -> f.getValue().dateMarkedAsLostProperty());
         tcClient.setCellValueFactory(f -> f.getValue().clientProperty());
@@ -83,8 +98,6 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
         tcFound.setCellFactory(tc -> new CheckBoxTableCell<>());
         tcRemove.setCellValueFactory(f -> f.getValue().removeProperty());
         tcRemove.setCellFactory(tc -> new CheckBoxTableCell<>());
-        tvLostPackets.setItems(lostPackets);
-        super.initialize(location, resources);
     }
 
     private Collection<LostPacketTableItem> mapToTableItems(Collection<PacketDTO> lostPackets) {

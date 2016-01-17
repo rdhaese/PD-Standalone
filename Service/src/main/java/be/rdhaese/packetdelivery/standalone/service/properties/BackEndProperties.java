@@ -49,6 +49,12 @@ public class BackEndProperties {
         private String lostPackets;
         private String markLostPacketsAsFound;
         private String removeLostPacketsFromSystem;
+        private String problematicPackets;
+        private String problematicPacket;
+        private String reSendProblematicPacket;
+        private String returnToSenderProblematicPacket;
+        private String problematicPacketDeliveryAddress;
+        private String saveProblematicPacketDeliveryAddress;
 
         public String getLostPackets() {
             return lostPackets;
@@ -120,6 +126,54 @@ public class BackEndProperties {
 
         public void setRemoveLostPacketsFromSystem(String removeLostPacketsFromSystem) {
             this.removeLostPacketsFromSystem = removeLostPacketsFromSystem;
+        }
+
+        public String getProblematicPackets() {
+            return problematicPackets;
+        }
+
+        public void setProblematicPackets(String problematicPackets) {
+            this.problematicPackets = problematicPackets;
+        }
+
+        public String getProblematicPacket() {
+            return problematicPacket;
+        }
+
+        public void setProblematicPacket(String problematicPacket) {
+            this.problematicPacket = problematicPacket;
+        }
+
+        public String getReSendProblematicPacket() {
+            return reSendProblematicPacket;
+        }
+
+        public void setReSendProblematicPacket(String reSendProblematicPacket) {
+            this.reSendProblematicPacket = reSendProblematicPacket;
+        }
+
+        public String getReturnToSenderProblematicPacket() {
+            return returnToSenderProblematicPacket;
+        }
+
+        public void setReturnToSenderProblematicPacket(String returnToSenderProblematicPacket) {
+            this.returnToSenderProblematicPacket = returnToSenderProblematicPacket;
+        }
+
+        public String getProblematicPacketDeliveryAddress() {
+            return problematicPacketDeliveryAddress;
+        }
+
+        public void setProblematicPacketDeliveryAddress(String problematicPacketDeliveryAddress) {
+            this.problematicPacketDeliveryAddress = problematicPacketDeliveryAddress;
+        }
+
+        public String getSaveProblematicPacketDeliveryAddress() {
+            return saveProblematicPacketDeliveryAddress;
+        }
+
+        public void setSaveProblematicPacketDeliveryAddress(String saveProblematicPacketDeliveryAddress) {
+            this.saveProblematicPacketDeliveryAddress = saveProblematicPacketDeliveryAddress;
         }
     }
 }

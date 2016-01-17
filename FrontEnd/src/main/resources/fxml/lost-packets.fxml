@@ -68,7 +68,7 @@
                   <TableView fx:id="tvLostPackets" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <columns>
                       <TableColumn fx:id="tcPacketId" editable="false" prefWidth="150.0" text="%lostPackets.table.id" />
-                      <TableColumn fx:id="tcDateMarkedAsLost" editable="false" minWidth="0.0" prefWidth="158.0" text="%lostPackets.table.dateMarkedAsLost" />
+                      <TableColumn fx:id="tcDateMarkedAsLost" editable="false" minWidth="0.0" prefWidth="158.0" text="%lostPackets.table.dateMarkedAsProblematic" />
                         <TableColumn fx:id="tcClient" editable="false" minWidth="0.0" prefWidth="183.0" sortable="false" text="%lostPackets.table.client" />
                         <TableColumn fx:id="tcDelivery" editable="false" minWidth="0.0" prefWidth="158.0" sortable="false" text="%lostPackets.table.delivery" />
                         <TableColumn fx:id="tcActions" minWidth="0.0" prefWidth="101.0" sortable="false" text="%lostPackets.table.actions">
@@ -78,6 +78,9 @@
                            </columns>
                         </TableColumn>
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </center>
                <top>

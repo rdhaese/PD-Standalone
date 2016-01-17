@@ -22,6 +22,10 @@ public class UriUtil {
         return format("http://%s:%s", backEndProperties.getIp(), backEndProperties.getPort());
     }
 
+    private BackEndProperties.Uris getUris(){
+        return backEndProperties.getUris();
+    }
+
     public String getWithServerPath(String path){
         return format("%s/%s", getServerPath(), path);
     }
@@ -50,10 +54,6 @@ public class UriUtil {
         return getWithServerPath(getUris().getCompanyName());
     }
 
-    private BackEndProperties.Uris getUris(){
-        return backEndProperties.getUris();
-    }
-
     public String getLostPacketsPath() {
         return getWithServerPath(getUris().getLostPackets());
     }
@@ -64,5 +64,29 @@ public class UriUtil {
 
     public String getRemoveLostPacketsFromSystemPath() {
         return getWithServerPath(getUris().getRemoveLostPacketsFromSystem());
+    }
+
+    public String getProblematicPacketsPath() {
+        return getWithServerPath(getUris().getProblematicPackets());
+    }
+
+    public String getProblematicPacketPath() {
+        return  getWithServerPath(getUris().getProblematicPacket());
+    }
+
+    public String getReSendProblematicPacketPath() {
+        return getWithServerPath(getUris().getReSendProblematicPacket());
+    }
+
+    public String getReturnToSenderProblematicPacketPath() {
+        return getWithServerPath(getUris().getReturnToSenderProblematicPacket());
+    }
+
+    public String getProblematicPacketDeliveryAddressPath() {
+        return getWithServerPath(getUris().getProblematicPacketDeliveryAddress());
+    }
+
+    public String getSaveProblematicPacketDeliveryAddressPath() {
+        return getWithServerPath(getUris().getSaveProblematicPacketDeliveryAddress());
     }
 }
