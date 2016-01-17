@@ -68,9 +68,11 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
         tvProblematicPackets.setRowFactory(rf -> {
             TableRow<ProblematicPacketTableItem> row = new TableRow<ProblematicPacketTableItem>();
             row.setOnMouseClicked(e -> {
-                String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
-                problematicDeliveryController.setCurrentPacket(packetId);
-                showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
+                if (!tvProblematicPackets.getSelectionModel().isEmpty()) {
+                    String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
+                    problematicDeliveryController.setCurrentPacket(packetId);
+                    showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
+                }
             });
             return row;
         } );
