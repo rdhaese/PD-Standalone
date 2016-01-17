@@ -17,7 +17,8 @@ public enum FXMLS{
     MENU_BAR("menu-bar"),
     OVERVIEW("overview"),
     PROBLEMATIC_DELIVERIES("problematic-deliveries"),
-    PROBLEMATIC_DELIVERY("problematic-delivery")
+    PROBLEMATIC_DELIVERY("problematic-delivery"),
+    EDIT_PROBLEMATIC_DELIVERY_ADDRESS("edit-problematic-delivery-address")
     ;
 
     public static final String LOCATION = "/fxml/";

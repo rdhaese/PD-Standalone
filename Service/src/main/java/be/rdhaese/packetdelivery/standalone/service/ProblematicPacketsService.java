@@ -1,6 +1,8 @@
 package be.rdhaese.packetdelivery.standalone.service;
 
+import be.rdhaese.packetdelivery.dto.DeliveryAddressDTO;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
+import be.rdhaese.packetdelivery.dto.RegionDTO;
 
 import java.util.Collection;
 
@@ -14,7 +16,13 @@ public interface ProblematicPacketsService {
 
     PacketDTO getProblematicPacket(String packetId);
 
-    void reSend(String currentPacket);
+    void reSend(String packetId);
 
-    void returnToSender(String currentPacket);
+    void returnToSender(String packetId);
+
+    Collection<RegionDTO> getRegions();
+
+    DeliveryAddressDTO getDeliveryAddress(String packetId);
+
+    void saveDeliveryAddress(DeliveryAddressDTO deliveryAddressDTO);
 }

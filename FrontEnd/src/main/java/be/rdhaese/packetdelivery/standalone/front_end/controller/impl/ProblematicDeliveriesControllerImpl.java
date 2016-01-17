@@ -3,6 +3,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveriesController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveryController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.table_item.ProblematicPacketTableItem;
 import be.rdhaese.packetdelivery.standalone.service.ProblematicPacketsService;
@@ -35,6 +36,8 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     @Autowired
     private DateFormat dateFormat;
     @Autowired
+    private ProblematicDeliveryController problematicDeliveryController;
+    @Autowired
     private ProblematicPacketsService problematicPacketsService;
 
     @FXML
@@ -66,7 +69,7 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
             TableRow<ProblematicPacketTableItem> row = new TableRow<ProblematicPacketTableItem>();
             row.setOnMouseClicked(e -> {
                 String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
-                ProblematicDeliveryControllerImpl.setCurrentPacket(packetId);
+                problematicDeliveryController.setCurrentPacket(packetId);
                 showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
             });
             return row;

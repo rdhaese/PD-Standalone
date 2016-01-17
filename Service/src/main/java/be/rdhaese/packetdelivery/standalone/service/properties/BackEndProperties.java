@@ -53,6 +53,8 @@ public class BackEndProperties {
         private String problematicPacket;
         private String reSendProblematicPacket;
         private String returnToSenderProblematicPacket;
+        private String problematicPacketDeliveryAddress;
+        private String saveProblematicPacketDeliveryAddress;
 
         public String getLostPackets() {
             return lostPackets;
@@ -156,6 +158,22 @@ public class BackEndProperties {
 
         public void setReturnToSenderProblematicPacket(String returnToSenderProblematicPacket) {
             this.returnToSenderProblematicPacket = returnToSenderProblematicPacket;
+        }
+
+        public String getProblematicPacketDeliveryAddress() {
+            return problematicPacketDeliveryAddress;
+        }
+
+        public void setProblematicPacketDeliveryAddress(String problematicPacketDeliveryAddress) {
+            this.problematicPacketDeliveryAddress = problematicPacketDeliveryAddress;
+        }
+
+        public String getSaveProblematicPacketDeliveryAddress() {
+            return saveProblematicPacketDeliveryAddress;
+        }
+
+        public void setSaveProblematicPacketDeliveryAddress(String saveProblematicPacketDeliveryAddress) {
+            this.saveProblematicPacketDeliveryAddress = saveProblematicPacketDeliveryAddress;
         }
     }
 }

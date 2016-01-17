@@ -2,6 +2,8 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.EditProblematicDeliveryAddressController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveriesController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveryController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.ProblematicPacketsService;
@@ -22,10 +24,14 @@ import java.util.ResourceBundle;
 @Controller
 public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatusBarController implements ProblematicDeliveryController {
 
-    private static String currentPacket;
+    private String currentPacket;
 
     @Autowired
     private DateFormat dateFormat;
+    @Autowired
+    private ProblematicDeliveriesController problematicDeliveriesController;
+    @Autowired
+    private EditProblematicDeliveryAddressController editProblematicDeliveryAddressController;
     @Autowired
     private ProblematicPacketsService problematicPacketsService;
 
@@ -70,6 +76,11 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        update();
+        super.initialize(location, resources);
+    }
+
+    public void update(){
         if ((currentPacket == null) || ((currentPacket = currentPacket.trim()).isEmpty())){
             showOverview(lblLoggedInUsername.getScene(), getMessage("toolbar.message.noProblematicPacketToViewDetailsFrom"));
         }else {
@@ -77,7 +88,6 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
             initializeHeaderLabels(problematicPacket);
             initializeClientLabels(problematicPacket);
             initializeDeliveryLabels(problematicPacket);
-            super.initialize(location, resources);
         }
     }
 
@@ -121,17 +131,21 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
 
     @Override
     public void editAddress() {
-
+        editProblematicDeliveryAddressController.setCurrentPacket(currentPacket);
+        showInNewWindow(FXMLS.EDIT_PROBLEMATIC_DELIVERY_ADDRESS, "problematicDelivery.editAddress.title", 400, 400, false);
     }
 
     @Override
     public void reSend() {
         problematicPacketsService.reSend(currentPacket);
+        cancel();
     }
 
     @Override
     public void returnToSender() {
+        //TODO ASK FOR REGION
         problematicPacketsService.returnToSender(currentPacket);
+        cancel();
     }
 
     @Override
@@ -139,7 +153,7 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
         showScene(lblLoggedInUsername.getScene(), FXMLS.PROBLEMATIC_DELIVERIES);
     }
 
-    public static void setCurrentPacket(String currentPacket) {
-        ProblematicDeliveryControllerImpl.currentPacket = currentPacket;
+    public void setCurrentPacket(String currentPacket) {
+        this.currentPacket = currentPacket;
     }
 }
