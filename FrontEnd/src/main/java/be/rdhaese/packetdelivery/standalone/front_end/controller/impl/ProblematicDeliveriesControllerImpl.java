@@ -1,15 +1,19 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
+import be.rdhaese.packetdelivery.standalone.front_end.comparator.StringAsDateComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveriesController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveryController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.table_item.ProblematicPacketTableItem;
 import be.rdhaese.packetdelivery.standalone.service.ProblematicPacketsService;
+import com.sun.javafx.collections.SortableList;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -67,6 +71,7 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     private void showDetailsIfRowClicked() {
         tvProblematicPackets.setRowFactory(rf -> {
             TableRow<ProblematicPacketTableItem> row = new TableRow<ProblematicPacketTableItem>();
+            row.setCursor(Cursor.HAND);
             row.setOnMouseClicked(e -> {
                 if (!tvProblematicPackets.getSelectionModel().isEmpty()) {
                     String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
@@ -96,15 +101,19 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     private FilteredList<ProblematicPacketTableItem> insertItemsFromBackEnd() {
         Collection<ProblematicPacketTableItem> problematicPacketTableItems = mapToTableItems(problematicPacketsService.getProblematicPackets());
         FilteredList<ProblematicPacketTableItem> filterableProblematicPacketTableItems = new FilteredList<>(FXCollections.observableArrayList(problematicPacketTableItems));
-        tvProblematicPackets.setItems(filterableProblematicPacketTableItems);
+        SortedList<ProblematicPacketTableItem> problematicPacketTableItemSortedList = new SortedList<>(filterableProblematicPacketTableItems);
+        problematicPacketTableItemSortedList.comparatorProperty().bind(tvProblematicPackets.comparatorProperty());
+        tvProblematicPackets.setItems(problematicPacketTableItemSortedList);
         return filterableProblematicPacketTableItems;
     }
 
     private void initializeTableColumns() {
         tcPacketId.setCellValueFactory(f -> f.getValue().packetIdProperty());
         tcDateMarkedAsProblematic.setCellValueFactory(f -> f.getValue().dateMarkedAsProblematicProperty());
+        tcDateMarkedAsProblematic.setComparator(new StringAsDateComparator(dateFormat));
         tcClient.setCellValueFactory(f -> f.getValue().clientProperty());
         tcDelivery.setCellValueFactory(f -> f.getValue().deliveryProperty());
+        tvProblematicPackets.getSortOrder().add(tcDateMarkedAsProblematic);
     }
 
     private Collection<ProblematicPacketTableItem> mapToTableItems(Collection<PacketDTO> problematicPackets) {

@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -50,6 +51,7 @@ public abstract class AbstractController {
     protected void showInNewWindow(FXMLS scene, String titleMessageSourceKey, int width, int height, boolean resizable){
         Parent root = (Parent) App.LOADER.load(scene.toString());
         Stage stage = new Stage();
+        stage.getIcons().add(new Image(AbstractController.class.getResourceAsStream("/img/icon.png")));
         stage.setTitle(getMessage(titleMessageSourceKey));
         stage.setScene(new Scene(root, width, height));
         stage.setResizable(resizable);

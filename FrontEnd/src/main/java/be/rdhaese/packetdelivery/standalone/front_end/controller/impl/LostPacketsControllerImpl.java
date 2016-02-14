@@ -2,6 +2,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.App;
+import be.rdhaese.packetdelivery.standalone.front_end.comparator.StringAsDateComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.LostPacketsController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
@@ -11,6 +12,7 @@ import com.sun.javafx.collections.SortableList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -85,19 +87,23 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
     private FilteredList<LostPacketTableItem> insertItemsFromBackEnd() {
         Collection<LostPacketTableItem> lostPacketTableItems = mapToTableItems(lostPacketsService.getLostPackets());
         FilteredList<LostPacketTableItem> filterableLostPacketTableItems = new FilteredList<>(FXCollections.observableArrayList(lostPacketTableItems));
-        tvLostPackets.setItems(filterableLostPacketTableItems);
+        SortedList<LostPacketTableItem> lostPacketTableItemSortedList = new SortedList<LostPacketTableItem>(filterableLostPacketTableItems);
+        lostPacketTableItemSortedList.comparatorProperty().bind(tvLostPackets.comparatorProperty());
+        tvLostPackets.setItems(lostPacketTableItemSortedList);
         return filterableLostPacketTableItems;
     }
 
     private void initializeTableColumns() {
         tcPacketId.setCellValueFactory(f -> f.getValue().packetIdProperty());
         tcDateMarkedAsLost.setCellValueFactory(f -> f.getValue().dateMarkedAsLostProperty());
+        tcDateMarkedAsLost.setComparator(new StringAsDateComparator(dateFormat));
         tcClient.setCellValueFactory(f -> f.getValue().clientProperty());
         tcDelivery.setCellValueFactory(f -> f.getValue().deliveryProperty());
         tcFound.setCellValueFactory(f -> f.getValue().foundProperty());
         tcFound.setCellFactory(tc -> new CheckBoxTableCell<>());
         tcRemove.setCellValueFactory(f -> f.getValue().removeProperty());
         tcRemove.setCellFactory(tc -> new CheckBoxTableCell<>());
+        tvLostPackets.getSortOrder().add(tcDateMarkedAsLost);
     }
 
     private Collection<LostPacketTableItem> mapToTableItems(Collection<PacketDTO> lostPackets) {

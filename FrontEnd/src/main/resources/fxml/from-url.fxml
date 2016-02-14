@@ -19,8 +19,14 @@
    <children>
       <Label text="%fromUrl.enterUrl" />
       <TextField fx:id="txtUrl" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-      <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-      <Button fx:id="btnLoadInformation" mnemonicParsing="false" onAction="#loadInformation" text="%fromUrl.button.loadInformation" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+      <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin></Button>
+      <Button fx:id="btnLoadInformation" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadInformation" text="%fromUrl.button.loadInformation" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin></Button>
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

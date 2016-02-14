@@ -79,7 +79,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void informationFromURL() {
-        showInNewWindow(FXMLS.FROM_URL, "fromUrl.title", 450, 150 , false);
+        showInNewWindow(FXMLS.FROM_URL, "fromUrl.title", 450, 100 , false);
     }
 
     public void cancel() {

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController">
    <top>
       <ToolBar fx:id="menuPlaceHolder" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </top>
@@ -24,18 +24,18 @@
       </AnchorPane>
    </bottom>
    <center>
-      <GridPane hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+      <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="187.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="188.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="200.0" />
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="200.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="209.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="209.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="149.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="149.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="ALWAYS" />
+          <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
             <Button fx:id="btnAddPacket" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPacket" text="%overview.button.addPacket" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -43,7 +43,7 @@
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
                <GridPane.margin>
-                  <Insets top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
             <Button fx:id="btnLostPackets" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#lostPackets" text="%overview.button.lostPackets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -51,22 +51,28 @@
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
                <GridPane.margin>
-                  <Insets top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnEditContactInformation" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editContactInformation" prefWidth="300.0" text="%overview.button.editContactInformation" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+            <Button fx:id="btnEditContactInformation" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editContactInformation" text="%overview.button.editContactInformation" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
             </Button>
-            <Button fx:id="btnProblematicDeliveries" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#problematicDeliveries" prefWidth="300.0" text="%overview.button.problematicDeliveries" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+            <Button fx:id="btnProblematicDeliveries" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#problematicDeliveries" text="%overview.button.problematicDeliveries" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets left="10.0" right="10.0" />
+            <Insets />
          </BorderPane.margin>
       </GridPane>
    </center>

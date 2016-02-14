@@ -29,7 +29,7 @@ public class MenuControllerImpl extends AbstractController implements MenuContro
     private AuthenticationService authenticationService;
 
     public void about(){
-        showInNewWindow(FXMLS.ABOUT, "about.title", 220, 270, false);
+        showInNewWindow(FXMLS.ABOUT, "about.title", 240, 290, false);
     }
 
     public void logout(){

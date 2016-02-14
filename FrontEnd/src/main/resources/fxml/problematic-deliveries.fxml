@@ -60,7 +60,7 @@
                <center>
                       <TableView fx:id="tvProblematicPackets" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <columns>
-                              <TableColumn fx:id="tcPacketId" editable="false" prefWidth="150.0" text="%problematicDeliveries.table.id" />
+                              <TableColumn fx:id="tcPacketId" prefWidth="150.0" text="%problematicDeliveries.table.id" />
                               <TableColumn fx:id="tcDateMarkedAsProblematic" editable="false" minWidth="0.0" prefWidth="158.0" text="%problematicDeliveries.table.dateMarkedAsProblematic" />
                               <TableColumn fx:id="tcClient" editable="false" minWidth="0.0" prefWidth="183.0" sortable="false" text="%problematicDeliveries.table.client" />
                               <TableColumn fx:id="tcDelivery" editable="false" minWidth="0.0" prefWidth="158.0" sortable="false" text="%problematicDeliveries.table.delivery" />
