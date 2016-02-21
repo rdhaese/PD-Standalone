@@ -14,18 +14,25 @@ import java.util.ResourceBundle;
 
 public class SpringFxmlLoader{
 
-    public static final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(App.class);
+    private static ApplicationContext applicationContext;
 
     public Object load(String fxmlFileName) {
         try (InputStream fxmlStream = SpringFxmlLoader.class
                 .getResource(String.format("%s%s%s", FXMLS.LOCATION, fxmlFileName, FXMLS.EXTENSION)).openStream()){
             //TODO log entry
             FXMLLoader loader = new FXMLLoader();
-            loader.setControllerFactory(applicationContext::getBean);
-            loader.setResources(applicationContext.getBean(ResourceBundle.class));
+            loader.setControllerFactory(getApplicationContext()::getBean);
+            loader.setResources(getApplicationContext().getBean(ResourceBundle.class));
             return loader.load(fxmlStream);
         } catch (IOException ioException) {
             throw new RuntimeException(ioException);
         }
+    }
+
+    public static ApplicationContext getApplicationContext(){
+        if (applicationContext == null){
+            applicationContext =  new AnnotationConfigApplicationContext(App.class);
+        }
+        return applicationContext;
     }
 }

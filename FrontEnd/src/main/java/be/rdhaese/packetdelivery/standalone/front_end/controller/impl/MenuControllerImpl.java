@@ -33,11 +33,13 @@ public class MenuControllerImpl extends AbstractController implements MenuContro
     }
 
     public void logout(){
+        //TODO ask if user is sure
         authenticationService.logout();
         showScene(menuBar.getScene(), FXMLS.LOGIN_FORM);
     }
 
     public void exit(){
+        //TODO ask if user is sure
         authenticationService.logout();
         Platform.exit();
     }

@@ -83,6 +83,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void cancel() {
+        //TODO ask if user is sure
         showOverview(txtClientName.getScene(), null);
     }
 

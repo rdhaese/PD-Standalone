@@ -143,6 +143,7 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
 
     @Override
     public void cancel() {
+        //TODO ask if user is sure
         showOverview(lblLoggedInUsername.getScene(), null);
     }
 

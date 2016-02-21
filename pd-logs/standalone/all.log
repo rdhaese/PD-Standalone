@@ -811,3 +811,118 @@
 14/02/2016-13:47:57.935 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2812cbfa: startup date [Sun Feb 14 13:47:57 CET 2016]; root of context hierarchy
 14/02/2016-13:48:01.375 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
 14/02/2016-13:48:04.917 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-14:08:45.011 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3b2ea229: startup date [Sun Feb 14 14:08:45 CET 2016]; root of context hierarchy
+14/02/2016-14:08:47.844 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:09:06.861 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4531d3f2: startup date [Sun Feb 14 14:09:06 CET 2016]; root of context hierarchy
+14/02/2016-14:09:09.624 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:09:36.815 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4531d3f2: startup date [Sun Feb 14 14:09:36 CET 2016]; root of context hierarchy
+14/02/2016-14:09:39.789 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:16:45.978 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@22d77c0e: startup date [Sun Feb 14 14:16:45 CET 2016]; root of context hierarchy
+14/02/2016-14:16:49.705 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:17:00.685 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@284e50a3: startup date [Sun Feb 14 14:17:00 CET 2016]; root of context hierarchy
+14/02/2016-14:17:03.732 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:17:58.982 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@21512c97: startup date [Sun Feb 14 14:17:58 CET 2016]; root of context hierarchy
+14/02/2016-14:18:02.476 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:18:23.095 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@57797a16: startup date [Sun Feb 14 14:18:23 CET 2016]; root of context hierarchy
+14/02/2016-14:18:26.141 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:19:39.726 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@22d77c0e: startup date [Sun Feb 14 14:19:39 CET 2016]; root of context hierarchy
+14/02/2016-14:19:42.492 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:21:54.169 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5faf0af3: startup date [Sun Feb 14 14:21:54 CET 2016]; root of context hierarchy
+14/02/2016-14:21:56.937 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:22:05.564 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6729f27: startup date [Sun Feb 14 14:22:05 CET 2016]; root of context hierarchy
+14/02/2016-14:22:08.402 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:23:13.977 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5f7cb8c0: startup date [Sun Feb 14 14:23:13 CET 2016]; root of context hierarchy
+14/02/2016-14:23:17.219 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:33:37.224 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5f7cb8c0: startup date [Sun Feb 14 14:33:37 CET 2016]; root of context hierarchy
+14/02/2016-14:33:40.957 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:42:22.048 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@51b730d1: startup date [Sun Feb 14 14:42:22 CET 2016]; root of context hierarchy
+14/02/2016-14:42:25.152 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:43:11.785 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@786f4225: startup date [Sun Feb 14 14:43:11 CET 2016]; root of context hierarchy
+14/02/2016-14:43:15.230 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:50:18.521 [JavaFX Application Thread] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5d8b79ca: startup date [Sun Feb 14 14:50:18 CET 2016]; root of context hierarchy
+14/02/2016-14:50:21.427 [JavaFX Application Thread] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:55:52.074 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@29671c1d: startup date [Sun Feb 14 14:55:52 CET 2016]; root of context hierarchy
+14/02/2016-14:55:55.478 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:56:44.176 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5a3cc123: startup date [Sun Feb 14 14:56:44 CET 2016]; root of context hierarchy
+14/02/2016-14:56:47.333 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-14:57:11.769 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3956222d: startup date [Sun Feb 14 14:57:11 CET 2016]; root of context hierarchy
+14/02/2016-14:57:15.085 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:00:33.778 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@15292d42: startup date [Sun Feb 14 15:00:33 CET 2016]; root of context hierarchy
+14/02/2016-15:00:36.976 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:01:00.427 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5a3cc123: startup date [Sun Feb 14 15:01:00 CET 2016]; root of context hierarchy
+14/02/2016-15:01:03.620 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:01:14.305 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@15292d42: startup date [Sun Feb 14 15:01:14 CET 2016]; root of context hierarchy
+14/02/2016-15:01:17.113 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:03:17.176 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2c458492: startup date [Sun Feb 14 15:03:17 CET 2016]; root of context hierarchy
+14/02/2016-15:03:20.426 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:07:50.084 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2a2794b7: startup date [Sun Feb 14 15:07:50 CET 2016]; root of context hierarchy
+14/02/2016-15:07:53.526 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:09:58.602 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@11bf8d1c: startup date [Sun Feb 14 15:09:58 CET 2016]; root of context hierarchy
+14/02/2016-15:10:01.781 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:11:11.726 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@70db06af: startup date [Sun Feb 14 15:11:11 CET 2016]; root of context hierarchy
+14/02/2016-15:11:14.679 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:13:46.326 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3ee63db4: startup date [Sun Feb 14 15:13:46 CET 2016]; root of context hierarchy
+14/02/2016-15:13:49.952 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:14:03.251 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@37404749: startup date [Sun Feb 14 15:14:03 CET 2016]; root of context hierarchy
+14/02/2016-15:14:06.300 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:14:19.913 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@37404749: startup date [Sun Feb 14 15:14:19 CET 2016]; root of context hierarchy
+14/02/2016-15:14:23.198 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:15:07.743 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@37404749: startup date [Sun Feb 14 15:15:07 CET 2016]; root of context hierarchy
+14/02/2016-15:15:10.794 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:15:33.527 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3616c931: startup date [Sun Feb 14 15:15:33 CET 2016]; root of context hierarchy
+14/02/2016-15:15:36.682 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:16:42.461 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4be9b7d5: startup date [Sun Feb 14 15:16:42 CET 2016]; root of context hierarchy
+14/02/2016-15:16:45.694 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:16:49.702 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-15:24:08.393 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3616c931: startup date [Sun Feb 14 15:24:08 CET 2016]; root of context hierarchy
+14/02/2016-15:24:11.606 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:24:14.276 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-15:24:18.034 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-15:24:42.819 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3616c931: startup date [Sun Feb 14 15:24:42 CET 2016]; root of context hierarchy
+14/02/2016-15:24:45.899 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:24:48.245 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-15:31:19.133 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3616c931: startup date [Sun Feb 14 15:31:19 CET 2016]; root of context hierarchy
+14/02/2016-15:31:21.917 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-15:31:23.975 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:11:07.588 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3616c931: startup date [Sun Feb 14 16:11:07 CET 2016]; root of context hierarchy
+14/02/2016-16:11:10.858 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:11:17.700 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:14:42.652 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@572d5b2: startup date [Sun Feb 14 16:14:42 CET 2016]; root of context hierarchy
+14/02/2016-16:14:45.805 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:14:48.994 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:19:12.288 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@37404749: startup date [Sun Feb 14 16:19:12 CET 2016]; root of context hierarchy
+14/02/2016-16:19:15.293 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:19:17.946 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:19:37.060 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3616c931: startup date [Sun Feb 14 16:19:37 CET 2016]; root of context hierarchy
+14/02/2016-16:19:40.286 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:19:42.977 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:26:54.865 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3ee63db4: startup date [Sun Feb 14 16:26:54 CET 2016]; root of context hierarchy
+14/02/2016-16:26:56.984 [JavaFX-Launcher] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'addPacketControllerImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractController.overviewController; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'overviewControllerImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractController.overviewController; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+14/02/2016-16:30:53.074 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3616c931: startup date [Sun Feb 14 16:30:53 CET 2016]; root of context hierarchy
+14/02/2016-16:30:56.171 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:31:00.400 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:32:04.035 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f8d2524: startup date [Sun Feb 14 16:32:04 CET 2016]; root of context hierarchy
+14/02/2016-16:32:07.059 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:32:08.682 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:32:35.726 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4be9b7d5: startup date [Sun Feb 14 16:32:35 CET 2016]; root of context hierarchy
+14/02/2016-16:32:38.893 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:32:41.454 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:34:11.871 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3ee63db4: startup date [Sun Feb 14 16:34:11 CET 2016]; root of context hierarchy
+14/02/2016-16:34:15.025 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/02/2016-16:34:17.387 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+14/02/2016-16:52:00.036 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3ee63db4: startup date [Sun Feb 14 16:52:00 CET 2016]; root of context hierarchy
+14/02/2016-16:52:03.042 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/02/2016-18:56:22.465 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f8d2524: startup date [Mon Feb 15 18:56:22 CET 2016]; root of context hierarchy
+15/02/2016-18:56:25.377 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+21/02/2016-15:52:57.880 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@237e1ae7: startup date [Sun Feb 21 15:52:57 CET 2016]; root of context hierarchy
+21/02/2016-15:53:01.015 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+21/02/2016-15:54:53.142 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4be9b7d5: startup date [Sun Feb 21 15:54:53 CET 2016]; root of context hierarchy
+21/02/2016-15:54:55.793 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+21/02/2016-15:54:59.118 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+21/02/2016-19:39:44.546 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f8d2524: startup date [Sun Feb 21 19:39:44 CET 2016]; root of context hierarchy
+21/02/2016-19:39:47.979 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+21/02/2016-19:39:50.998 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+21/02/2016-19:54:33.568 [JavaFX-Launcher] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f8d2524: startup date [Sun Feb 21 19:54:33 CET 2016]; root of context hierarchy
+21/02/2016-19:54:36.624 [JavaFX-Launcher] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+21/02/2016-19:55:03.159 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: a
+21/02/2016-19:55:37.698 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-21022016-00000

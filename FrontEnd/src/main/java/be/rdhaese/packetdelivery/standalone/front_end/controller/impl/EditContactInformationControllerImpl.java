@@ -158,7 +158,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
 
     private void addFaxNumbersBeforeSave(ContactDetailsDTO contactDetailsDTO) {
         lvFaxNumbers.getItems().forEach(x -> {
-            contactDetailsDTO.addFaxNumber(x.getFaxNumberTitle(), x.getFaxNumberTitle());
+            contactDetailsDTO.addFaxNumber(x.getFaxNumberTitle(), x.getFaxNumber());
         });
     }
 
@@ -240,7 +240,8 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     public void cancel() {
-       showOverview(txtCompanyName.getScene(), null);
+        //TODO ask if user is sure
+        showOverview(txtCompanyName.getScene(), null);
     }
 
     public void onPhoneNumberTitleTextfieldChanged() {
