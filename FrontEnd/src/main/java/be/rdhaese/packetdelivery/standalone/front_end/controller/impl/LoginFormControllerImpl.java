@@ -54,6 +54,8 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
                 lblErrorMessage.setVisible(false);
                 showOverview(lblErrorMessage.getScene(), null);
             } else {
+                markForError(txtUsername);
+                markForError(txtPassword);
                 showUnableToAuthenticateNotification();
             }
         } else {
@@ -70,14 +72,4 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
     private boolean noEmptyFields() {
         return !isEmpty(txtUsername) & !isEmpty(txtPassword);
     }
-
-    private boolean isEmpty(TextField control) {
-        if (super.isEmpty(control)) {
-            markForError(control);
-            return true;
-        }
-        removeErrorStyleIfNeeded(control);
-        return false;
-    }
-
 }

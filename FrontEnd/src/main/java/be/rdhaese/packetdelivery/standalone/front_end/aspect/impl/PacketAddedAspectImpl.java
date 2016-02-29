@@ -44,6 +44,7 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
             BufferedImage image = createQRCodeImage(packetId);
             File qrCode = saveImage(packetId, image);
             askForPrint(packetId, qrCode);
+            //TODO in an options menu: option to set this off
             Desktop.getDesktop().open(qrCode); //TODO test generated QR code, scan with smartphone and check content
         } catch (IOException ioe) {
             //TODO log error
@@ -52,6 +53,7 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     }
 
     private void askForPrint(String packetID, File qrCode) throws IOException {
+        //TODO in an options menu: configure that this always happens automatically or never asks
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(messageSource.getMessage("askForPrint.title", null, LocaleContextHolder.getLocale()));
         alert.setHeaderText(messageSource.getMessage("askForPrint.header", new Object[]{packetID}, LocaleContextHolder.getLocale()));
