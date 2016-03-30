@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<MenuBar fx:id="menuBar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="be.rdhaese.packetdelivery.standalone.front_end.interfaces.MenuController">
+    <menus>
+        <Menu mnemonicParsing="false" text="%menu.file">
+            <items>
+                <MenuItem fx:id="mntmOptions" mnemonicParsing="false" onAction="#options" text="%menu.options" />
+                <MenuItem fx:id="mntmLogout" mnemonicParsing="false" onAction="#logout" text="%menu.logout" />
+                <MenuItem fx:id="mntmAbout" mnemonicParsing="false" onAction="#about" text="%menu.about" />
+                <MenuItem fx:id="mntmExit" mnemonicParsing="false" onAction="#exit" text="%menu.exit" />
+            </items>
+        </Menu>
+    </menus>
+</MenuBar>

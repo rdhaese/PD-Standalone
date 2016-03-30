@@ -1,88 +1,110 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-  <!--Spring Boot: convention over configuration-->
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.3.0.RELEASE</version>
-  </parent>
+	<!--Spring Boot: convention over configuration-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.0.RELEASE</version>
+	</parent>
 
-  <groupId>be.rdhaese.packetdelivery.standalone</groupId>
-  <artifactId>standalone</artifactId>
-  <version>${pd.version}</version>
+	<groupId>be.rdhaese.packetdelivery</groupId>
+	<artifactId>standalone</artifactId>
+	<version>1.0-SNAPSHOT</version>
 
-  <modules>
-    <module>FrontEnd</module>
-    <module>Service</module>
-  </modules>
+	<modules>
+		<module>application</module>
+		<module>front-end</module>
+		<module>service</module>
+	</modules>
 
-  <packaging>pom</packaging>
+	<packaging>pom</packaging>
 
-  <name>standalone</name>
+	<name>standalone</name>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.8</java.version>
-    <junit.version>3.8.1</junit.version>
-    <spring-web.version>4.2.4.RELEASE</spring-web.version>
-    <jackson-databind.version>2.6.0</jackson-databind.version>
-    <qrgen.version>2.1.0</qrgen.version>
-    <pd.version>1.0-SNAPSHOT</pd.version>
-    <pd.dto.version>${pd.version}</pd.dto.version>
-    <nexus-repo.id>packet_delivery</nexus-repo.id>
-    <nexus-repo.url>http://localhost:8081/nexus/content/repositories/packet_delivery</nexus-repo.url>
-    <jitpack-repo.id>jitpack.io</jitpack-repo.id>
-    <jitpack-repo.url>https://jitpack.io</jitpack-repo.url>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<junit.version>3.8.1</junit.version>
+		<spring-web.version>4.2.4.RELEASE</spring-web.version>
+		<jackson-databind.version>2.6.0</jackson-databind.version>
+		<qrgen.version>2.1.0</qrgen.version>
+		<pd.dto.version>1.0-SNAPSHOT</pd.dto.version>
+		<pd.back-end.web-service.interfaces.version>1.0-SNAPSHOT</pd.back-end.web-service.interfaces.version>
+		<nexus-repo.id>packet_delivery</nexus-repo.id>
+		<nexus-repo.url>http://localhost:8081/nexus/content/repositories/packet_delivery</nexus-repo.url>
+		<jitpack-repo.id>jitpack.io</jitpack-repo.id>
+		<jitpack-repo.url>https://jitpack.io</jitpack-repo.url>
+	</properties>
 
-  <!--Don't forget to add server in settings.xml used by local maven instance-->
-  <distributionManagement>
-    <snapshotRepository>
-      <id>${nexus-repo.id}</id>
-      <url>${nexus-repo.url}</url>
-    </snapshotRepository>
-  </distributionManagement>
+	<!--Don't forget to add server in settings.xml used by local maven instance-->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>${nexus-repo.id}</id>
+			<url>${nexus-repo.url}</url>
+		</snapshotRepository>
+	</distributionManagement>
 
-  <repositories>
-    <repository>
-      <id>${nexus-repo.id}</id>
-      <url>${nexus-repo.url}</url>
-    </repository>
-  </repositories>
+	<repositories>
+		<repository>
+			<id>${nexus-repo.id}</id>
+			<url>${nexus-repo.url}</url>
+		</repository>
 
-  <dependencies>
-    <dependency>
-      <groupId>be.rdhaese.packetdelivery</groupId>
-      <artifactId>dto</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-    </dependency>
+		<!--Get dependencies from github
+		QrGen library is not on maven repository, hosted on github-->
+		<repository>
+			<id>${jitpack-repo.id}</id>
+			<url>${jitpack-repo.url}</url>
+		</repository>
+	</repositories>
 
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-aop</artifactId>
-    </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
 
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>${spring-web.version}</version>
-    </dependency>
-  </dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>be.rdhaese.packetdelivery</groupId>
+				<artifactId>dto</artifactId>
+				<version>${pd.dto.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>be.rdhaese.packetdelivery.back-end.web-service</groupId>
+				<artifactId>interfaces</artifactId>
+				<version>${pd.back-end.web-service.interfaces.version}</version>
+			</dependency>
+
+			<!--Easy to use QRcode library
+       		 See https://github.com/kenglxn/QRGen -->
+			<dependency>
+				<groupId>com.github.kenglxn.qrgen</groupId>
+				<artifactId>javase</artifactId>
+				<version>${qrgen.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

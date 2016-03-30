@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.interfaces.LoginFormController" stylesheets="@/css/error-styles.css" >
+   <center>
+      <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="442.0" style="-fx-border-color: grey; -fx-border-width: 2; -fx-border-insets: 5; -fx-padding: 5; -fx-border-radius: 15;" vgap="5.0" BorderPane.alignment="TOP_CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="ALWAYS" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="lblCompanyName" contentDisplay="CENTER" text="CompanyName" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="%login.login" GridPane.columnSpan="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label text="%login.username" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="%login.password" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="txtUsername" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <PasswordField fx:id="txtPassword" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Button fx:id="btnAuthenticate" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="321.0" text="%login.button" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+            <Label fx:id="lblErrorMessage" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="395.0" textAlignment="CENTER" textFill="RED" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <left>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" style="border-w: 2;" BorderPane.alignment="CENTER" />
+   </right>
+   <top>
+      <VBox maxHeight="1.0" maxWidth="1.0" minHeight="1.0" minWidth="1.0" prefHeight="1.0" prefWidth="1.0" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <ImageView fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@/img/icon.png" />
+         </image>
+      </ImageView>
+   </bottom>
+</BorderPane>
