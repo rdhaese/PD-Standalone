@@ -1,26 +1,19 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
-import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.comparator.StringAsDateComparator;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.LostPacketsController;
-import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.table_item.LostPacketTableItem;
 import be.rdhaese.packetdelivery.standalone.service.LostPacketsService;
-import com.sun.javafx.collections.SortableList;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

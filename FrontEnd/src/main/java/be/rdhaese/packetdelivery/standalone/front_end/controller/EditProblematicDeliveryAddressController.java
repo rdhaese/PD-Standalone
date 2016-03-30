@@ -5,7 +5,6 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller;
  *
  * @author Robin D'Haese
  */
-public interface EditProblematicDeliveryAddressController extends CancelableController {
+public interface EditProblematicDeliveryAddressController extends SaveableController, CancelableController {
     void setCurrentPacket(String packetId);
-    void save();
 }

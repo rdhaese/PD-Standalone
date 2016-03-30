@@ -1,25 +1,10 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 
-import be.rdhaese.packetdelivery.standalone.front_end.App;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractInitializableController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractInitializeableController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.LoginFormController;
-import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
-import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
-import be.rdhaese.packetdelivery.standalone.service.ContactInformationService;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Control;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
+import javafx.scene.control.*;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
@@ -31,7 +16,7 @@ import java.util.ResourceBundle;
  * @author Robin D'Haese
  */
 @Controller
-public class LoginFormControllerImpl extends AbstractInitializableController implements LoginFormController {
+public class LoginFormControllerImpl extends AbstractInitializeableController implements LoginFormController {
 
     @FXML
     Label lblCompanyName;
@@ -49,27 +34,47 @@ public class LoginFormControllerImpl extends AbstractInitializableController imp
     }
 
     public void authenticate() {
+        clearErrors();
         if (noEmptyFields()) {
-            if (authenticationService.authenticate(txtUsername.getText(), txtUsername.getText())) {
-                lblErrorMessage.setVisible(false);
-                showOverview(lblErrorMessage.getScene(), null);
-            } else {
-                markForError(txtUsername);
-                markForError(txtPassword);
-                showUnableToAuthenticateNotification();
+            switch (authenticationService.authenticate(txtUsername.getText(), txtPassword.getText())){
+                case "GRANTED":
+                    showOverview(lblErrorMessage.getScene(), null);
+                    break;
+                case "PASSWORD":
+                    markForError(txtPassword, "login.tooltip.password");
+                    showErrorMessage("login.wrongPassword");
+                    break;
+                case "USERNAME":
+                    markForError(txtUsername);
+                    showErrorMessage("login.unknownUsername");
+                    break;
             }
         } else {
-            lblErrorMessage.setText(getMessage("login.emptyFields"));
-            lblErrorMessage.setVisible(true);
+            showErrorMessage("login.emptyFields");
         }
     }
 
-    private void showUnableToAuthenticateNotification() {
-        lblErrorMessage.setText(getMessage("login.unableToAuthenticate"));
+    private void clearErrors() {
+        lblErrorMessage.setVisible(false);
+        removeErrorStyleIfNeeded(txtUsername);
+        removeErrorStyleIfNeeded(txtPassword);
+    }
+
+    private void showErrorMessage(String messageKey){
+        lblErrorMessage.setText(getMessage(messageKey));
         lblErrorMessage.setVisible(true);
     }
 
     private boolean noEmptyFields() {
         return !isEmpty(txtUsername) & !isEmpty(txtPassword);
+    }
+
+    @Override
+    protected boolean isEmpty(TextInputControl control){
+        if (super.isEmpty(control)){
+            markForError(control);
+            return true;
+        }
+        return false;
     }
 }

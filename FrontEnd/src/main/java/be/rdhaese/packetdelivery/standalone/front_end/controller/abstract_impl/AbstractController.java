@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.front_end.controller;
+package be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl;
 
 import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.impl.OverviewControllerImpl;
@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -74,6 +75,11 @@ public abstract class AbstractController {
         if (!styleClass.contains(TEXTFIELD_ERROR_STYLE_CLASS)) {
             styleClass.add(TEXTFIELD_ERROR_STYLE_CLASS);
         }
+    }
+
+    protected void markForError(Control control, String errorMessageKey){
+        markForError(control);
+        control.setTooltip(new Tooltip(getMessage(errorMessageKey)));
     }
 
     protected void removeErrorStyleIfNeeded(Control control) {

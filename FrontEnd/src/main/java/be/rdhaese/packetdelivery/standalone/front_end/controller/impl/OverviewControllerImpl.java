@@ -1,12 +1,11 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;

@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.front_end.controller;
+package be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl;
 
 import be.rdhaese.packetdelivery.standalone.front_end.App;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  *
  * @author Robin D'Haese
  */
-public abstract class AbstractWithMenuAndStatusBarController extends AbstractInitializableController {
+public abstract class AbstractWithMenuAndStatusBarController extends AbstractInitializeableController {
 
     @FXML
     protected Label lblLoggedInUsername;

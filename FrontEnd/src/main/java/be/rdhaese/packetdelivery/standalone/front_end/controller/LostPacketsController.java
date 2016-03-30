@@ -5,7 +5,5 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller;
  *
  * @author Robin D'Haese
  */
-public interface LostPacketsController extends CancelableController {
-
-    void save();
+public interface LostPacketsController extends SaveableController, CancelableController {
 }

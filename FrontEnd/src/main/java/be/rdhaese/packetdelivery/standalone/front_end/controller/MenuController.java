@@ -9,4 +9,5 @@ public interface MenuController {
     void about();
     void logout();
     void exit();
+    void options();
 }

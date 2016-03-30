@@ -306,3 +306,16 @@
 27/02/2016-19:54:54.946 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: A
 27/02/2016-19:56:41.869 [JavaFX Application Thread] INFO  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Logged in as: A
 29/02/2016-17:54:01.602 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:13:09.272 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:13:10.926 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:13:11.145 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:13:11.356 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:13:11.531 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:13:11.706 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:14:53.499 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+29/02/2016-18:21:35.599 [JavaFX Application Thread] WARN  b.r.p.s.s.l.i.AuthenticationLoggerImpl - Failed login attempt with username: noob
+02/03/2016-17:58:02.584 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-02032016-00000
+02/03/2016-18:00:07.974 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: Bol.com; With id: BO-D'-02032016-00001
+02/03/2016-18:10:29.663 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: c; With id: C_-CC-02032016-00002
+02/03/2016-18:10:39.877 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: g; With id: G_-G-02032016-00003
+27/03/2016-20:12:48.418 [JavaFX Application Thread] INFO  b.r.p.s.s.l.impl.AddPacketLoggerImpl - Packet added by: a; For client: a; With id: A_-A-27032016-00000

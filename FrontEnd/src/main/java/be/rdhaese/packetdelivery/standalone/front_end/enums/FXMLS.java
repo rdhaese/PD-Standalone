@@ -1,13 +1,12 @@
 package be.rdhaese.packetdelivery.standalone.front_end.enums;
 
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractController;
-
 /**
  * Created on 13/01/2016.
  *
  * @author Robin D'Haese
  */
 public enum FXMLS{
+    OPTIONS("options"),
     ABOUT("about"),
     ADD_PACKET("add-packet"),
             EDIT_CONTACT_INFORMATION("edit-contact-information"),

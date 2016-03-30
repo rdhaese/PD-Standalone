@@ -2,7 +2,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.DeliveryAddressDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractInitializableController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractInitializeableController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.EditProblematicDeliveryAddressController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveryController;
 import be.rdhaese.packetdelivery.standalone.service.ProblematicPacketsService;
@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
  * @author Robin D'Haese
  */
 @Controller
-public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitializableController implements EditProblematicDeliveryAddressController {
+public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitializeableController implements EditProblematicDeliveryAddressController {
 
     private String currentPacket;
 

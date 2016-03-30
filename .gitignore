@@ -1,3 +1,5 @@
 .idea/
+.settings/
+pd-logs/
 *.iml
 target/

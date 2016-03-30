@@ -27,8 +27,6 @@ public class AddPacketServiceImpl extends AbstractService implements AddPacketSe
     }
 
     public String addPacket(PacketDTO packetDTO){
-        packetDTO.setPacketStatus("NORMAL");
-        packetDTO.setStatusChangedOn(new Date());
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.postForObject(getUris().getAddPacketPath(), packetDTO, String.class);
     }

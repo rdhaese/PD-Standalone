@@ -1,15 +1,11 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractController;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.FromUrlController;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Controller;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Created on 24/12/2015.

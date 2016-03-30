@@ -2,23 +2,20 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
-import be.rdhaese.packetdelivery.standalone.front_end.App;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.AddPacketController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.AddPacketService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.Collection;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -92,6 +89,8 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
         //TODO Multiple phones and emails? -> split on comma?
         PacketDTO packetDTO = new PacketDTO();
         if (allInputIsValid(packetDTO)) {
+            packetDTO.setPacketStatus("NORMAL");
+            packetDTO.setStatusChangedOn(new Date());
             addPacketService.addPacket(packetDTO);
             showOverview(txtClientName.getScene(), getMessage("toolbar.message.packetAddedSuccessful"));
         }

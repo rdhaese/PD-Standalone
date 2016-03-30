@@ -14,13 +14,13 @@ import org.springframework.web.client.RestTemplate;
 public class AuthenticationServiceImpl extends AbstractService implements AuthenticationService {
     private String loggedInUser = null;
 
-    public boolean authenticate(String username, String password) {
+    public String authenticate(String username, String password) {
         RestTemplate restTemplate = new RestTemplate();
-        boolean isAuthenticated;
-        if (isAuthenticated = restTemplate.getForObject(getUris().getAuthenticatePath(), boolean.class, username, password)) {
+        String authenticationResponse = restTemplate.getForObject(getUris().getAuthenticatePath(), String.class, username, password);
+        if ("GRANTED".equals(authenticationResponse)) {
             loggedInUser = username;
         }
-        return isAuthenticated;
+        return authenticationResponse;
     }
 
     public void logout() {

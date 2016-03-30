@@ -5,9 +5,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.controller;
  *
  * @author Robin D'Haese
  */
-public interface EditContactInformationController extends CancelableController {
-
-    void save();
+public interface EditContactInformationController extends SaveableController, CancelableController {
 
     void onPhoneNumberTitleTextfieldChanged();
 

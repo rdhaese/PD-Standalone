@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * @author Robin D'Haese
  */
 public interface AuthenticationService {
-    boolean authenticate(String username, String password);
+    String authenticate(String username, String password);
 
     void logout();
 

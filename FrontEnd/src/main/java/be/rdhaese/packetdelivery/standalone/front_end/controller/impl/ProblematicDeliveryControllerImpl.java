@@ -1,7 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractWithMenuAndStatusBarController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.EditProblematicDeliveryAddressController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveriesController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveryController;

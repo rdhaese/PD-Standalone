@@ -1,16 +1,12 @@
 package be.rdhaese.packetdelivery.standalone.front_end.controller.impl;
 
-import be.rdhaese.packetdelivery.standalone.front_end.App;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AbstractController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractController;
 import be.rdhaese.packetdelivery.standalone.front_end.controller.MenuController;
 import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -27,6 +23,10 @@ public class MenuControllerImpl extends AbstractController implements MenuContro
 
     @Autowired
     private AuthenticationService authenticationService;
+
+    public void options(){
+        showInNewWindow(FXMLS.OPTIONS, "options.title", 550,310, false);
+    }
 
     public void about(){
         showInNewWindow(FXMLS.ABOUT, "about.title", 240, 290, false);
