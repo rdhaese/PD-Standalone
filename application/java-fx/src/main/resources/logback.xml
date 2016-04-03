@@ -1,0 +1,44 @@
+<!--Logback configuration, loaded by Spring-->
+<configuration>
+    <!--Defining appenders-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{dd/MM/yyyy-HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SPRING_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./pd-logs/standalone/spring.log</file>
+        <encoder>
+            <pattern>%d{dd/MM/yyyy-HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PACKET_DELIVERY_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./pd-logs/standalone/packet-delivery.log</file>
+        <encoder>
+            <pattern>%d{dd/MM/yyyy-HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ALL_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./pd-logs/standalone/all.log</file>
+        <encoder>
+            <pattern>%d{dd/MM/yyyy-HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="ALL_FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!--Defining loggers with corresponding appender-->
+    <logger name="org.springframework" level="INFO">
+        <appender-ref ref="SPRING_FILE" />
+    </logger>
+
+    <logger name="be.rdhaese.packetdelivery.standalone" level="INFO">
+        <appender-ref ref="PACKET_DELIVERY_FILE" />
+    </logger>
+</configuration>
