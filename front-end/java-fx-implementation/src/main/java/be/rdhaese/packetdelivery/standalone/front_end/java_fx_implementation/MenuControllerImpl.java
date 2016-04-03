@@ -1,9 +1,16 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
+<<<<<<< HEAD:front-end/java-fx-implementation/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/java_fx_implementation/MenuControllerImpl.java
 
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.MenuController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.service.interfaces.AuthenticationWebServiceExtended;
+=======
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.MenuController;
+import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
+import be.rdhaese.packetdelivery.standalone.service.AuthenticationService;
+>>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b:FrontEnd/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/controller/impl/MenuControllerImpl.java
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
@@ -23,6 +30,10 @@ public class MenuControllerImpl extends AbstractController implements MenuContro
 
     @Autowired
     private AuthenticationWebServiceExtended authenticationService;
+
+    public void options(){
+        showInNewWindow(FXMLS.OPTIONS, "options.title", 550,310, false);
+    }
 
     public void options(){
         showInNewWindow(FXMLS.OPTIONS, "options.title", 550,310, false);

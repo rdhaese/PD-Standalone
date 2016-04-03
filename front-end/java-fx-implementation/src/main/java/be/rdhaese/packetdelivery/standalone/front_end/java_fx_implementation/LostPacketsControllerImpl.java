@@ -2,9 +2,17 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
 import be.rdhaese.packetdelivery.back_end.web_service.interfaces.LostPacketsWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
+<<<<<<< HEAD:front-end/java-fx-implementation/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/java_fx_implementation/LostPacketsControllerImpl.java
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.LostPacketsController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.StringAsDateComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.table_item.LostPacketTableItem;
+=======
+import be.rdhaese.packetdelivery.standalone.front_end.comparator.StringAsDateComparator;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
+import be.rdhaese.packetdelivery.standalone.front_end.controller.LostPacketsController;
+import be.rdhaese.packetdelivery.standalone.front_end.table_item.LostPacketTableItem;
+import be.rdhaese.packetdelivery.standalone.service.LostPacketsService;
+>>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b:FrontEnd/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/controller/impl/LostPacketsControllerImpl.java
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
