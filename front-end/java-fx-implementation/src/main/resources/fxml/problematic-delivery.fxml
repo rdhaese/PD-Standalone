@@ -50,7 +50,7 @@
                           </GridPane.margin>
                       </Label>
 
-                      <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                      <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                           <GridPane.margin>
                               <Insets right="10.0" top="10.0" />
                           </GridPane.margin></Button>
@@ -172,12 +172,12 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </GridPane>
-                  <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#returnToSender" text="%problematicDelivery.button.returnToSender" GridPane.rowIndex="3">
+                  <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#returnToSender" text="%problematicDelivery.button.returnToSender" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#reSend" text="%problematicDelivery.button.reSend" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#reSend" text="%problematicDelivery.button.reSend" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -242,7 +242,7 @@
                            </font>
                         </Label>
                         <Label fx:id="lblDeliveryRegion" text="deliveryRegionPlaceHolder" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="10" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editAddress" text="%problematicDelivery.button.editDeliveryAddress" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#editAddress" text="%problematicDelivery.button.editDeliveryAddress" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11">
                            <GridPane.margin>
                               <Insets bottom="5.0" top="5.0" />
                            </GridPane.margin>

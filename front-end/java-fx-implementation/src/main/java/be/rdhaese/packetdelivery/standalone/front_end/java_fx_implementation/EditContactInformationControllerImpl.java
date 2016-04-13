@@ -2,21 +2,12 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
 
 import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
-<<<<<<< HEAD:front-end/java-fx-implementation/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/java_fx_implementation/EditContactInformationControllerImpl.java
 
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditContactInformationController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.event.RemoveListItemAction;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.EmailAddressListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.FaxNumberListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.PhoneNumberListItem;
-=======
-import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.EditContactInformationController;
-import be.rdhaese.packetdelivery.standalone.front_end.event.RemoveListItemAction;
-import be.rdhaese.packetdelivery.standalone.front_end.list_item.EmailAddressListItem;
-import be.rdhaese.packetdelivery.standalone.front_end.list_item.FaxNumberListItem;
-import be.rdhaese.packetdelivery.standalone.front_end.list_item.PhoneNumberListItem;
->>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b:FrontEnd/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/controller/impl/EditContactInformationControllerImpl.java
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;

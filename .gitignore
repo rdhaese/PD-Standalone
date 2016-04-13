@@ -1,9 +1,5 @@
 .idea/
 .settings/
-<<<<<<< HEAD
-=======
-pd-logs/
->>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b
 *.iml
 target/
 pd-logs/

@@ -3,18 +3,14 @@
 <?import javafx.scene.control.*?>
 
 <MenuBar fx:id="menuBar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-<<<<<<< HEAD:front-end/java-fx-implementation/src/main/resources/fxml/menu-bar.fxml
          fx:controller="be.rdhaese.packetdelivery.standalone.front_end.interfaces.MenuController">
-=======
-         fx:controller="be.rdhaese.packetdelivery.standalone.front_end.controller.MenuController">
->>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b:FrontEnd/src/main/resources/fxml/menu-bar.fxml
     <menus>
-        <Menu mnemonicParsing="false" text="%menu.file">
+        <Menu mnemonicParsing="true" text="%menu.file">
             <items>
-                <MenuItem fx:id="mntmOptions" mnemonicParsing="false" onAction="#options" text="%menu.options" />
-                <MenuItem fx:id="mntmLogout" mnemonicParsing="false" onAction="#logout" text="%menu.logout" />
-                <MenuItem fx:id="mntmAbout" mnemonicParsing="false" onAction="#about" text="%menu.about" />
-                <MenuItem fx:id="mntmExit" mnemonicParsing="false" onAction="#exit" text="%menu.exit" />
+                <MenuItem fx:id="mntmOptions" mnemonicParsing="true" onAction="#options" text="%menu.options" />
+                <MenuItem fx:id="mntmLogout" mnemonicParsing="true" onAction="#logout" text="%menu.logout" />
+                <MenuItem fx:id="mntmAbout" mnemonicParsing="true" onAction="#about" text="%menu.about" />
+                <MenuItem fx:id="mntmExit" mnemonicParsing="true" onAction="#exit" text="%menu.exit" />
             </items>
         </Menu>
     </menus>

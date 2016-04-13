@@ -1,17 +1,15 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
-<<<<<<< HEAD:front-end/java-fx-implementation/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/java_fx_implementation/OverviewControllerImpl.java
 
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.OverviewController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
-=======
-import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.OverviewController;
-import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
->>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b:FrontEnd/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/controller/impl/OverviewControllerImpl.java
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
@@ -27,16 +25,86 @@ public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarControll
     @FXML
     private Label lblMessage;
 
+    @FXML
+    private Button btnAddPacket;
+
+    @FXML
+    private Button btnLostPackets;
+
+    @FXML
+    private Button btnEditContactInformation;
+
+    @FXML
+    private Button btnProblematicDeliveries;
+
+
     private static String message;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
         if (message != null) {
             lblMessage.setText(message);
             lblMessage.setVisible(true);
             message = null;
         }
-        super.initialize(location, resources);
+
+        //Set keyevents for enter key
+        btnAddPacket.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.ENTER.equals(event.getCode())) {
+                    btnAddPacket.fire();
+                }
+            }
+        });
+
+        btnLostPackets.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.ENTER.equals(event.getCode())) {
+                    btnLostPackets.fire();
+                }
+            }
+        });
+
+        btnEditContactInformation.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.ENTER.equals(event.getCode())) {
+                    btnEditContactInformation.fire();
+                }
+            }
+        });
+
+        btnProblematicDeliveries.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.ENTER.equals(event.getCode())) {
+                    btnProblematicDeliveries.fire();
+                }
+            }
+        });
+
+        //Set key event for characters
+        btnAddPacket.getParent().setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch (event.getCode()) {
+                    case A:
+                        btnAddPacket.fire();
+                        break;
+                    case L:
+                        btnLostPackets.fire();
+                        break;
+                    case E:
+                        btnEditContactInformation.fire();
+                        break;
+                    case P:
+                        btnProblematicDeliveries.fire();
+                }
+            }
+        });
     }
 
     public void addPacket() {

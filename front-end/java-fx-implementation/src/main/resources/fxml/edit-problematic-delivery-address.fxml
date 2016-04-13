@@ -22,8 +22,8 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
-      <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#save" text="%problematicDelivery.editAddress.button.save" GridPane.columnSpan="3" GridPane.rowIndex="7" />
+      <Button cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+      <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%problematicDelivery.editAddress.button.save" GridPane.columnSpan="3" GridPane.rowIndex="7" />
       <Label text="%problematicDelivery.editAddress.street" GridPane.rowIndex="1" />
       <Label text="%problematicDelivery.editAddress.number" GridPane.rowIndex="2" />
       <Label text="%problematicDelivery.editAddress.mailbox" GridPane.rowIndex="3" />

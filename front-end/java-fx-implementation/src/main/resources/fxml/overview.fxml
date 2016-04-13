@@ -38,7 +38,7 @@
             <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAddPacket" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPacket" style="-fx-background-image: url('/img/add.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" text="%overview.button.addPacket" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="btnAddPacket" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#addPacket" style="-fx-background-image: url('/img/add.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" text="%overview.button.addPacket" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
@@ -52,7 +52,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="btnLostPackets" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#lostPackets" style="-fx-background-image: url('/img/lost.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center" text="%overview.button.lostPackets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="btnLostPackets" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#lostPackets" style="-fx-background-image: url('/img/lost.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center" text="%overview.button.lostPackets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
@@ -63,7 +63,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btnEditContactInformation" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editContactInformation" style="-fx-background-image: url('/img/edit.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center" text="%overview.button.editContactInformation" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+            <Button fx:id="btnEditContactInformation" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#editContactInformation" style="-fx-background-image: url('/img/edit.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center" text="%overview.button.editContactInformation" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
@@ -74,7 +74,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btnProblematicDeliveries" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#problematicDeliveries" style="-fx-background-image: url('/img/problematic.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center" text="%overview.button.problematicDeliveries" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+            <Button fx:id="btnProblematicDeliveries" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#problematicDeliveries" style="-fx-background-image: url('/img/problematic.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center" text="%overview.button.problematicDeliveries" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>

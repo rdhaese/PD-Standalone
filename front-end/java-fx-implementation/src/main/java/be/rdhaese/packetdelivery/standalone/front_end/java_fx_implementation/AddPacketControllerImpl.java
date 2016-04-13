@@ -1,26 +1,20 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
-import be.rdhaese.packetdelivery.back_end.web_service.interfaces.AddPacketWebService;
-import be.rdhaese.packetdelivery.back_end.web_service.interfaces.RegionsWebService;
+import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.AddPacketWebService;
+import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.RegionsWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
-<<<<<<< HEAD:front-end/java-fx-implementation/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/java_fx_implementation/AddPacketControllerImpl.java
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.AddPacketController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Control;
-=======
-import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.AddPacketController;
-import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
-import be.rdhaese.packetdelivery.standalone.service.AddPacketService;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
->>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b:FrontEnd/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/controller/impl/AddPacketControllerImpl.java
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -78,14 +72,26 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     @FXML
     private ComboBox<RegionDTO> cmbbxDeliveryRegion;
 
+    @FXML
+    private Button btnGetInformationFromURL;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
         if (cmbbxDeliveryRegion == null){
             cmbbxDeliveryRegion = new ComboBox<>();
         }
         Collection<RegionDTO> regions = regionsService.regions();
         cmbbxDeliveryRegion.getItems().addAll(regions);
-        super.initialize(location, resources);
+
+        btnGetInformationFromURL.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.ENTER.equals(event.getCode())) {
+                    btnGetInformationFromURL.fire();
+                }
+            }
+        });
     }
 
     public void informationFromURL() {

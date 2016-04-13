@@ -51,7 +51,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <RadioButton fx:id="rbtnAskBeforePrint" mnemonicParsing="false" selected="true" text="%options.print.askBeforePrint" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="4">
+      <RadioButton fx:id="rbtnAskBeforePrint" mnemonicParsing="true" selected="true" text="%options.print.askBeforePrint" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
@@ -59,28 +59,28 @@
             <ToggleGroup fx:id="grpPrintPreference" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="rbtnDontAskAndPrint" mnemonicParsing="false" text="%options.print.dontAskAndPrintAutomatically" toggleGroup="$grpPrintPreference" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="5">
+      <RadioButton fx:id="rbtnDontAskAndPrint" mnemonicParsing="true" text="%options.print.dontAskAndPrintAutomatically" toggleGroup="$grpPrintPreference" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </RadioButton>
-      <RadioButton fx:id="rbtnDontAskAndDontPrint" mnemonicParsing="false" text="%options.print.dontAskAndDontPrint" toggleGroup="$grpPrintPreference" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="6">
+      <RadioButton fx:id="rbtnDontAskAndDontPrint" mnemonicParsing="true" text="%options.print.dontAskAndDontPrint" toggleGroup="$grpPrintPreference" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </RadioButton>
       <Label prefHeight="67.0" prefWidth="198.0" text="%options.openInImageViewer" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" GridPane.rowSpan="2" />
-      <CheckBox fx:id="cbxOpenInImageViewer" mnemonicParsing="false" text="%options.openInImageViewer.enabled" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="7" GridPane.rowSpan="2">
+      <CheckBox fx:id="cbxOpenInImageViewer" mnemonicParsing="true" text="%options.openInImageViewer.enabled" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="7" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </CheckBox>
-      <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#save" text="%options.button.save" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="9">
+      <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%options.button.save" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="9">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btnCancel" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancel" text="%options.button.cancel" GridPane.columnIndex="5" GridPane.rowIndex="1">
+      <Button fx:id="btnCancel" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#cancel" text="%options.button.cancel" GridPane.columnIndex="5" GridPane.rowIndex="1" cancelButton="true">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>

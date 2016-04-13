@@ -69,7 +69,7 @@
                                                 <Insets top="5.0" />
                                             </GridPane.margin>
                                         </TextField>
-                                        <Button fx:id="btnAddPhoneNumber" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPhoneNumber" text="%contactInformation.button.add" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                        <Button fx:id="btnAddPhoneNumber" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#addPhoneNumber" text="%contactInformation.button.add" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
 
                                         </Button>
                                         <ListView fx:id="lvPhoneNumbers" onMouseClicked="#onPhoneNumbersClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="2" GridPane.rowSpan="5" />
@@ -106,7 +106,7 @@
                             <content>
                                 <GridPane hgap="5.0" vgap="5.0">
                                     <children>
-                                        <Button fx:id="btnAddFaxNumber" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addFaxNumber" text="%contactInformation.button.add" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                        <Button fx:id="btnAddFaxNumber" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#addFaxNumber" text="%contactInformation.button.add" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
 
                                         </Button>
                                         <ListView fx:id="lvFaxNumbers" onMouseClicked="#onFaxNumbersClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="2" GridPane.rowSpan="5" />
@@ -146,7 +146,7 @@
                             <content>
                                 <GridPane hgap="5.0" vgap="5.0">
                                     <children>
-                                        <Button fx:id="btnAddEmailAddress" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addEmailAddress" text="%contactInformation.button.add" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                        <Button fx:id="btnAddEmailAddress" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#addEmailAddress" text="%contactInformation.button.add" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                                         </Button>
                                         <ListView fx:id="lvEmailAdresses" onMouseClicked="#onEmailAddressesClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="2" GridPane.rowSpan="5" />
                                         <TextField fx:id="txtEmailAddressTitle" onKeyReleased="#onEmailAddressTitleTextfieldChanged" GridPane.columnIndex="1" GridPane.columnSpan="2">
@@ -210,12 +210,12 @@
                     </font>
                 </Label>
                 <TextField fx:id="txtPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#save" text="%contactInformation.button.save" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="14">
+                <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%contactInformation.button.save" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="14">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>
                 </Button>
-                <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>

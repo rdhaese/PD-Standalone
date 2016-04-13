@@ -1,6 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.service.interfaces;
 
-import be.rdhaese.packetdelivery.back_end.web_service.interfaces.LostPacketsWebService;
+import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.LostPacketsWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.Collection;
  * @author Robin D'Haese
  */
 @Service
-public class LostPacketsProxyRestWebService extends AbstractService implements LostPacketsWebService{
+public class LostPacketsProxyRestWebService extends AbstractService implements LostPacketsWebService {
 
 
     @Override

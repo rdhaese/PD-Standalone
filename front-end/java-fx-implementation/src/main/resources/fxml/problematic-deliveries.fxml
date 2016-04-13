@@ -47,7 +47,7 @@
                             </GridPane.margin>
                         </Label>
 
-                        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets right="10.0" top="10.0" />
                             </GridPane.margin></Button>

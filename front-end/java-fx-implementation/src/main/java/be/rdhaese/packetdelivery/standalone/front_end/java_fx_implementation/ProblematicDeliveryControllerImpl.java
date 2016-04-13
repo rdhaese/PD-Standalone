@@ -1,20 +1,11 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
-import be.rdhaese.packetdelivery.back_end.web_service.interfaces.ProblematicPacketsWebService;
+import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.ProblematicPacketsWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
-<<<<<<< HEAD:front-end/java-fx-implementation/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/java_fx_implementation/ProblematicDeliveryControllerImpl.java
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditProblematicDeliveryAddressController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveriesController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveryController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
-=======
-import be.rdhaese.packetdelivery.standalone.front_end.controller.abstract_impl.AbstractWithMenuAndStatusBarController;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.EditProblematicDeliveryAddressController;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveriesController;
-import be.rdhaese.packetdelivery.standalone.front_end.controller.ProblematicDeliveryController;
-import be.rdhaese.packetdelivery.standalone.front_end.enums.FXMLS;
-import be.rdhaese.packetdelivery.standalone.service.ProblematicPacketsService;
->>>>>>> 7362763c2cab397bd2f065faa67fbe81a313c24b:FrontEnd/src/main/java/be/rdhaese/packetdelivery/standalone/front_end/controller/impl/ProblematicDeliveryControllerImpl.java
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.springframework.beans.factory.annotation.Autowired;

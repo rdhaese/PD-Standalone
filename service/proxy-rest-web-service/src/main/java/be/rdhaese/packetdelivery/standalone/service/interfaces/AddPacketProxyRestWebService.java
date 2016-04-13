@@ -1,6 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.service.interfaces;
 
-import be.rdhaese.packetdelivery.back_end.web_service.interfaces.AddPacketWebService;
+import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.AddPacketWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import org.springframework.stereotype.Service;
 
