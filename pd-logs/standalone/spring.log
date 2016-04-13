@@ -1088,3 +1088,7 @@ Caused by: java.lang.IllegalArgumentException: warning no match for this type na
 13/04/2016-18:04:23.878 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
 13/04/2016-18:11:23.773 [Thread-4] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@b83a9be: startup date [Wed Apr 13 18:04:17 CEST 2016]; root of context hierarchy
 13/04/2016-18:11:23.804 [Thread-4] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+13/04/2016-18:19:33.817 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@255b53dc: startup date [Wed Apr 13 18:19:33 CEST 2016]; root of context hierarchy
+13/04/2016-18:19:41.211 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+13/04/2016-18:19:51.744 [Thread-2] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@255b53dc: startup date [Wed Apr 13 18:19:33 CEST 2016]; root of context hierarchy
+13/04/2016-18:19:51.762 [Thread-2] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
