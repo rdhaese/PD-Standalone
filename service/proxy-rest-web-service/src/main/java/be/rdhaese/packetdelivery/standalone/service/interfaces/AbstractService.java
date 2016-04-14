@@ -14,15 +14,18 @@ public class AbstractService {
     @Autowired
     private UriUtil uris;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
+    protected RestTemplate getRestTemplate(){
+        return restTemplate;
+    }
+
     protected UriUtil getUris() {
         return uris;
     }
 
     protected void setUris(UriUtil uris) {
         this.uris = uris;
-    }
-
-    protected RestTemplate getNewRestTemplate(){
-        return new RestTemplate();
     }
 }

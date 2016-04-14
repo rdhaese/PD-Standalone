@@ -210,16 +210,23 @@
                     </font>
                 </Label>
                 <TextField fx:id="txtPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%contactInformation.button.save" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="14">
-                    <GridPane.margin>
+            <HBox GridPane.columnSpan="3" GridPane.rowIndex="14">
+               <children>
+                      <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
+                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-                    <GridPane.margin>
+                     </HBox.margin>
+                      </Button>
+                      <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%contactInformation.button.save" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="14" HBox.hgrow="ALWAYS">
+                          <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                          </GridPane.margin>
+                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </GridPane.margin>
-                </Button>
+                     </HBox.margin>
+                      </Button>
+               </children>
+            </HBox>
                 <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             </children>
             <padding>

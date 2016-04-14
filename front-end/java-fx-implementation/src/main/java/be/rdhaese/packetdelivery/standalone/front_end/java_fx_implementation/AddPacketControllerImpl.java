@@ -83,15 +83,6 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
         }
         Collection<RegionDTO> regions = regionsService.regions();
         cmbbxDeliveryRegion.getItems().addAll(regions);
-
-        btnGetInformationFromURL.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (KeyCode.ENTER.equals(event.getCode())) {
-                    btnGetInformationFromURL.fire();
-                }
-            }
-        });
     }
 
     public void informationFromURL() {

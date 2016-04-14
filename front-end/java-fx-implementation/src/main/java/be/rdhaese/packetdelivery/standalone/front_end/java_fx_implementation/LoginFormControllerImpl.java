@@ -42,11 +42,11 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
                 case "GRANTED":
                     showOverview(lblErrorMessage.getScene(), null);
                     break;
-                case "PASSWORD":
+                case "WRONG_PASSWORD":
                     markForError(txtPassword, "login.tooltip.password");
                     showErrorMessage("login.wrongPassword");
                     break;
-                case "USERNAME":
+                case "NOT_KNOWN":
                     markForError(txtUsername);
                     showErrorMessage("login.unknownUsername");
                     break;
