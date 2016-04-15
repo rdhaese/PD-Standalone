@@ -37,7 +37,7 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
 
     public void authenticate() {
         clearErrors();
-        if (noEmptyFields()) {
+        if (isInputValid()) {
             switch (authenticationService.authenticate(txtUsername.getText(), txtPassword.getText())){
                 case "GRANTED":
                     showOverview(lblErrorMessage.getScene(), null);
@@ -67,13 +67,29 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
         lblErrorMessage.setVisible(true);
     }
 
-    private boolean noEmptyFields() {
-        return !isEmpty(txtUsername) & !isEmpty(txtPassword);
+    private Boolean isInputValid() {
+        return validateUsername() & validatePassword();
+    }
+
+    private Boolean validateUsername() {
+        if (validator.isValidUserName(txtUsername.getText())){
+            return true;
+        }
+        markForError(txtUsername);
+        return false;
+    }
+
+    private Boolean validatePassword() {
+        if (validator.isValidPassWord(txtPassword.getText())){
+            return true;
+        }
+        markForError(txtPassword);
+        return false;
     }
 
     @Override
-    protected boolean isEmpty(TextInputControl control){
-        if (super.isEmpty(control)){
+    protected boolean hasValidInput(TextInputControl control){
+        if (super.hasValidInput(control)){
             markForError(control);
             return true;
         }

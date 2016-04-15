@@ -6,6 +6,7 @@ import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.AddPacketController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 
 import java.net.URL;
 import java.util.Collection;
@@ -35,7 +37,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     @Autowired
     private AddPacketWebService addPacketService;
     @Autowired
-    RegionsWebService regionsService;
+    private RegionsWebService regionsService;
 
     @FXML
     private TextField txtClientName;
@@ -86,7 +88,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void informationFromURL() {
-        showInNewWindow(FXMLS.FROM_URL, "fromUrl.title", 450, 100 , false);
+        showInNewWindow(FXMLS.FROM_URL, "fromUrl.title", 450, 100, false);
     }
 
     public void cancel() {
@@ -128,7 +130,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientName(PacketDTO packetDTO) {
-        if (!isEmpty(txtClientName)) {
+        if (validator.isValidClientName(txtClientName.getText())) {
             packetDTO.setClientName(txtClientName.getText());
             removeErrorStyleIfNeeded(txtClientName);
             return true;
@@ -138,7 +140,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientPhone(PacketDTO packetDTO) {
-        if (!isEmpty(txtClientPhone)) {
+        if (validator.isValidPhoneNumber(txtClientPhone.getText())) {
             packetDTO.setClientPhone(txtClientPhone.getText());
             removeErrorStyleIfNeeded(txtClientPhone);
             return true;
@@ -148,7 +150,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientEmail(PacketDTO packetDTO) {
-        if (!isEmpty(txtClientEmail)) {
+        if (validator.isValidEmailAddress(txtClientEmail.getText())) {
             packetDTO.setClientEmail(txtClientEmail.getText());
             removeErrorStyleIfNeeded(txtClientEmail);
             return true;
@@ -158,7 +160,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientStreet(PacketDTO packetDTO) {
-        if (!isEmpty(txtClientStreet)) {
+        if (validator.isValidStreet(txtClientStreet.getText())) {
             packetDTO.setClientStreet(txtClientStreet.getText());
             removeErrorStyleIfNeeded(txtClientStreet);
             return true;
@@ -168,7 +170,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientNumber(PacketDTO packetDTO) {
-        if (!isEmpty(txtClientNumber)) {
+        if (validator.isValidNumber(txtClientNumber.getText())) {
             packetDTO.setClientNumber(txtClientNumber.getText());
             removeErrorStyleIfNeeded(txtClientNumber);
             return true;
@@ -178,12 +180,17 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientMailbox(PacketDTO packetDTO) {
-        packetDTO.setClientMailbox(txtClientMailbox.getText());
-        return true;
+        if (validator.isValidMailbox(txtClientMailbox.getText())){
+            packetDTO.setClientMailbox(txtClientMailbox.getText());
+            removeErrorStyleIfNeeded(txtClientMailbox);
+            return true;
+        }
+        markForError(txtClientMailbox);
+        return false;
     }
 
     private boolean validateClientCity(PacketDTO packetDTO) {
-        if (!isEmpty(txtClientCity)) {
+        if (validator.isValidCity(txtClientCity.getText())) {
             packetDTO.setClientCity(txtClientCity.getText());
             removeErrorStyleIfNeeded(txtClientCity);
             return true;
@@ -193,7 +200,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientPostalCode(PacketDTO packetDTO) {
-        if (!isEmpty(txtClientPostalCode)) {
+        if (validator.isValidPostalCode(txtClientPostalCode.getText())) {
             packetDTO.setClientPostalCode(txtClientPostalCode.getText());
             removeErrorStyleIfNeeded(txtClientPostalCode);
             return true;
@@ -203,7 +210,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryName(PacketDTO packetDTO) {
-        if (!isEmpty(txtDeliveryName)) {
+        if (validator.isValidClientName(txtDeliveryName.getText())) {
             packetDTO.setDeliveryName(txtDeliveryName.getText());
             removeErrorStyleIfNeeded(txtDeliveryName);
             return true;
@@ -213,7 +220,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryPhone(PacketDTO packetDTO) {
-        if (!isEmpty(txtDeliveryPhone)) {
+        if (validator.isValidPhoneNumber(txtDeliveryPhone.getText())) {
             packetDTO.setDeliveryPhone(txtDeliveryPhone.getText());
             removeErrorStyleIfNeeded(txtDeliveryPhone);
             return true;
@@ -223,7 +230,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryEmail(PacketDTO packetDTO) {
-        if (!isEmpty(txtDeliveryEmail)) {
+        if (validator.isValidEmailAddress(txtDeliveryEmail.getText())) {
             packetDTO.setDeliveryEmail(txtDeliveryEmail.getText());
             removeErrorStyleIfNeeded(txtDeliveryEmail);
             return true;
@@ -233,7 +240,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryStreet(PacketDTO packetDTO) {
-        if (!isEmpty(txtDeliveryStreet)) {
+        if (validator.isValidStreet(txtDeliveryStreet.getText())) {
             packetDTO.setDeliveryStreet(txtDeliveryStreet.getText());
             removeErrorStyleIfNeeded(txtDeliveryStreet);
             return true;
@@ -243,7 +250,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryNumber(PacketDTO packetDTO) {
-        if (!isEmpty(txtDeliveryNumber)) {
+        if (validator.isValidNumber(txtDeliveryNumber.getText())) {
             packetDTO.setDeliveryNumber(txtDeliveryNumber.getText());
             removeErrorStyleIfNeeded(txtDeliveryNumber);
             return true;
@@ -253,12 +260,17 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryMailbox(PacketDTO packetDTO) {
-        packetDTO.setDeliveryMailbox(txtDeliveryMailbox.getText());
-        return true;
+        if (validator.isValidMailbox(txtDeliveryMailbox.getText())){
+            packetDTO.setClientMailbox(txtDeliveryMailbox.getText());
+            removeErrorStyleIfNeeded(txtDeliveryMailbox);
+            return true;
+        }
+        markForError(txtDeliveryMailbox);
+        return false;
     }
 
     private boolean validateDeliveryCity(PacketDTO packetDTO) {
-        if (!isEmpty(txtDeliveryCity)) {
+        if (validator.isValidCity(txtDeliveryCity.getText())) {
             packetDTO.setDeliveryCity(txtDeliveryCity.getText());
             removeErrorStyleIfNeeded(txtDeliveryCity);
             return true;
@@ -268,7 +280,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryPostalCode(PacketDTO packetDTO) {
-        if (!isEmpty(txtDeliveryPostalCode)) {
+        if (validator.isValidPostalCode(txtDeliveryPostalCode.getText())) {
             packetDTO.setDeliveryPostalCode(txtDeliveryPostalCode.getText());
             removeErrorStyleIfNeeded(txtDeliveryPostalCode);
             return true;

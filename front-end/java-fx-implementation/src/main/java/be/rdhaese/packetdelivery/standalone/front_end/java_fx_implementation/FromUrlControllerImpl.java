@@ -19,13 +19,13 @@ public class FromUrlControllerImpl extends AbstractController implements FromUrl
 
 
     public void loadInformation(){
-        if (!isEmpty(txtUrl)){
+        if (validator.isValidWebServiceUrl(txtUrl.getText())){
+            removeErrorStyleIfNeeded(txtUrl);
             //TODO get information from standalone_service
             //TODO map to form in other scene
         } else {
-            //TODO mark field for error
+            markForError(txtUrl);
         }
-        //Do nothing
     }
 
     public void cancel(){

@@ -6,6 +6,7 @@ import be.rdhaese.packetdelivery.dto.DeliveryAddressDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditProblematicDeliveryAddressController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveryController;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -32,6 +33,8 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
     private ProblematicPacketsWebService problematicPacketsService;
     @Autowired
     private RegionsWebService regionsService;
+    @Autowired
+    private Validator validator;
 
     @FXML
     private TextField txtStreet;
@@ -86,7 +89,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
     }
 
     private boolean validateStreet(DeliveryAddressDTO deliveryAddressDTO) {
-        if (!isEmpty(txtStreet)) {
+        if (validator.isValidStreet(txtStreet.getText())) {
             deliveryAddressDTO.setStreet(txtStreet.getText());
             removeErrorStyleIfNeeded(txtStreet);
             return true;
@@ -96,7 +99,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
     }
 
     private boolean validateNumber(DeliveryAddressDTO deliveryAddressDTO) {
-        if (!isEmpty(txtNumber)) {
+        if (validator.isValidNumber(txtNumber.getText())) {
             deliveryAddressDTO.setNumber(txtNumber.getText());
             removeErrorStyleIfNeeded(txtNumber);
             return true;
@@ -106,12 +109,17 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
     }
 
     private boolean validateMailbox(DeliveryAddressDTO deliveryAddressDTO) {
-        deliveryAddressDTO.setMailbox(txtMailbox.getText());
-        return true;
+        if (validator.isValidMailbox(txtMailbox.getText())) {
+            deliveryAddressDTO.setMailbox(txtMailbox.getText());
+            removeErrorStyleIfNeeded(txtMailbox);
+            return true;
+        }
+        markForError(txtMailbox);
+        return false;
     }
 
     private boolean validateCity(DeliveryAddressDTO deliveryAddressDTO) {
-        if (!isEmpty(txtCity)) {
+        if (validator.isValidCity(txtCity.getText())) {
             deliveryAddressDTO.setCity(txtCity.getText());
             removeErrorStyleIfNeeded(txtCity);
             return true;
@@ -121,7 +129,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
     }
 
     private boolean validatePostalCode(DeliveryAddressDTO deliveryAddressDTO) {
-        if (!isEmpty(txtPostalCode)) {
+        if (validator.isValidPostalCode(txtPostalCode.getText())) {
             deliveryAddressDTO.setPostalCode(txtPostalCode.getText());
             removeErrorStyleIfNeeded(txtPostalCode);
             return true;

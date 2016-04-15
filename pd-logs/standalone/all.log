@@ -2916,3 +2916,20 @@ Caused by: java.lang.IllegalArgumentException: warning no match for this type na
 14/04/2016-20:23:40.688 [main] INFO  b.r.p.s.application.java_fx.App - Started App in 8.789 seconds (JVM running for 10.657)
 14/04/2016-20:24:17.589 [Thread-2] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b794e2: startup date [Thu Apr 14 20:23:33 CEST 2016]; root of context hierarchy
 14/04/2016-20:24:17.600 [Thread-2] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+15/04/2016-15:59:20.859 [main] INFO  b.r.p.s.application.java_fx.App - Starting App on WP2039 with PID 21760 (C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone\application\java-fx\target\classes started by RDEAX37 in C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone)
+15/04/2016-15:59:20.909 [main] INFO  b.r.p.s.application.java_fx.App - The following profiles are active: production
+15/04/2016-15:59:21.126 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@255b53dc: startup date [Fri Apr 15 15:59:21 CEST 2016]; root of context hierarchy
+15/04/2016-15:59:21.605 [pool-1-thread-1] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+15/04/2016-15:59:21.608 [pool-1-thread-1] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.2.Final
+15/04/2016-15:59:21.663 [pool-1-thread-1] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+15/04/2016-15:59:24.049 [main] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+15/04/2016-15:59:24.051 [main] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+15/04/2016-15:59:24.052 [main] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+15/04/2016-15:59:24.055 [main] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy27
+15/04/2016-15:59:24.058 [main] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+15/04/2016-15:59:24.062 [main] DEBUG o.h.v.i.xml.ResourceLoaderHelper - Trying to load META-INF/validation.xml via user class loader
+15/04/2016-15:59:24.063 [main] DEBUG o.h.v.i.xml.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+15/04/2016-15:59:24.064 [main] DEBUG o.h.v.i.xml.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+15/04/2016-15:59:24.065 [main] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+15/04/2016-15:59:27.549 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15/04/2016-15:59:27.569 [main] INFO  b.r.p.s.application.java_fx.App - Started App in 7.651 seconds (JVM running for 10.237)
