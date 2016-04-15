@@ -1092,3 +1092,21 @@ Caused by: java.lang.IllegalArgumentException: warning no match for this type na
 13/04/2016-18:19:41.211 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
 13/04/2016-18:19:51.744 [Thread-2] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@255b53dc: startup date [Wed Apr 13 18:19:33 CEST 2016]; root of context hierarchy
 13/04/2016-18:19:51.762 [Thread-2] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+13/04/2016-18:36:00.313 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b794e2: startup date [Wed Apr 13 18:36:00 CEST 2016]; root of context hierarchy
+13/04/2016-18:36:04.141 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+13/04/2016-18:36:39.481 [Thread-2] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b794e2: startup date [Wed Apr 13 18:36:00 CEST 2016]; root of context hierarchy
+13/04/2016-18:36:39.486 [Thread-2] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+14/04/2016-13:01:05.484 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b794e2: startup date [Thu Apr 14 13:01:05 CEST 2016]; root of context hierarchy
+14/04/2016-13:01:14.276 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/04/2016-20:17:57.848 [Thread-2] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b794e2: startup date [Thu Apr 14 13:01:05 CEST 2016]; root of context hierarchy
+14/04/2016-20:17:57.905 [Thread-2] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+14/04/2016-20:18:09.291 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@255b53dc: startup date [Thu Apr 14 20:18:09 CEST 2016]; root of context hierarchy
+14/04/2016-20:18:15.715 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/04/2016-20:20:42.602 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@255b53dc: startup date [Thu Apr 14 20:20:42 CEST 2016]; root of context hierarchy
+14/04/2016-20:20:50.047 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/04/2016-20:23:33.692 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b794e2: startup date [Thu Apr 14 20:23:33 CEST 2016]; root of context hierarchy
+14/04/2016-20:23:40.670 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14/04/2016-20:24:17.589 [Thread-2] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b794e2: startup date [Thu Apr 14 20:23:33 CEST 2016]; root of context hierarchy
+14/04/2016-20:24:17.600 [Thread-2] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+15/04/2016-15:59:21.126 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@255b53dc: startup date [Fri Apr 15 15:59:21 CEST 2016]; root of context hierarchy
+15/04/2016-15:59:27.549 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
