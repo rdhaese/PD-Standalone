@@ -4,6 +4,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SplashPreLoader;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SpringFxmlLoader;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,6 +28,8 @@ public abstract class AbstractController {
     private SpringFxmlLoader loader;
     @Autowired
     protected MessageSource messageSource;
+    @Autowired
+    protected Validator validator;
 
     protected String getMessage(String key, Object[] objects){
         return messageSource.getMessage(key, objects, LocaleContextHolder.getLocale());
@@ -60,11 +63,11 @@ public abstract class AbstractController {
         stage.show();
     }
 
-    protected boolean isEmpty(TextInputControl textInputControl) {
+    protected boolean hasValidInput(TextInputControl textInputControl) {
         if (textInputControl == null){
             return true;
         }
-        return textInputControl.getText().trim().isEmpty();
+        return validator.isValidInput(textInputControl.getText());
     }
 
     protected void markForError(Control control) {

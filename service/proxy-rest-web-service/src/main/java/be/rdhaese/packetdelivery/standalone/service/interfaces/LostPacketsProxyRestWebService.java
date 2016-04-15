@@ -27,11 +27,11 @@ public class LostPacketsProxyRestWebService extends AbstractService implements L
 
     @Override
     public Boolean markAsFound(Collection<String> foundPackets) {
-        return getNewRestTemplate().postForEntity(getUris().getMarkLostPacketsAsFoundPath(), foundPackets, Boolean.class).getBody();
+        return getRestTemplate().postForEntity(getUris().getMarkLostPacketsAsFoundPath(), foundPackets, Boolean.class).getBody();
     }
 
     @Override
     public Boolean removeFromSystem(Collection<String> removedPackets) {
-        return getNewRestTemplate().postForEntity(getUris().getRemoveLostPacketsFromSystemPath(), removedPackets, Boolean.class).getBody();
+        return getRestTemplate().postForEntity(getUris().getRemoveLostPacketsFromSystemPath(), removedPackets, Boolean.class).getBody();
     }
 }

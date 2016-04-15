@@ -35,21 +35,21 @@ public class ProblematicPacketsProxyRestWebService extends AbstractService imple
 
     @Override
     public Boolean reSend(String packetId) {
-        return getNewRestTemplate().postForEntity(getUris().getReSendProblematicPacketPath(), packetId, Boolean.class).getBody();
+        return getRestTemplate().postForEntity(getUris().getReSendProblematicPacketPath(), packetId, Boolean.class).getBody();
     }
 
     @Override
     public Boolean returnToSender(String packetId) {
-        return getNewRestTemplate().postForEntity(getUris().getReturnToSenderProblematicPacketPath(), packetId, Boolean.class).getBody();
+        return getRestTemplate().postForEntity(getUris().getReturnToSenderProblematicPacketPath(), packetId, Boolean.class).getBody();
     }
 
     @Override
     public DeliveryAddressDTO getDeliveryAddress(String packetId) {
-        return getNewRestTemplate().getForEntity(getUris().getProblematicPacketDeliveryAddressPath(), DeliveryAddressDTO.class, packetId).getBody();
+        return getRestTemplate().getForEntity(getUris().getProblematicPacketDeliveryAddressPath(), DeliveryAddressDTO.class, packetId).getBody();
     }
 
     @Override
     public Boolean saveDeliveryAddress(DeliveryAddressDTO deliveryAddressDTO) {
-        return getNewRestTemplate().postForObject(getUris().getSaveProblematicPacketDeliveryAddressPath(), deliveryAddressDTO, Boolean.class);
+        return getRestTemplate().postForObject(getUris().getSaveProblematicPacketDeliveryAddressPath(), deliveryAddressDTO, Boolean.class);
     }
 }

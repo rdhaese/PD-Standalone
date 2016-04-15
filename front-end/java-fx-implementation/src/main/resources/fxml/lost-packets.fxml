@@ -46,21 +46,28 @@
                             <Insets left="10.0" top="10.0" />
                         </GridPane.margin>
                     </Label>
-
-                    <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                        <GridPane.margin>
-                            <Insets right="10.0" top="10.0" />
-                        </GridPane.margin></Button>
                     <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
                 </children>
             </GridPane>
         </top>
          <bottom>
-            <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%lostPackets.button.save" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </BorderPane.margin>
-            </Button>
+            <HBox>
+               <children>
+
+                    <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%lostPackets.button.save" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </bottom>
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">

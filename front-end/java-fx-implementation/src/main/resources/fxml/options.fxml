@@ -75,16 +75,23 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </CheckBox>
-      <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%options.button.save" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="9">
-         <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </GridPane.margin>
-      </Button>
-      <Button fx:id="btnCancel" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#cancel" text="%options.button.cancel" GridPane.columnIndex="5" GridPane.rowIndex="1" cancelButton="true">
-         <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </GridPane.margin>
-      </Button>
+      <HBox GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="9">
+         <children>
+            <Button fx:id="btnCancel" cancelButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#cancel" text="%options.button.cancel">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%options.button.save" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="9" HBox.hgrow="ALWAYS">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
       <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="2" />
    </children>
    <padding>

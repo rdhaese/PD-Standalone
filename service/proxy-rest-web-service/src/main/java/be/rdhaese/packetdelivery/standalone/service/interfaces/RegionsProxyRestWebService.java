@@ -15,9 +15,10 @@ import java.util.Collection;
  */
 @Service
 public class RegionsProxyRestWebService extends AbstractService implements RegionsWebService {
+
     @Override
     public Collection<RegionDTO> regions() {
-        ResponseEntity<RegionDTO[]> response = getNewRestTemplate().getForEntity(getUris().getAllRegionsPath(), RegionDTO[].class);
+        ResponseEntity<RegionDTO[]> response = getRestTemplate().getForEntity(getUris().getAllRegionsPath(), RegionDTO[].class);
        return Arrays.asList(response.getBody());
     }
 }

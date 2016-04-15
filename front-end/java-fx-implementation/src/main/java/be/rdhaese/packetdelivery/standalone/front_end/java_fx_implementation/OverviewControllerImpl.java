@@ -49,43 +49,6 @@ public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarControll
             message = null;
         }
 
-        //Set keyevents for enter key
-        btnAddPacket.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (KeyCode.ENTER.equals(event.getCode())) {
-                    btnAddPacket.fire();
-                }
-            }
-        });
-
-        btnLostPackets.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (KeyCode.ENTER.equals(event.getCode())) {
-                    btnLostPackets.fire();
-                }
-            }
-        });
-
-        btnEditContactInformation.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (KeyCode.ENTER.equals(event.getCode())) {
-                    btnEditContactInformation.fire();
-                }
-            }
-        });
-
-        btnProblematicDeliveries.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (KeyCode.ENTER.equals(event.getCode())) {
-                    btnProblematicDeliveries.fire();
-                }
-            }
-        });
-
         //Set key event for characters
         btnAddPacket.getParent().setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override

@@ -2,15 +2,16 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
 
 import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
-
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditContactInformationController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.event.RemoveListItemAction;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.EmailAddressListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.FaxNumberListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.PhoneNumberListItem;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
@@ -98,7 +99,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             phoneNumberListItem.setPhoneNumber(phoneNumber.getValue());
             lvPhoneNumbers.getItems().add(phoneNumberListItem);
         }
-       addContextMenu(lvPhoneNumbers);
+        addContextMenu(lvPhoneNumbers);
     }
 
     private void initializeFaxNumbers(ContactDetailsDTO contactDetailsDTO) {
@@ -121,7 +122,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         addContextMenu(lvEmailAdresses);
     }
 
-    private void addContextMenu(ListView<?> listView){
+    private void addContextMenu(ListView<?> listView) {
         MenuItem menuItem = new MenuItem("Remove");
         menuItem.setOnAction(new RemoveListItemAction(listView));
         contextMenu = new ContextMenu(menuItem);
@@ -135,7 +136,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             addFaxNumbersBeforeSave(contactDetailsDTO);
             addEmailAddressesBeforeSave(contactDetailsDTO);
             if (contactInformationService.post(contactDetailsDTO)) {
-                ((Stage)txtCompanyName.getScene().getWindow()).setTitle(contactDetailsDTO.getCompanyName());
+                ((Stage) txtCompanyName.getScene().getWindow()).setTitle(contactDetailsDTO.getCompanyName());
                 showOverview(txtCompanyName.getScene(), getMessage("toolbar.message.contactDetailsEditedSuccessful"));
             } else {
                 markForError(btnSave);
@@ -174,7 +175,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateCompanyName(ContactDetailsDTO contactDetailsDTO) {
-        if (!isEmpty(txtCompanyName)) {
+        if (hasValidInput(txtCompanyName)) {
             contactDetailsDTO.setCompanyName(txtCompanyName.getText());
             removeErrorStyleIfNeeded(txtCompanyName);
             return true;
@@ -184,7 +185,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateStreet(ContactDetailsDTO contactDetailsDTO) {
-        if (!isEmpty(txtStreet)) {
+        if (validator.isValidStreet(txtStreet.getText())) {
             contactDetailsDTO.setStreet(txtStreet.getText());
             removeErrorStyleIfNeeded(txtStreet);
             return true;
@@ -194,7 +195,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateNumber(ContactDetailsDTO contactDetailsDTO) {
-        if (!isEmpty(txtNumber)) {
+        if (validator.isValidNumber(txtNumber.getText())) {
             contactDetailsDTO.setNumber(txtNumber.getText());
             removeErrorStyleIfNeeded(txtNumber);
             return true;
@@ -204,12 +205,17 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateMailbox(ContactDetailsDTO contactDetailsDTO) {
-        contactDetailsDTO.setMailbox(txtMailbox.getText());
-        return true;
+        if (validator.isValidMailbox(txtMailbox.getText())) {
+            contactDetailsDTO.setMailbox(txtMailbox.getText());
+            removeErrorStyleIfNeeded(txtMailbox);
+            return true;
+        }
+        markForError(txtMailbox);
+        return false;
     }
 
     private boolean validateCity(ContactDetailsDTO contactDetailsDTO) {
-        if (!isEmpty(txtCity)) {
+        if (validator.isValidCity(txtCity.getText())) {
             contactDetailsDTO.setCity(txtCity.getText());
             removeErrorStyleIfNeeded(txtCity);
             return true;
@@ -219,7 +225,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validatePostalCode(ContactDetailsDTO contactDetailsDTO) {
-        if (!isEmpty(txtPostalCode)) {
+        if (validator.isValidPostalCode(txtPostalCode.getText())) {
             contactDetailsDTO.setPostalCode(txtPostalCode.getText());
             removeErrorStyleIfNeeded(txtPostalCode);
             return true;
@@ -229,8 +235,13 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateAboutText(ContactDetailsDTO contactDetailsDTO) {
+        if (validator.isNotNullNorEmpty(taAboutText.getText())) {
             contactDetailsDTO.setAboutText(taAboutText.getText());
-        return true;
+            removeErrorStyleIfNeeded(taAboutText);
+            return true;
+        }
+        markForError(taAboutText);
+        return false;
     }
 
     public void cancel() {
@@ -270,7 +281,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validatePhoneNumberTitle(PhoneNumberListItem phoneNumberListItem) {
-        if (!isEmpty(txtPhoneNumberTitle)) {
+        if (hasValidInput(txtPhoneNumberTitle)) {
             phoneNumberListItem.setPhoneNumberTitle(txtPhoneNumberTitle.getText());
             removeErrorStyleIfNeeded(txtPhoneNumberTitle);
             return true;
@@ -280,7 +291,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validatePhoneNumber(PhoneNumberListItem phoneNumberListItem) {
-        if (!isEmpty(txtPhoneNumber)) {
+        if (validator.isValidPhoneNumber(txtPhoneNumber.getText())) {
             phoneNumberListItem.setPhoneNumber(txtPhoneNumber.getText());
             removeErrorStyleIfNeeded(txtPhoneNumber);
             return true;
@@ -339,7 +350,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateFaxNumberTitle(FaxNumberListItem faxNumberListItem) {
-        if (!isEmpty(txtFaxNumberTitle)) {
+        if (hasValidInput(txtFaxNumberTitle)) {
             faxNumberListItem.setFaxNumberTitle(txtFaxNumberTitle.getText());
             removeErrorStyleIfNeeded(txtFaxNumberTitle);
             return true;
@@ -349,7 +360,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateFaxNumber(FaxNumberListItem faxNumberListItem) {
-        if (!isEmpty(txtFaxNumber)) {
+        if (validator.isValidPhoneNumber(txtFaxNumber.getText())) {
             faxNumberListItem.setFaxNumber(txtFaxNumber.getText());
             removeErrorStyleIfNeeded(txtFaxNumber);
             return true;
@@ -386,7 +397,6 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     public void addEmailAddress() {
-        //TODO validate input ->  email format
         EmailAddressListItem emailAddressListItem = new EmailAddressListItem(messageSource);
         if (validateInput(emailAddressListItem)) {
             int index;
@@ -407,7 +417,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateEmailAddressTitle(EmailAddressListItem emailAddressListItem) {
-        if (!isEmpty(txtEmailAddressTitle)) {
+        if (hasValidInput(txtEmailAddressTitle)) {
             emailAddressListItem.setEmailAddressTitle(txtEmailAddressTitle.getText());
             removeErrorStyleIfNeeded(txtEmailAddressTitle);
             return true;
@@ -417,7 +427,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateEmailAddress(EmailAddressListItem emailAddressListItem) {
-        if (!isEmpty(txtEmailAddress)) {
+        if (validator.isValidEmailAddress(txtEmailAddress.getText())) {
             emailAddressListItem.setEmailAddress(txtEmailAddress.getText());
             removeErrorStyleIfNeeded(txtEmailAddress);
             return true;

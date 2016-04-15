@@ -46,11 +46,6 @@
                                 <Insets left="10.0" top="10.0" />
                             </GridPane.margin>
                         </Label>
-
-                        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                            <GridPane.margin>
-                                <Insets right="10.0" top="10.0" />
-                            </GridPane.margin></Button>
                         <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
@@ -86,6 +81,14 @@
                </top>
             </BorderPane>
          </center>
+         <bottom>
+
+                  <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" BorderPane.alignment="CENTER_LEFT">
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
         </BorderPane>
     </center>
 </BorderPane>
