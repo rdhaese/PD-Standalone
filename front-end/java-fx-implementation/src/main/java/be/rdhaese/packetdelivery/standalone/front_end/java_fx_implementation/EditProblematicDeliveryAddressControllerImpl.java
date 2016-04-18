@@ -6,15 +6,19 @@ import be.rdhaese.packetdelivery.dto.DeliveryAddressDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditProblematicDeliveryAddressController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveryController;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.RegionDTOLocaleAwareToString.RegionDtoLocaleAwareToString;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 /**
@@ -52,11 +56,15 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println(location);
-        cmbbxRegions.getItems().addAll(regionsService.regions());
+        Collection<RegionDtoLocaleAwareToString> regions = new ArrayList<>();
+        for (RegionDTO regionDTO : regionsService.regions()){
+            regions.add(new RegionDtoLocaleAwareToString(LocaleContextHolder.getLocale(), regionDTO));
+        }
+        cmbbxRegions.getItems().addAll(regions);
 
         DeliveryAddressDTO deliveryAddressDTO = problematicPacketsService.getDeliveryAddress(currentPacket);
 
-        RegionDTO currentRegion = new RegionDTO(deliveryAddressDTO.getRegionName(), deliveryAddressDTO.getRegionCode());
+        RegionDTO currentRegion = new RegionDTO(deliveryAddressDTO.getRegionNameNl(), deliveryAddressDTO.getRegionNameFr(), deliveryAddressDTO.getRegionNameDe(), deliveryAddressDTO.getRegionNameEn(), deliveryAddressDTO.getRegionCode());
         cmbbxRegions.getSelectionModel().select(currentRegion);
 
         txtStreet.setText(deliveryAddressDTO.getStreet());
@@ -71,7 +79,10 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
         DeliveryAddressDTO deliveryAddressDTO = new DeliveryAddressDTO();
         deliveryAddressDTO.setPacketId(currentPacket);
         RegionDTO selectedRegion = cmbbxRegions.getSelectionModel().getSelectedItem();
-        deliveryAddressDTO.setRegionName(selectedRegion.getName());
+        deliveryAddressDTO.setRegionNameNl(selectedRegion.getNameNl());
+        deliveryAddressDTO.setRegionNameFr(selectedRegion.getNameFr());
+        deliveryAddressDTO.setRegionNameDe(selectedRegion.getNameDe());
+        deliveryAddressDTO.setRegionNameEn(selectedRegion.getNameEn());
         deliveryAddressDTO.setRegionCode(selectedRegion.getCode());
         if (validateInput(deliveryAddressDTO)){
             problematicPacketsService.saveDeliveryAddress(deliveryAddressDTO);
@@ -94,7 +105,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
             removeErrorStyleIfNeeded(txtStreet);
             return true;
         }
-        markForError(txtStreet);
+        markForError(txtStreet, "problematicDelivery.editAddress.tooltip.street");
         return false;
     }
 
@@ -104,7 +115,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
             removeErrorStyleIfNeeded(txtNumber);
             return true;
         }
-        markForError(txtNumber);
+        markForError(txtNumber, "problematicDelivery.editAddress.tooltip.number");
         return false;
     }
 
@@ -114,7 +125,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
             removeErrorStyleIfNeeded(txtMailbox);
             return true;
         }
-        markForError(txtMailbox);
+        markForError(txtMailbox, "problematicDelivery.editAddress.tooltip.mailbox");
         return false;
     }
 
@@ -124,7 +135,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
             removeErrorStyleIfNeeded(txtCity);
             return true;
         }
-        markForError(txtCity);
+        markForError(txtCity, "problematicDelivery.editAddress.tooltip.city");
         return false;
     }
 
@@ -134,7 +145,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
             removeErrorStyleIfNeeded(txtPostalCode);
             return true;
         }
-        markForError(txtPostalCode);
+        markForError(txtPostalCode, "problematicDelivery.editAddress.tooltip.postalCode");
         return false;
     }
 

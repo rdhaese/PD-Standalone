@@ -5,6 +5,7 @@ import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.Reg
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.AddPacketController;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.RegionDTOLocaleAwareToString.RegionDtoLocaleAwareToString;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.collections.ObservableList;
@@ -17,10 +18,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -83,7 +86,10 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
         if (cmbbxDeliveryRegion == null){
             cmbbxDeliveryRegion = new ComboBox<>();
         }
-        Collection<RegionDTO> regions = regionsService.regions();
+        Collection<RegionDtoLocaleAwareToString> regions = new ArrayList<>();
+        for (RegionDTO regionDTO : regionsService.regions()){
+            regions.add(new RegionDtoLocaleAwareToString(LocaleContextHolder.getLocale(), regionDTO));
+        }
         cmbbxDeliveryRegion.getItems().addAll(regions);
     }
 
@@ -97,8 +103,6 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void addPacket() {
-        //TODO Validation should be better (ie phone, email, postal code,.....)
-        //TODO Multiple phones and emails? -> split on comma?
         PacketDTO packetDTO = new PacketDTO();
         if (allInputIsValid(packetDTO)) {
             packetDTO.setPacketStatus("NORMAL");
@@ -135,7 +139,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientName);
             return true;
         }
-        markForError(txtClientName);
+        markForError(txtClientName, "addPacket.tooltip.name");
         return false;
     }
 
@@ -145,7 +149,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientPhone);
             return true;
         }
-        markForError(txtClientPhone);
+        markForError(txtClientPhone, "addPacket.tooltip.phone");
         return false;
     }
 
@@ -155,7 +159,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientEmail);
             return true;
         }
-        markForError(txtClientEmail);
+        markForError(txtClientEmail, "addPacket.tooltip.email");
         return false;
     }
 
@@ -165,7 +169,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientStreet);
             return true;
         }
-        markForError(txtClientStreet);
+        markForError(txtClientStreet, "addPacket.tooltip.street");
         return false;
     }
 
@@ -175,7 +179,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientNumber);
             return true;
         }
-        markForError(txtClientNumber);
+        markForError(txtClientNumber, "addPacket.tooltip.number");
         return false;
     }
 
@@ -185,7 +189,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientMailbox);
             return true;
         }
-        markForError(txtClientMailbox);
+        markForError(txtClientMailbox, "addPacket.tooltip.mailbox");
         return false;
     }
 
@@ -195,7 +199,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientCity);
             return true;
         }
-        markForError(txtClientCity);
+        markForError(txtClientCity, "addPacket.tooltip.city");
         return false;
     }
 
@@ -205,7 +209,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtClientPostalCode);
             return true;
         }
-        markForError(txtClientPostalCode);
+        markForError(txtClientPostalCode, "addPacket.tooltip.postalCode");
         return false;
     }
 
@@ -215,7 +219,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryName);
             return true;
         }
-        markForError(txtDeliveryName);
+        markForError(txtDeliveryName, "addPacket.tooltip.name");
         return false;
     }
 
@@ -225,7 +229,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryPhone);
             return true;
         }
-        markForError(txtDeliveryPhone);
+        markForError(txtDeliveryPhone, "addPacket.tooltip.phone");
         return false;
     }
 
@@ -235,7 +239,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryEmail);
             return true;
         }
-        markForError(txtDeliveryEmail);
+        markForError(txtDeliveryEmail, "addPacket.tooltip.email");
         return false;
     }
 
@@ -245,7 +249,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryStreet);
             return true;
         }
-        markForError(txtDeliveryStreet);
+        markForError(txtDeliveryStreet, "addPacket.tooltip.street");
         return false;
     }
 
@@ -255,7 +259,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryNumber);
             return true;
         }
-        markForError(txtDeliveryNumber);
+        markForError(txtDeliveryNumber, "addPacket.tooltip.number");
         return false;
     }
 
@@ -265,7 +269,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryMailbox);
             return true;
         }
-        markForError(txtDeliveryMailbox);
+        markForError(txtDeliveryMailbox, "addPacket.tooltip.mailbox");
         return false;
     }
 
@@ -275,7 +279,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryCity);
             return true;
         }
-        markForError(txtDeliveryCity);
+        markForError(txtDeliveryCity, "addPacket.tooltip.city");
         return false;
     }
 
@@ -285,7 +289,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
             removeErrorStyleIfNeeded(txtDeliveryPostalCode);
             return true;
         }
-        markForError(txtDeliveryPostalCode);
+        markForError(txtDeliveryPostalCode, "addPacket.tooltip.postalCode");
         return false;
     }
 

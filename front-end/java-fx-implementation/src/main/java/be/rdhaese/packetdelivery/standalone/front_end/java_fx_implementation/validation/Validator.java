@@ -42,7 +42,7 @@ public class Validator {
     }
 
     public Boolean isValidEmailAddress(String s) {
-        return isNotNullNorEmpty(s) && s.matches("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b");
+        return isNotNullNorEmpty(s) && s.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}");
     }
 
     public Boolean isValidCity(String s) {

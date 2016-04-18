@@ -87,5 +87,6 @@ public abstract class AbstractController {
         if (styleClass.contains(TEXTFIELD_ERROR_STYLE_CLASS)) {
             styleClass.remove(TEXTFIELD_ERROR_STYLE_CLASS);
         }
+        control.setTooltip(null);
     }
 }

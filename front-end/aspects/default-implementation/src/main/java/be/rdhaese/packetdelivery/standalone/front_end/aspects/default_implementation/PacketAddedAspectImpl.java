@@ -3,6 +3,8 @@ package be.rdhaese.packetdelivery.standalone.front_end.aspects.default_implement
 import be.rdhaese.packetdelivery.standalone.front_end.aspects.interfaces.PacketAddedAspect;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.*;
+import javafx.stage.Stage;
 import net.glxn.qrgen.javase.QRCode;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +30,9 @@ import java.util.Optional;
 @Aspect
 public class PacketAddedAspectImpl implements PacketAddedAspect {
 
-    private static final String IMAGE_EXTENSION = "jpg";
+    public static final javafx.scene.image.Image ICON = new javafx.scene.image.Image(PacketAddedAspectImpl.class.getResourceAsStream("/img/icon.png"));
+
+    private static final String IMAGE_EXTENSION = "JPEG";
     private static final String IMAGE_TEXT = "Packet ID";
     private static final String LOCATION_TO_SAVE = String.format("%s%spacket-delivery-system%scodes%s",
             System.getProperty("user.home"), File.separator, File.separator, File.separator);
@@ -35,16 +40,35 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     @Autowired
     private MessageSource messageSource;
 
-    //TODO externalize Strings
     @Override
     @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.AddPacketWebService.addPacket(..))", returning = "packetId")
     public void afterAddingPacket(String packetId) {
         try {
+            //Create the qr as image
             BufferedImage image = createQRCodeImage(packetId);
+
+            //Save the generated image
             File qrCode = saveImage(packetId, image);
-            askForPrint(packetId, qrCode);
-            //TODO in an options menu: option to set this off
-            Desktop.getDesktop().open(qrCode); //TODO test generated QR code, scan with smartphone and check content
+
+            //Check how user likes to handle qr-codes
+            //never ask to print and don't print, ask before print or print automatically
+            switch (System.getProperty("print")){
+                case "0": //NEVER
+                    break;
+                case "2": //PRINT
+                    Desktop.getDesktop().print(qrCode);
+                    break;
+                case "1": //ASK
+                default:
+                    askForPrint(packetId, qrCode);
+                    break;
+            }
+
+            //Show qr code in system image viewer if user wants this
+            String showInImageViewer = System.getProperty("imageViewer");
+            if ("true".equals(showInImageViewer)) {
+                Desktop.getDesktop().open(qrCode);
+            }
         } catch (IOException ioe) {
             //TODO log error
             ioe.printStackTrace();
@@ -52,8 +76,9 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     }
 
     private void askForPrint(String packetID, File qrCode) throws IOException {
-        //TODO in an options menu: configure that this always happens automatically or never asks
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(ICON);
         alert.setTitle(messageSource.getMessage("askForPrint.title", null, LocaleContextHolder.getLocale()));
         alert.setHeaderText(messageSource.getMessage("askForPrint.header", new Object[]{packetID}, LocaleContextHolder.getLocale()));
         alert.setContentText(messageSource.getMessage("askForPrint.content", new Object[]{packetID}, LocaleContextHolder.getLocale()));

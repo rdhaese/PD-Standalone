@@ -20,8 +20,7 @@ public class LostPacketsProxyRestWebService extends AbstractService implements L
 
     @Override
     public Collection<PacketDTO> getLostPackets() {
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<PacketDTO[]> response = restTemplate.getForEntity(getUris().getLostPacketsPath(), PacketDTO[].class);
+        ResponseEntity<PacketDTO[]> response = getRestTemplate().getForEntity(getUris().getLostPacketsPath(), PacketDTO[].class);
         return Arrays.asList(response.getBody());
     }
 

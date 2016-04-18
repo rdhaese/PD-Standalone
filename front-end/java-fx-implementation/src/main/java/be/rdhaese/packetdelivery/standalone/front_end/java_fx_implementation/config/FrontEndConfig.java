@@ -3,9 +3,12 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.co
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -16,14 +19,14 @@ import java.util.ResourceBundle;
 @Configuration
 public class FrontEndConfig {
 
-    private static final String CLASSPATH = "classpath:";
-    private static final String MESSAGES_LOCATION= "locale/messages";
-    private static final String ENCODING = "UTF-8";
-    private static final String DATE_PATTERN = "dd/MM/yyyy";
+    public static final String CLASSPATH = "classpath:";
+    public static final String MESSAGES_LOCATION = "locale/messages";
+    public static final String ENCODING = "UTF-8";
+    public static final String DATE_PATTERN = "dd/MM/yyyy";
 
     //used by spring
     @Bean
-    public ReloadableResourceBundleMessageSource messageSource(){
+    public ReloadableResourceBundleMessageSource messageSource() {
         ReloadableResourceBundleMessageSource rrbms = new ReloadableResourceBundleMessageSource();
         rrbms.setBasename(String.format("%s%s", CLASSPATH, MESSAGES_LOCATION));
         rrbms.setDefaultEncoding(ENCODING);
@@ -33,12 +36,13 @@ public class FrontEndConfig {
 
     //used by javafx
     @Bean
-    public ResourceBundle resourceBundle(){
+    public ResourceBundle resourceBundle() {
+        Locale.setDefault(Locale.ENGLISH);
         return ResourceBundle.getBundle(MESSAGES_LOCATION);
     }
 
     @Bean
-    public DateFormat dateFormat(){
+    public DateFormat dateFormat() {
         return new SimpleDateFormat(DATE_PATTERN);
     }
 }

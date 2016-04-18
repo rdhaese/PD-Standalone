@@ -88,4 +88,12 @@ public class UriUtil {
     public String getSaveProblematicPacketDeliveryAddressPath() {
         return getWithServerPath(getUris().getSaveProblematicPacketDeliveryAddress());
     }
+
+    public String getOptionsPath(){
+        return getWithServerPath(getUris().getOptions());
+    }
+
+    public String getOptionsSavePath(){
+        return getWithServerPath(getUris().getOptionsSave());
+    }
 }
