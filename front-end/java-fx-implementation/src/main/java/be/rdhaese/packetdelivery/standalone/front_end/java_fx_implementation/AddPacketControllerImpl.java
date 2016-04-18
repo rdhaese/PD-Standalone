@@ -6,27 +6,27 @@ import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.AddPacketController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.RegionDTOLocaleAwareToString.RegionDtoLocaleAwareToString;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SplashPreLoader;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 
+import java.awt.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Created on 23/12/2015.
@@ -41,6 +41,8 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     private AddPacketWebService addPacketService;
     @Autowired
     private RegionsWebService regionsService;
+    @Autowired
+    private AlertTool alertTool;
 
     @FXML
     private TextField txtClientName;
@@ -98,8 +100,16 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void cancel() {
-        //TODO ask if user is sure
-        showOverview(txtClientName.getScene(), null);
+        Optional<ButtonType> result = alertTool.getAlertUsingMessageSource(
+                Alert.AlertType.CONFIRMATION,
+                "addPacket.cancelDialog.title",
+                "addPacket.cancelDialog.header",
+                "addPacket.cancelDialog.content")
+        .showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            showOverview(txtClientName.getScene(), null);
+        }
     }
 
     public void addPacket() {
