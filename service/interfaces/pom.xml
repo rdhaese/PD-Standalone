@@ -17,7 +17,7 @@
   <name>interfaces</name>
 
   <dependencies>
-   <dependency>
+    <dependency>
       <groupId>be.rdhaese.packetdelivery.back-end.web-service</groupId>
       <artifactId>interfaces</artifactId>
     </dependency>

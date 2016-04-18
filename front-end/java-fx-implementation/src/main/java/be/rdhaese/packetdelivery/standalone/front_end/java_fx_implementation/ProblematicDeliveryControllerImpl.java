@@ -9,10 +9,12 @@ import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enu
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.text.DateFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -104,7 +106,19 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
         }
         lblDeliveryCity.setText(problematicPacket.getDeliveryCity());
         lblDeliveryPostalCode.setText(problematicPacket.getDeliveryPostalCode());
-        lblDeliveryRegion.setText(problematicPacket.getDeliveryRegionName());
+        String deliveryRegionName;
+        //TODO test if this works...
+        Locale locale = LocaleContextHolder.getLocale();
+        if (Locale.forLanguageTag("nl").equals(locale)){
+            deliveryRegionName = problematicPacket.getDeliveryRegionNameNl();
+        } else if(Locale.forLanguageTag("fr").equals(locale)){
+            deliveryRegionName = problematicPacket.getDeliveryRegionNameFr();
+        } else if(Locale.forLanguageTag("de").equals(locale)){
+            deliveryRegionName = problematicPacket.getDeliveryRegionNameDe();
+        } else {
+            deliveryRegionName = problematicPacket.getDeliveryRegionNameEn();
+        }
+        lblDeliveryRegion.setText(deliveryRegionName);
     }
 
     private void initializeClientLabels(PacketDTO problematicPacket) {

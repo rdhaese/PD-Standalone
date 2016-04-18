@@ -1,15 +1,19 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
 
+import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.OptionsWebService;
+import be.rdhaese.packetdelivery.dto.OptionsDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.LoginFormController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -19,6 +23,9 @@ import java.util.ResourceBundle;
  */
 @Controller
 public class LoginFormControllerImpl extends AbstractInitializeableController implements LoginFormController {
+
+    @Autowired
+    private OptionsWebService optionsService;
 
     @FXML
     Label lblCompanyName;
@@ -40,6 +47,20 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
         if (isInputValid()) {
             switch (authenticationService.authenticate(txtUsername.getText(), txtPassword.getText())){
                 case "GRANTED":
+                    //First load options for user
+                    OptionsDTO optionsDTO = optionsService.getFor(txtUsername.getText());
+                    if (OptionsWebService.NL.equals(optionsDTO.getLanguage())){
+                        Locale.setDefault(Locale.forLanguageTag(OptionsWebService.TAG_NL));
+                    } else if (OptionsWebService.FR.equals(optionsDTO.getLanguage())){
+                        Locale.setDefault(Locale.FRENCH);
+                    } else if (OptionsWebService.DE.equals(optionsDTO.getLanguage())){
+                        Locale.setDefault(Locale.GERMAN);
+                    } else {
+                        Locale.setDefault(Locale.ENGLISH);
+                    }
+                    System.setProperty("print", optionsDTO.getPrint().toString());
+                    System.setProperty("imageViewer", optionsDTO.getImageViewer().toString());
+                    //Show the overview
                     showOverview(lblErrorMessage.getScene(), null);
                     break;
                 case "WRONG_PASSWORD":
@@ -47,12 +68,12 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
                     showErrorMessage("login.wrongPassword");
                     break;
                 case "NOT_KNOWN":
-                    markForError(txtUsername);
+                    markForError(txtUsername, "login.tooltip.username");
                     showErrorMessage("login.unknownUsername");
                     break;
             }
         } else {
-            showErrorMessage("login.emptyFields");
+            showErrorMessage("login.invalidFields");
         }
     }
 

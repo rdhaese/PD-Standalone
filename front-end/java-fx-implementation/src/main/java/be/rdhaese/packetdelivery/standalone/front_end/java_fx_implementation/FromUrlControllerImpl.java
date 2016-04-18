@@ -24,7 +24,7 @@ public class FromUrlControllerImpl extends AbstractController implements FromUrl
             //TODO get information from standalone_service
             //TODO map to form in other scene
         } else {
-            markForError(txtUrl);
+            markForError(txtUrl, "fromUrl.tooltip");
         }
     }
 

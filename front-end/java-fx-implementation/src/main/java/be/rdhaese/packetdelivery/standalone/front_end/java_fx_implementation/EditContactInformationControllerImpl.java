@@ -180,7 +180,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtCompanyName);
             return true;
         }
-        markForError(txtCompanyName);
+        markForError(txtCompanyName, "contactInformation.tooltip.companyName");
         return false;
     }
 
@@ -190,7 +190,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtStreet);
             return true;
         }
-        markForError(txtStreet);
+        markForError(txtStreet, "contactInformation.tooltip.street");
         return false;
     }
 
@@ -200,7 +200,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtNumber);
             return true;
         }
-        markForError(txtNumber);
+        markForError(txtNumber, "contactInformation.tooltip.number");
         return false;
     }
 
@@ -210,7 +210,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtMailbox);
             return true;
         }
-        markForError(txtMailbox);
+        markForError(txtMailbox, "contactInformation.tooltip.mailbox");
         return false;
     }
 
@@ -220,7 +220,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtCity);
             return true;
         }
-        markForError(txtCity);
+        markForError(txtCity, "contactInformation.tooltip.city");
         return false;
     }
 
@@ -230,7 +230,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtPostalCode);
             return true;
         }
-        markForError(txtPostalCode);
+        markForError(txtPostalCode, "contactInformation.tooltip.postalCode");
         return false;
     }
 
@@ -240,7 +240,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(taAboutText);
             return true;
         }
-        markForError(taAboutText);
+        markForError(taAboutText, "contactInformation.tooltip.aboutText");
         return false;
     }
 
@@ -286,7 +286,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtPhoneNumberTitle);
             return true;
         }
-        markForError(txtPhoneNumberTitle);
+        markForError(txtPhoneNumberTitle, "contactInformation.tooltip.phoneNumbers.title");
         return false;
     }
 
@@ -296,7 +296,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtPhoneNumber);
             return true;
         }
-        markForError(txtPhoneNumber);
+        markForError(txtPhoneNumber, "contactInformation.tooltip.phoneNumbers.phoneNumber");
         return false;
     }
 
@@ -355,7 +355,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtFaxNumberTitle);
             return true;
         }
-        markForError(txtFaxNumberTitle);
+        markForError(txtFaxNumberTitle, "contactInformation.tooltip.faxNumbers.title");
         return false;
     }
 
@@ -365,7 +365,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtFaxNumber);
             return true;
         }
-        markForError(txtFaxNumber);
+        markForError(txtFaxNumber, "contactInformation.tooltip.faxNumbers.faxNumber");
         return false;
     }
 
@@ -422,7 +422,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtEmailAddressTitle);
             return true;
         }
-        markForError(txtEmailAddressTitle);
+        markForError(txtEmailAddressTitle, "contactInformation.tooltip.emailAddresses.title");
         return false;
     }
 
@@ -432,7 +432,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             removeErrorStyleIfNeeded(txtEmailAddress);
             return true;
         }
-        markForError(txtEmailAddress);
+        markForError(txtEmailAddress, "contactInformation.tooltip.emailAddresses.emailAddress");
         return false;
     }
 
