@@ -36,4 +36,12 @@ public class AlertTool {
                 messageSource.getMessage(headerKey, null, LocaleContextHolder.getLocale()),
                 messageSource.getMessage(contentKey, null, LocaleContextHolder.getLocale()));
     }
+
+    public Alert getCancelAlert(){
+        return getAlertUsingMessageSource(
+                Alert.AlertType.CONFIRMATION,
+                "cancelDialog.title",
+                "cancelDialog.header",
+                "cancelDialog.content");
+    }
 }

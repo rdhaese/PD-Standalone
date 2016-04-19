@@ -3,25 +3,23 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.LostPacketsWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.LostPacketsController;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.StringAsDateComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.table_item.LostPacketTableItem;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Created on 14/01/2016.
@@ -33,9 +31,11 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
 
     @Autowired
     private DateFormat dateFormat;
-
     @Autowired
     private LostPacketsWebService lostPacketsService;
+    @Autowired
+    private AlertTool alertTool;
+
     @FXML
     private TableView<LostPacketTableItem> tvLostPackets;
     @FXML
@@ -52,13 +52,30 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
     private TableColumn<LostPacketTableItem, Boolean> tcRemove;
     @FXML
     private TextField txtIdFilter;
+    @FXML
+    private Button btnRefresh;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
+
         initializeTableColumns();
         FilteredList<LostPacketTableItem> lostPackets = insertItemsFromBackEnd();
         bindIdFilter(lostPackets);
-        super.initialize(location, resources);
+
+        btnRefresh.getParent().setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                btnRefresh.fire();
+            }
+        });
+
+        tvLostPackets.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                btnRefresh.fire();
+            }
+        });
     }
 
     private void bindIdFilter(FilteredList<LostPacketTableItem> lostPackets) {
@@ -135,8 +152,11 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
 
     @Override
     public void cancel() {
-        //TODO ask if user is sure
-        showOverview(lblLoggedInUsername.getScene(), null);
+        Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            showOverview(lblLoggedInUsername.getScene(), null);
+        }
     }
 
     @Override
@@ -158,5 +178,11 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
             lostPacketsService.removeFromSystem(removedPackets);
         }
         showOverview(lblLoggedInUsername.getScene(), getMessage("toolbar.message.lostPacketsActionsPerformed", new Object[]{foundPackets.size(), removedPackets.size()}));
+    }
+
+    @Override
+    public void refresh() {
+        FilteredList<LostPacketTableItem> lostPackets = insertItemsFromBackEnd();
+        bindIdFilter(lostPackets);
     }
 }

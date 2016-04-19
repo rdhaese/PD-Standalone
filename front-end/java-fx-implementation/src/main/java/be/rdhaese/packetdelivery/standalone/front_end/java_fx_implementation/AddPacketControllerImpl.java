@@ -100,12 +100,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void cancel() {
-        Optional<ButtonType> result = alertTool.getAlertUsingMessageSource(
-                Alert.AlertType.CONFIRMATION,
-                "addPacket.cancelDialog.title",
-                "addPacket.cancelDialog.header",
-                "addPacket.cancelDialog.content")
-        .showAndWait();
+        Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
 
         if (result.get() == ButtonType.OK) {
             showOverview(txtClientName.getScene(), null);

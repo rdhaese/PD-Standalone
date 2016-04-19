@@ -1,12 +1,16 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
 import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.ProblematicPacketsWebService;
+import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.RegionsWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
+import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditProblematicDeliveryAddressController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveriesController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveryController;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.RegionDTOLocaleAwareToString.RegionDtoLocaleAwareToString;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -14,8 +18,7 @@ import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.text.DateFormat;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Created on 14/01/2016.
@@ -25,6 +28,7 @@ import java.util.ResourceBundle;
 @Controller
 public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatusBarController implements ProblematicDeliveryController {
 
+    private static String message = null;
     private String currentPacket;
 
     @Autowired
@@ -35,6 +39,8 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
     private EditProblematicDeliveryAddressController editProblematicDeliveryAddressController;
     @Autowired
     private ProblematicPacketsWebService problematicPacketsService;
+    @Autowired
+    private RegionsWebService regionService;
 
     @FXML
     private Label lblPacketId;
@@ -77,11 +83,11 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        update();
+        init();
         super.initialize(location, resources);
     }
 
-    public void update(){
+    public void init(){
         if ((currentPacket == null) || ((currentPacket = currentPacket.trim()).isEmpty())){
             showOverview(lblLoggedInUsername.getScene(), getMessage("toolbar.message.noProblematicPacketToViewDetailsFrom"));
         }else {
@@ -151,14 +157,23 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
     @Override
     public void reSend() {
         problematicPacketsService.reSend(currentPacket);
-        cancel();
+        showScene(lblLoggedInUsername.getScene(), FXMLS.PROBLEMATIC_DELIVERIES, getMessage("toolbar.message.reSend", new Object[]{currentPacket}));
     }
 
     @Override
     public void returnToSender() {
-        //TODO ASK FOR REGION
-        problematicPacketsService.returnToSender(currentPacket);
-        cancel();
+      Collection<RegionDtoLocaleAwareToString> regions = RegionDtoLocaleAwareToString.mapCollection(regionService.regions(), LocaleContextHolder.getLocale());
+
+        ChoiceDialog<RegionDtoLocaleAwareToString> dialog = new ChoiceDialog<>(null, regions);
+        dialog.setTitle("Pick Region"); //TODO i18n
+        dialog.setHeaderText("The delivery address you are setting, needs a region");
+        dialog.setContentText("Pick a region: ");
+
+// Traditional way to get the response value.
+        Optional<RegionDtoLocaleAwareToString> selectedRegion = dialog.showAndWait();
+        if (selectedRegion.isPresent()){
+            problematicPacketsService.returnToSender(currentPacket, selectedRegion.get());
+            showScene(lblLoggedInUsername.getScene(), FXMLS.PROBLEMATIC_DELIVERIES, getMessage("toolbar.message.returnToSender", new Object[]{currentPacket}));        }
     }
 
     @Override

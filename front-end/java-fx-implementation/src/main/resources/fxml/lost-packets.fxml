@@ -21,6 +21,7 @@
                         <Font name="System Italic" size="15.0" />
                     </font>
                 </Label>
+                <Label fx:id="lblMessage" visible="false" AnchorPane.rightAnchor="5.0" />
             </children>
         </AnchorPane>
     </bottom>
@@ -53,11 +54,6 @@
          <bottom>
             <HBox>
                <children>
-
-                    <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin></Button>
                   <Button fx:id="btnSave" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%lostPackets.button.save" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
                      <BorderPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -66,6 +62,11 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
+
+                    <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </bottom>
@@ -98,6 +99,15 @@
                               <TextField fx:id="txtIdFilter" />
                            </graphic>
                         </Label>
+                        <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="btnRefresh" mnemonicParsing="false" onAction="#refresh" prefWidth="50.0" style="-fx-background-image: url('/img/refresh.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center">
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                      <BorderPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

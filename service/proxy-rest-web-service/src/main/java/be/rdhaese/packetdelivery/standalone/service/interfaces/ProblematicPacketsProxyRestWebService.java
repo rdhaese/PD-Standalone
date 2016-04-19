@@ -3,6 +3,7 @@ package be.rdhaese.packetdelivery.standalone.service.interfaces;
 import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.ProblematicPacketsWebService;
 import be.rdhaese.packetdelivery.dto.DeliveryAddressDTO;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
+import be.rdhaese.packetdelivery.dto.RegionDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -39,8 +40,8 @@ public class ProblematicPacketsProxyRestWebService extends AbstractService imple
     }
 
     @Override
-    public Boolean returnToSender(String packetId) {
-        return getRestTemplate().postForEntity(getUris().getReturnToSenderProblematicPacketPath(), packetId, Boolean.class).getBody();
+    public Boolean returnToSender(String packetId, RegionDTO region) {
+        return getRestTemplate().postForEntity(getUris().getReturnToSenderProblematicPacketPath(), region, Boolean.class, packetId).getBody();
     }
 
     @Override

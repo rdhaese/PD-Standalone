@@ -9,8 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.context.Theme;
 
 import java.net.URL;
 import java.util.Locale;
@@ -45,15 +47,15 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
     public void authenticate() {
         clearErrors();
         if (isInputValid()) {
-            switch (authenticationService.authenticate(txtUsername.getText(), txtPassword.getText())){
+            switch (authenticationService.authenticate(txtUsername.getText(), txtPassword.getText())) {
                 case "GRANTED":
                     //First load options for user
                     OptionsDTO optionsDTO = optionsService.getFor(txtUsername.getText());
-                    if (OptionsWebService.NL.equals(optionsDTO.getLanguage())){
+                    if (OptionsWebService.NL.equals(optionsDTO.getLanguage())) {
                         Locale.setDefault(Locale.forLanguageTag(OptionsWebService.TAG_NL));
-                    } else if (OptionsWebService.FR.equals(optionsDTO.getLanguage())){
+                    } else if (OptionsWebService.FR.equals(optionsDTO.getLanguage())) {
                         Locale.setDefault(Locale.FRENCH);
-                    } else if (OptionsWebService.DE.equals(optionsDTO.getLanguage())){
+                    } else if (OptionsWebService.DE.equals(optionsDTO.getLanguage())) {
                         Locale.setDefault(Locale.GERMAN);
                     } else {
                         Locale.setDefault(Locale.ENGLISH);
@@ -83,7 +85,7 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
         removeErrorStyleIfNeeded(txtPassword);
     }
 
-    private void showErrorMessage(String messageKey){
+    private void showErrorMessage(String messageKey) {
         lblErrorMessage.setText(getMessage(messageKey));
         lblErrorMessage.setVisible(true);
     }
@@ -93,7 +95,7 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
     }
 
     private Boolean validateUsername() {
-        if (validator.isValidUserName(txtUsername.getText())){
+        if (validator.isValidUserName(txtUsername.getText())) {
             return true;
         }
         markForError(txtUsername);
@@ -101,7 +103,7 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
     }
 
     private Boolean validatePassword() {
-        if (validator.isValidPassWord(txtPassword.getText())){
+        if (validator.isValidPassWord(txtPassword.getText())) {
             return true;
         }
         markForError(txtPassword);
@@ -109,8 +111,8 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
     }
 
     @Override
-    protected boolean hasValidInput(TextInputControl control){
-        if (super.hasValidInput(control)){
+    protected boolean hasValidInput(TextInputControl control) {
+        if (super.hasValidInput(control)) {
             markForError(control);
             return true;
         }

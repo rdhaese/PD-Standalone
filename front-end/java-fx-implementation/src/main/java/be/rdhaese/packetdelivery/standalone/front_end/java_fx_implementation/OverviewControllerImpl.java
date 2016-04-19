@@ -22,8 +22,6 @@ import java.util.ResourceBundle;
  */
 @Controller
 public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarController implements OverviewController {
-    @FXML
-    private Label lblMessage;
 
     @FXML
     private Button btnAddPacket;
@@ -38,16 +36,9 @@ public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarControll
     private Button btnProblematicDeliveries;
 
 
-    private static String message;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.initialize(location, resources);
-        if (message != null) {
-            lblMessage.setText(message);
-            lblMessage.setVisible(true);
-            message = null;
-        }
 
         //Set key event for characters
         btnAddPacket.getParent().setOnKeyReleased(new EventHandler<KeyEvent>() {
@@ -87,14 +78,11 @@ public class OverviewControllerImpl extends AbstractWithMenuAndStatusBarControll
     }
 
     private Scene getScene() {
-        return lblMessage.getScene();
+        return btnAddPacket.getScene();
     }
 
-    public static String getMessage() {
-        return message;
-    }
-
-    public static void setMessage(String message) {
-        OverviewControllerImpl.message = message;
+    @Override
+    public void update(){
+        showScene(getScene(), FXMLS.OVERVIEW);
     }
 }
