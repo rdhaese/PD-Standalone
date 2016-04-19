@@ -21,6 +21,7 @@
                         <Font name="System Italic" size="15.0" />
                     </font>
                 </Label>
+                <Label fx:id="lblMessage" visible="false" AnchorPane.rightAnchor="5.0" />
             </children>
         </AnchorPane>
     </bottom>
@@ -73,6 +74,18 @@
                               <TextField fx:id="txtIdFilter" />
                            </graphic>
                         </Label>
+                        <HBox maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="btnRefresh" maxHeight="1.7976931348623157E308" maxWidth="50.0" mnemonicParsing="false" onAction="#refresh" prefWidth="50.0" style="-fx-background-image: url('/img/refresh.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                      <BorderPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -83,7 +96,7 @@
          </center>
          <bottom>
 
-                  <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" BorderPane.alignment="CENTER_LEFT">
+                  <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" BorderPane.alignment="CENTER_RIGHT">
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>

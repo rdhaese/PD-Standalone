@@ -3,6 +3,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
 import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditContactInformationController;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.event.RemoveListItemAction;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.EmailAddressListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.FaxNumberListItem;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -27,6 +29,8 @@ import java.util.ResourceBundle;
 @Controller
 public class EditContactInformationControllerImpl extends AbstractWithMenuAndStatusBarController implements EditContactInformationController {
 
+    @Autowired
+    private AlertTool alertTool;
     @FXML
     private TextField txtCompanyName;
     @FXML
@@ -245,8 +249,11 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     public void cancel() {
-        //TODO ask if user is sure
-        showOverview(txtCompanyName.getScene(), null);
+        Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            showOverview(txtCompanyName.getScene(), null);
+        }
     }
 
     public void onPhoneNumberTitleTextfieldChanged() {

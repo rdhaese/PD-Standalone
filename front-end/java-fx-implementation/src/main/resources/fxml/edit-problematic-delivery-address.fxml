@@ -24,12 +24,12 @@
    <children>
       <HBox GridPane.columnSpan="3" GridPane.rowIndex="7">
          <children>
-            <Button cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
+            <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%problematicDelivery.editAddress.button.save" GridPane.columnSpan="3" GridPane.rowIndex="7" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#save" text="%problematicDelivery.editAddress.button.save" GridPane.columnSpan="3" GridPane.rowIndex="7" HBox.hgrow="ALWAYS">
+            <Button cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>

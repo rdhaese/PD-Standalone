@@ -4,6 +4,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SplashPreLoader;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SpringFxmlLoader;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.toolbar.ToolbarMessageHolder;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
@@ -30,6 +31,10 @@ public abstract class AbstractController {
     protected MessageSource messageSource;
     @Autowired
     protected Validator validator;
+    @Autowired
+    protected ToolbarMessageHolder messageHolder;
+
+    private static FXMLS lastScene = null;
 
     protected String getMessage(String key, Object[] objects){
         return messageSource.getMessage(key, objects, LocaleContextHolder.getLocale());
@@ -40,17 +45,21 @@ public abstract class AbstractController {
     }
 
     protected void showScene(Scene oldScene, FXMLS newScene){
+        lastScene = newScene;
         Stage stage = (Stage) oldScene.getWindow();
         Parent parent = (Parent) loader.load(newScene.toString());
         Scene scene = new Scene(parent, 1024, 768);
         stage.setScene(scene);
 
     }
+
+    protected void showScene(Scene oldScene, FXMLS newScene, String message){
+        messageHolder.setMessage(message);
+        showScene(oldScene, newScene);
+    }
+
     protected void showOverview(Scene oldScene, String message) {
-        if (message != null) {
-            OverviewControllerImpl.setMessage(message);
-        }
-       showScene(oldScene, FXMLS.OVERVIEW);
+       showScene(oldScene, FXMLS.OVERVIEW, message);
     }
 
     protected void showInNewWindow(FXMLS scene, String titleMessageSourceKey, int width, int height, boolean resizable){
@@ -61,6 +70,10 @@ public abstract class AbstractController {
         stage.setScene(new Scene(root, width, height));
         stage.setResizable(resizable);
         stage.show();
+    }
+
+    protected void updateLastScene(Scene oldScene){
+        showScene(oldScene, lastScene);
     }
 
     protected boolean hasValidInput(TextInputControl textInputControl) {

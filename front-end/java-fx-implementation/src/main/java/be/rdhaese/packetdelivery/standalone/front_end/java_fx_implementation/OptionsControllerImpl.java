@@ -3,6 +3,8 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.OptionsWebService;
 import be.rdhaese.packetdelivery.dto.OptionsDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.OptionsController;
+import be.rdhaese.packetdelivery.standalone.front_end.interfaces.OverviewController;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SplashPreLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -27,7 +29,13 @@ import java.util.ResourceBundle;
 public class OptionsControllerImpl extends AbstractInitializeableController implements OptionsController {
 
     @Autowired
+    private OverviewController overviewController;
+
+    @Autowired
     private OptionsWebService optionsService;
+
+    @Autowired
+    private AlertTool alertTool;
 
     @FXML
     private ComboBox<String> cmbbxLanguage;
@@ -85,8 +93,12 @@ public class OptionsControllerImpl extends AbstractInitializeableController impl
 
     @Override
     public void cancel() {
-        Stage stage = (Stage) cmbbxLanguage.getScene().getWindow();
-        stage.close();
+        Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            Stage stage = (Stage) cmbbxLanguage.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @Override
@@ -130,9 +142,6 @@ public class OptionsControllerImpl extends AbstractInitializeableController impl
             alert.setContentText(messageSource.getMessage("options.languageChanged.content", null, LocaleContextHolder.getLocale()));
             alert.show();
         }
-
-        //Set message in toolbar
-        OverviewControllerImpl.setMessage(getMessage("toolbar.message.optionsSaved"));
 
         //Close the options window
         Stage stage = (Stage) cmbbxLanguage.getScene().getWindow();

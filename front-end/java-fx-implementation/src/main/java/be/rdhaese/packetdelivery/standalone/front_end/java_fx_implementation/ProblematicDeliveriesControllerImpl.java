@@ -10,12 +10,12 @@ import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.tab
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -55,14 +55,35 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     @FXML
     private TextField txtIdFilter;
 
+    @FXML
+    private Button btnRefresh;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
         initializeTableColumns();
         FilteredList<ProblematicPacketTableItem> lostPackets = insertItemsFromBackEnd();
         bindIdFilter(lostPackets);
         showDetailsIfRowClicked();
-        super.initialize(location, resources);
+
+        btnRefresh.getParent().setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.F5.equals(event.getCode())) {
+                    btnRefresh.fire();
+                }
+            }
+        });
+
+        tvProblematicPackets.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.F5.equals(event.getCode())) {
+                    btnRefresh.fire();
+                }
+            }
+        });
     }
 
     private void showDetailsIfRowClicked() {
@@ -151,5 +172,12 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     @Override
     public void cancel() {
         showOverview(lblLoggedInUsername.getScene(), null);
+    }
+
+    @Override
+    public void refresh() {
+        FilteredList<ProblematicPacketTableItem> lostPackets = insertItemsFromBackEnd();
+        bindIdFilter(lostPackets);
+        showDetailsIfRowClicked();
     }
 }

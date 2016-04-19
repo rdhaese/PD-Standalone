@@ -7,8 +7,10 @@ import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditProblematicDeliveryAddressController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveryController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.RegionDTOLocaleAwareToString.RegionDtoLocaleAwareToString;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
 import javafx.fxml.FXML;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -39,6 +42,8 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
     private RegionsWebService regionsService;
     @Autowired
     private Validator validator;
+    @Autowired
+    private AlertTool alertTool;
 
     @FXML
     private TextField txtStreet;
@@ -86,8 +91,9 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
         deliveryAddressDTO.setRegionCode(selectedRegion.getCode());
         if (validateInput(deliveryAddressDTO)){
             problematicPacketsService.saveDeliveryAddress(deliveryAddressDTO);
+            messageHolder.setMessage(getMessage("toolbar.message.addressChanged"));
             problematicDeliveryController.update();
-            cancel();
+            closeWindow();
         }
     }
 
@@ -151,7 +157,14 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
 
     @Override
     public void cancel() {
-        //TODO ask if user is sure
+        Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            closeWindow();
+        }
+    }
+
+    private void closeWindow() {
         Stage stage = (Stage) txtStreet.getScene().getWindow();
         stage.close();
     }

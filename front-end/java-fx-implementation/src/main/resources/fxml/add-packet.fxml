@@ -21,6 +21,7 @@
                         <Font name="System Italic" size="15.0" />
                     </font>
                 </Label>
+                <Label fx:id="lblMessage" visible="false" AnchorPane.rightAnchor="5.0" />
             </children>
         </AnchorPane>
     </bottom>
@@ -170,10 +171,6 @@
             <bottom>
             <HBox maxWidth="1.7976931348623157E308">
                <children>
-                        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin></Button>
                       <Button fx:id="btnAddPacket" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="true" onAction="#addPacket" text="%addPacket.button.add" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
                      <BorderPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -182,6 +179,10 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
+                        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
             </bottom>

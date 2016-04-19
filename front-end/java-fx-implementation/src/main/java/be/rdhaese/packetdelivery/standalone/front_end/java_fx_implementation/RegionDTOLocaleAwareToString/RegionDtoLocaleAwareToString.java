@@ -3,6 +3,8 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.Re
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import org.springframework.context.i18n.LocaleContextHolder;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Locale;
 
 /**
@@ -18,6 +20,14 @@ public class RegionDtoLocaleAwareToString extends RegionDTO {
     public RegionDtoLocaleAwareToString(Locale locale, RegionDTO regionDTO){
         this.locale = locale;
         this.regionDTO = regionDTO;
+    }
+
+    public static Collection<RegionDtoLocaleAwareToString> mapCollection(Collection<RegionDTO> regions, Locale locale){
+        Collection<RegionDtoLocaleAwareToString> regionsDecorators = new ArrayList<>();
+        for (RegionDTO regionDTO : regions){
+            regionsDecorators.add(new RegionDtoLocaleAwareToString(locale, regionDTO));
+        }
+        return regionsDecorators;
     }
 
     public String getNameNl() {
