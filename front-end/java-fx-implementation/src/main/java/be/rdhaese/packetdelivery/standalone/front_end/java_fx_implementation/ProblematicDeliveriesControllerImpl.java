@@ -7,6 +7,7 @@ import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeli
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.StringAsDateComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.table_item.ProblematicPacketTableItem;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -62,6 +63,14 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.initialize(location, resources);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                txtIdFilter.requestFocus();
+            }
+        });
+
         initializeTableColumns();
         FilteredList<ProblematicPacketTableItem> lostPackets = insertItemsFromBackEnd();
         bindIdFilter(lostPackets);
@@ -81,6 +90,9 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
             public void handle(KeyEvent event) {
                 if (KeyCode.F5.equals(event.getCode())) {
                     btnRefresh.fire();
+                } else
+                if ((KeyCode.SPACE.equals(event.getCode())) && (!tvProblematicPackets.getSelectionModel().isEmpty())) {
+                    showPacketDetails();
                 }
             }
         });
@@ -91,14 +103,18 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
             TableRow<ProblematicPacketTableItem> row = new TableRow<ProblematicPacketTableItem>();
             row.setCursor(Cursor.HAND);
             row.setOnMouseClicked(e -> {
-                if (!tvProblematicPackets.getSelectionModel().isEmpty()) {
-                    String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
-                    problematicDeliveryController.setCurrentPacket(packetId);
-                    showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
+                if (row.isSelected()) {
+                    showPacketDetails();
                 }
             });
             return row;
         } );
+    }
+
+    private void showPacketDetails() {
+        String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
+        problematicDeliveryController.setCurrentPacket(packetId);
+        showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
     }
 
     private void bindIdFilter(FilteredList<ProblematicPacketTableItem> lostPackets) {

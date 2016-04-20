@@ -10,6 +10,7 @@ import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.ale
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SplashPreLoader;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -100,11 +101,16 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     public void cancel() {
-        Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
 
-        if (result.get() == ButtonType.OK) {
-            showOverview(txtClientName.getScene(), null);
-        }
+                if (result.get() == ButtonType.OK) {
+                    showOverview(txtClientName.getScene(), null);
+                }
+            }
+        });
     }
 
     public void addPacket() {

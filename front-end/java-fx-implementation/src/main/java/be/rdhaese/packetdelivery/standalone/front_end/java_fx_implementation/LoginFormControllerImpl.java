@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.context.Theme;
 
@@ -28,6 +29,9 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
 
     @Autowired
     private OptionsWebService optionsService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @FXML
     Label lblCompanyName;
@@ -47,7 +51,8 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
     public void authenticate() {
         clearErrors();
         if (isInputValid()) {
-            switch (authenticationService.authenticate(txtUsername.getText(), txtPassword.getText())) {
+            String encryptedPassword = passwordEncoder.encode(txtPassword.getText());
+            switch (authenticationService.authenticate(txtUsername.getText(), encryptedPassword)) {
                 case "GRANTED":
                     //First load options for user
                     OptionsDTO optionsDTO = optionsService.getFor(txtUsername.getText());

@@ -3,6 +3,8 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.co
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -44,5 +46,10 @@ public class FrontEndConfig {
     @Bean
     public DateFormat dateFormat() {
         return new SimpleDateFormat(DATE_PATTERN);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder(11);
     }
 }

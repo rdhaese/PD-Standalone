@@ -22,15 +22,13 @@ public class ProblematicPacketsProxyRestWebService extends AbstractService imple
 
     @Override
     public Collection<PacketDTO> getProblematicPackets() {
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<PacketDTO[]> response = restTemplate.getForEntity(getUris().getProblematicPacketsPath(), PacketDTO[].class);
+        ResponseEntity<PacketDTO[]> response = getRestTemplate().getForEntity(getUris().getProblematicPacketsPath(), PacketDTO[].class);
         return Arrays.asList(response.getBody());
     }
 
     @Override
     public PacketDTO getProblematicPacket(String packetId) {
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<PacketDTO> response = restTemplate.getForEntity(getUris().getProblematicPacketPath(), PacketDTO.class, packetId);
+        ResponseEntity<PacketDTO> response = getRestTemplate().getForEntity(getUris().getProblematicPacketPath(), PacketDTO.class, packetId);
         return response.getBody();
     }
 

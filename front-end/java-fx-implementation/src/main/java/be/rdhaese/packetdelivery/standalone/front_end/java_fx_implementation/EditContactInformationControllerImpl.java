@@ -9,12 +9,16 @@ import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.lis
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.FaxNumberListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.list_item.PhoneNumberListItem;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import javafx.scene.input.KeyEvent;
 import java.net.URL;
 import java.util.Map;
 import java.util.Optional;
@@ -76,6 +80,13 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                txtCompanyName.requestFocus();
+            }
+        });
+
         ContactDetailsDTO contactDetailsDTO = contactInformationService.get();
         if (contactDetailsDTO != null) {
             txtCompanyName.setText(contactDetailsDTO.getCompanyName());
@@ -104,6 +115,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             lvPhoneNumbers.getItems().add(phoneNumberListItem);
         }
         addContextMenu(lvPhoneNumbers);
+        addDeleteButtonListener(lvPhoneNumbers);
     }
 
     private void initializeFaxNumbers(ContactDetailsDTO contactDetailsDTO) {
@@ -114,6 +126,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             lvFaxNumbers.getItems().add(faxNumberListItem);
         }
         addContextMenu(lvFaxNumbers);
+        addDeleteButtonListener(lvFaxNumbers);
     }
 
     private void initializeEmailAddresses(ContactDetailsDTO contactDetailsDTO) {
@@ -124,6 +137,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             lvEmailAdresses.getItems().add(emailAddressListItem);
         }
         addContextMenu(lvEmailAdresses);
+        addDeleteButtonListener(lvEmailAdresses);
     }
 
     private void addContextMenu(ListView<?> listView) {
@@ -131,6 +145,17 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         menuItem.setOnAction(new RemoveListItemAction(listView));
         contextMenu = new ContextMenu(menuItem);
         listView.setContextMenu(contextMenu);
+    }
+
+    private void addDeleteButtonListener(ListView<?> listView) {
+        listView.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if ((KeyCode.DELETE.equals(event.getCode())) && (!listView.getSelectionModel().isEmpty())) {
+                    listView.getItems().remove(listView.getSelectionModel().getSelectedIndex());
+                }
+            }
+        });
     }
 
     public void save() {
@@ -168,7 +193,6 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private boolean validateInput(ContactDetailsDTO contactDetailsDTO) {
-        //TODO better validation
         return validateCompanyName(contactDetailsDTO)
                 & validateStreet(contactDetailsDTO)
                 & validateNumber(contactDetailsDTO)
@@ -336,7 +360,6 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     public void addFaxNumber() {
-        //TODO validate input ->  number format
         FaxNumberListItem faxNumberListItem = new FaxNumberListItem(messageSource);
         if (validateInput(faxNumberListItem)) {
             int index;

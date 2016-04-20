@@ -1,107 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveriesController">
+<?import javafx.scene.text.Font?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveriesController">
     <top>
-        <ToolBar fx:id="menuPlaceHolder" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        <ToolBar fx:id="menuPlaceHolder" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
     </top>
 
 
     <bottom>
         <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="14.0" layoutY="4.0" text="%toolbar.loggedInAs" />
+                <Label layoutX="14.0" layoutY="4.0" text="%toolbar.loggedInAs"/>
                 <Label fx:id="lblLoggedInUsername" layoutX="109.0" layoutY="4.0" text="loggedInUsername">
                     <font>
-                        <Font name="System Italic" size="15.0" />
+                        <Font name="System Italic" size="15.0"/>
                     </font>
                 </Label>
-                <Label fx:id="lblMessage" visible="false" AnchorPane.rightAnchor="5.0" />
+                <Label fx:id="lblMessage" visible="false" AnchorPane.rightAnchor="5.0"/>
             </children>
         </AnchorPane>
     </bottom>
+
     <center>
+
         <BorderPane>
+
             <top>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                     <children>
-                        <Label text="%problematicDeliveries.title" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                        <Label text="%problematicDeliveries.title" GridPane.halignment="LEFT"
+                               GridPane.valignment="CENTER">
                             <font>
-                                <Font name="System Bold" size="18.0" />
+                                <Font name="System Bold" size="18.0"/>
                             </font>
                             <GridPane.margin>
-                                <Insets left="10.0" top="10.0" />
+                                <Insets left="10.0" top="10.0"/>
                             </GridPane.margin>
                         </Label>
-                        <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                        <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1"/>
                     </children>
                 </GridPane>
             </top>
-         <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-                      <TableView fx:id="tvProblematicPackets" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                          <columns>
-                              <TableColumn fx:id="tcPacketId" prefWidth="150.0" text="%problematicDeliveries.table.id" />
-                              <TableColumn fx:id="tcDateMarkedAsProblematic" editable="false" minWidth="0.0" prefWidth="158.0" text="%problematicDeliveries.table.dateMarkedAsProblematic" />
-                              <TableColumn fx:id="tcClient" editable="false" minWidth="0.0" prefWidth="183.0" sortable="false" text="%problematicDeliveries.table.client" />
-                              <TableColumn fx:id="tcDelivery" editable="false" minWidth="0.0" prefWidth="158.0" sortable="false" text="%problematicDeliveries.table.delivery" />
-                          </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                      </TableView>
-               </center>
-               <top>
-                  <HBox BorderPane.alignment="CENTER">
-                     <children>
-                        <Label text="%problematicDeliveries.filterOnId">
-                           <graphic>
-                              <TextField fx:id="txtIdFilter" />
-                           </graphic>
-                        </Label>
-                        <HBox maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Button fx:id="btnRefresh" maxHeight="1.7976931348623157E308" maxWidth="50.0" mnemonicParsing="false" onAction="#refresh" prefWidth="50.0" style="-fx-background-image: url('/img/refresh.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets bottom="2.0" top="2.0" />
-                                 </padding>
-                              </Button>
-                           </children>
-                        </HBox>
-                     </children>
-                     <BorderPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </BorderPane.margin>
-                  </HBox>
-               </top>
-            </BorderPane>
-         </center>
-         <bottom>
 
-                  <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel" text="%button.cancel" BorderPane.alignment="CENTER_RIGHT">
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </BorderPane.margin>
-            </Button>
-         </bottom>
+            <center>
+
+                <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <top>
+                        <HBox BorderPane.alignment="CENTER">
+                            <children>
+                                <Label text="%problematicDeliveries.filterOnId">
+                                    <graphic>
+                                        <TextField fx:id="txtIdFilter"/>
+                                    </graphic>
+                                </Label>
+                                <HBox maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT"
+                                      HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Button fx:id="btnRefresh" maxHeight="1.7976931348623157E308" maxWidth="50.0"
+                                                mnemonicParsing="false" onAction="#refresh" prefWidth="50.0"
+                                                style="-fx-background-image: url('/img/refresh.png'); -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets bottom="2.0" top="2.0"/>
+                                            </padding>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </BorderPane.margin>
+                        </HBox>
+                    </top>
+
+                    <center>
+                        <TableView fx:id="tvProblematicPackets" editable="true" prefHeight="200.0" prefWidth="200.0"
+                                   BorderPane.alignment="CENTER">
+                            <columns>
+                                <TableColumn fx:id="tcPacketId" prefWidth="150.0"
+                                             text="%problematicDeliveries.table.id"/>
+                                <TableColumn fx:id="tcDateMarkedAsProblematic" editable="false" minWidth="0.0"
+                                             prefWidth="158.0"
+                                             text="%problematicDeliveries.table.dateMarkedAsProblematic"/>
+                                <TableColumn fx:id="tcClient" editable="false" minWidth="0.0" prefWidth="183.0"
+                                             sortable="false" text="%problematicDeliveries.table.client"/>
+                                <TableColumn fx:id="tcDelivery" editable="false" minWidth="0.0" prefWidth="158.0"
+                                             sortable="false" text="%problematicDeliveries.table.delivery"/>
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                        </TableView>
+                    </center>
+
+                </BorderPane>
+            </center>
+
+            <bottom>
+
+                <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="true" onAction="#cancel"
+                        text="%button.cancel" BorderPane.alignment="CENTER_RIGHT">
+                    <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </BorderPane.margin>
+                </Button>
+            </bottom>
+
         </BorderPane>
+
     </center>
+
 </BorderPane>

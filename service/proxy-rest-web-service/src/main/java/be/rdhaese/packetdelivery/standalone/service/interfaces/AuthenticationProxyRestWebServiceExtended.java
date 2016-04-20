@@ -16,7 +16,7 @@ public class AuthenticationProxyRestWebServiceExtended extends AbstractService i
     private String loggedInUser = null;
 
     public String authenticate(String username, String password) {
-        String authenticationResponse = getRestTemplate().getForObject(getUris().getAuthenticatePath(), String.class, username, password);
+        String authenticationResponse = getRestTemplate().postForObject(getUris().getAuthenticatePath(), password, String.class, username);
         if ("GRANTED".equals(authenticationResponse)) {
             loggedInUser = username;
         }

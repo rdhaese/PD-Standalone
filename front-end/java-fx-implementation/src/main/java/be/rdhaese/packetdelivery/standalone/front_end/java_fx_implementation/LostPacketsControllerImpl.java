@@ -6,6 +6,7 @@ import be.rdhaese.packetdelivery.standalone.front_end.interfaces.LostPacketsCont
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.StringAsDateComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.table_item.LostPacketTableItem;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -13,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,10 +56,19 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
     private TextField txtIdFilter;
     @FXML
     private Button btnRefresh;
+    @FXML
+    private Button btnSave;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.initialize(location, resources);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                txtIdFilter.requestFocus();
+            }
+        });
 
         initializeTableColumns();
         FilteredList<LostPacketTableItem> lostPackets = insertItemsFromBackEnd();
@@ -66,14 +77,42 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
         btnRefresh.getParent().setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                btnRefresh.fire();
+                if (KeyCode.F5.equals(event.getCode())) {
+                    btnRefresh.fire();
+                }
+            }
+        });
+
+
+        btnSave.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyCode.SHIFT.equals(event.getCode())){
+                    tvLostPackets.requestFocus();
+                }
             }
         });
 
         tvLostPackets.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                btnRefresh.fire();
+                if (KeyCode.F5.equals(event.getCode())) {
+                    btnRefresh.fire();
+                } else if ((KeyCode.R.equals(event.getCode())) && (!tvLostPackets.getSelectionModel().isEmpty())) {
+                    LostPacketTableItem selectedItem = tvLostPackets.getSelectionModel().getSelectedItem();
+                    if (selectedItem.getRemove()) {
+                        selectedItem.setRemove(false);
+                    } else {
+                        selectedItem.setRemove(true);
+                    }
+                } else if ((KeyCode.F.equals(event.getCode())) && (!tvLostPackets.getSelectionModel().isEmpty())) {
+                    LostPacketTableItem selectedItem = tvLostPackets.getSelectionModel().getSelectedItem();
+                    if (selectedItem.getFound()) {
+                        selectedItem.setFound(false);
+                    } else {
+                        selectedItem.setFound(true);
+                    }
+                }
             }
         });
     }
@@ -109,15 +148,34 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
         tcClient.setCellValueFactory(f -> f.getValue().clientProperty());
         tcDelivery.setCellValueFactory(f -> f.getValue().deliveryProperty());
         tcFound.setCellValueFactory(f -> f.getValue().foundProperty());
-        tcFound.setCellFactory(tc -> new CheckBoxTableCell<>());
+        tcFound.setCellFactory(tc -> new NonFocusableCheckBoxTableCell<>());
         tcRemove.setCellValueFactory(f -> f.getValue().removeProperty());
-        tcRemove.setCellFactory(tc -> new CheckBoxTableCell<>());
+        tcRemove.setCellFactory(tc -> new NonFocusableCheckBoxTableCell<>());
         tvLostPackets.getSortOrder().add(tcDateMarkedAsLost);
+    }
+
+    private class NonFocusableCheckBoxTableCell<S, T> extends CheckBoxTableCell<S, T> {
+        public NonFocusableCheckBoxTableCell(){
+            //Does the trick in most cases, but not in the use case we are using the cell in.
+            setFocusTraversable(false);
+            //So add a key listener that acts when the tab key is released
+            //This works because the checkbox got focus from the table when the tab key is pressed
+            //The focus on the checkbox is visible for a split second, but the best I can do in a small amount of time
+            //When the tab key is pressed, set focus to btnSave
+            setOnKeyReleased(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent event) {
+                    if (KeyCode.TAB.equals(event.getCode())) {
+                        btnSave.requestFocus();
+                    }
+                }
+            });
+        }
     }
 
     private Collection<LostPacketTableItem> mapToTableItems(Collection<PacketDTO> lostPackets) {
         List<LostPacketTableItem> lostPacketTableItems = new ArrayList<>();
-        for (PacketDTO lostPacket : lostPackets){
+        for (PacketDTO lostPacket : lostPackets) {
             lostPacketTableItems.add(mapToTableItem(lostPacket));
         }
         return lostPacketTableItems;
@@ -164,17 +222,17 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
         //TODO perform selected actions
         List<String> foundPackets = new ArrayList<>();
         List<String> removedPackets = new ArrayList<>();
-        for (LostPacketTableItem lostPacketTableItem : tvLostPackets.getItems()){
-            if (lostPacketTableItem.getFound() == true){
+        for (LostPacketTableItem lostPacketTableItem : tvLostPackets.getItems()) {
+            if (lostPacketTableItem.getFound() == true) {
                 foundPackets.add(lostPacketTableItem.getPacketId());
-            } else if (lostPacketTableItem.getRemove() == true){
+            } else if (lostPacketTableItem.getRemove() == true) {
                 removedPackets.add(lostPacketTableItem.getPacketId());
             }
         }
-        if (foundPackets.size() > 0){
+        if (foundPackets.size() > 0) {
             lostPacketsService.markAsFound(foundPackets);
         }
-        if (removedPackets.size() > 0){
+        if (removedPackets.size() > 0) {
             lostPacketsService.removeFromSystem(removedPackets);
         }
         showOverview(lblLoggedInUsername.getScene(), getMessage("toolbar.message.lostPacketsActionsPerformed", new Object[]{foundPackets.size(), removedPackets.size()}));

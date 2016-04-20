@@ -9,6 +9,7 @@ import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeli
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.RegionDTOLocaleAwareToString.RegionDtoLocaleAwareToString;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -60,7 +61,13 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println(location);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                txtStreet.requestFocus();
+            }
+        });
+
         Collection<RegionDtoLocaleAwareToString> regions = new ArrayList<>();
         for (RegionDTO regionDTO : regionsService.regions()){
             regions.add(new RegionDtoLocaleAwareToString(LocaleContextHolder.getLocale(), regionDTO));
