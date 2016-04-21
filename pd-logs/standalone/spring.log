@@ -2115,3 +2115,10 @@ Caused by: java.lang.IllegalArgumentException: warning no match for this type na
 20/04/2016-17:31:06.628 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
 20/04/2016-17:34:14.927 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7ef27d7f: startup date [Wed Apr 20 17:34:14 CEST 2016]; root of context hierarchy
 20/04/2016-17:34:21.940 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+20/04/2016-19:30:31.755 [Thread-4] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@7ef27d7f: startup date [Wed Apr 20 17:34:14 CEST 2016]; root of context hierarchy
+20/04/2016-19:30:31.840 [Thread-4] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+20/04/2016-19:32:32.132 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4d339552: startup date [Wed Apr 20 19:32:32 CEST 2016]; root of context hierarchy
+21/04/2016-11:12:47.245 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@4d339552: startup date [Thu Apr 21 11:12:47 CEST 2016]; root of context hierarchy
+21/04/2016-11:12:52.187 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+21/04/2016-11:13:21.715 [Thread-2] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@4d339552: startup date [Thu Apr 21 11:12:47 CEST 2016]; root of context hierarchy
+21/04/2016-11:13:21.722 [Thread-2] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown

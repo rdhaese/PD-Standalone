@@ -1,6 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
-import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.LostPacketsWebService;
+import be.rdhaese.packetdelivery.back_end.web_service.interfaces.LostPacketsWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.LostPacketsController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;

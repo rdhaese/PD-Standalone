@@ -1,7 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
 
-import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.OptionsWebService;
+import be.rdhaese.packetdelivery.back_end.web_service.interfaces.OptionsWebService;
 import be.rdhaese.packetdelivery.dto.OptionsDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.LoginFormController;
 import javafx.fxml.FXML;

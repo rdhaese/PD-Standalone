@@ -1,6 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.service.interfaces;
 
-import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.ContactInformationWebService;
+import be.rdhaese.packetdelivery.back_end.web_service.interfaces.ContactInformationWebService;
 import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;
 import org.springframework.stereotype.Service;
 

@@ -43,7 +43,7 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     private MessageSource messageSource;
 
     @Override
-    @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.AddPacketWebService.addPacket(..))", returning = "packetId")
+    @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.back_end.web_service.interfaces.AddPacketWebService.addPacket(..))", returning = "packetId")
     public void afterAddingPacket(String packetId) {
         try {
             //Create the qr as image

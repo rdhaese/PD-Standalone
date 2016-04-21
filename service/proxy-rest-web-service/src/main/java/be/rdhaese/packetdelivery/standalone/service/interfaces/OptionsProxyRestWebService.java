@@ -1,6 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.service.interfaces;
 
-import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.OptionsWebService;
+import be.rdhaese.packetdelivery.back_end.web_service.interfaces.OptionsWebService;
 import be.rdhaese.packetdelivery.dto.OptionsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

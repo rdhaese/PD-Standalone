@@ -1,6 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.service.interfaces;
 
-import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.RegionsWebService;
+import be.rdhaese.packetdelivery.back_end.web_service.interfaces.RegionsWebService;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

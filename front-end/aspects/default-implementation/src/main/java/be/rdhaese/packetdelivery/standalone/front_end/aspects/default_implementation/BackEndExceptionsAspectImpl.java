@@ -33,7 +33,7 @@ public class BackEndExceptionsAspectImpl implements BackEndExceptionsAspect {
     private MessageSource messageSource;
 
     @Override
-    @Around("execution(* be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.*.*(..))")
+    @Around("execution(* be.rdhaese.packetdelivery.back_end.web_service.interfaces.*.*(..))")
     public Object showDialogOnExceptionAndExit(ProceedingJoinPoint joinPoint) {
         Object value = null;
         try {

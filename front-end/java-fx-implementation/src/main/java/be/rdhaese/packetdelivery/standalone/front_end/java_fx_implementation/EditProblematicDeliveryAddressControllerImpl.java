@@ -1,7 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 
-import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.ProblematicPacketsWebService;
-import be.rdhaese.packetdelivery.back_end.application.web_service.interfaces.RegionsWebService;
+import be.rdhaese.packetdelivery.back_end.web_service.interfaces.ProblematicPacketsWebService;
+import be.rdhaese.packetdelivery.back_end.web_service.interfaces.RegionsWebService;
 import be.rdhaese.packetdelivery.dto.DeliveryAddressDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.EditProblematicDeliveryAddressController;

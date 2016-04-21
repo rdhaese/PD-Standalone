@@ -597,3 +597,8 @@
 20/04/2016-17:34:14.453 [main] INFO  b.r.p.s.application.java_fx.App - Starting App on WP2039 with PID 14844 (C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone\application\java-fx\target\classes started by RDEAX37 in C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone)
 20/04/2016-17:34:14.585 [main] INFO  b.r.p.s.application.java_fx.App - The following profiles are active: production
 20/04/2016-17:34:21.966 [main] INFO  b.r.p.s.application.java_fx.App - Started App in 9.266 seconds (JVM running for 10.874)
+20/04/2016-19:32:31.953 [main] INFO  b.r.p.s.application.java_fx.App - Starting App on WP2039 with PID 13952 (C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone\application\java-fx\target\classes started by RDEAX37 in C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone)
+20/04/2016-19:32:31.961 [main] INFO  b.r.p.s.application.java_fx.App - The following profiles are active: production
+21/04/2016-11:12:47.067 [main] INFO  b.r.p.s.application.java_fx.App - Starting App on WP2039 with PID 8844 (C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone\application\java-fx\target\classes started by RDEAX37 in C:\Users\rdeax37\Documents\School\Project\Implementatie\Standalone)
+21/04/2016-11:12:47.077 [main] INFO  b.r.p.s.application.java_fx.App - The following profiles are active: production
+21/04/2016-11:12:52.209 [main] INFO  b.r.p.s.application.java_fx.App - Started App in 5.942 seconds (JVM running for 8.086)
