@@ -9,6 +9,7 @@ import javafx.application.Preloader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -23,14 +24,13 @@ import org.springframework.context.annotation.*;
 @EnableAspectJAutoProxy
 public class App extends Application {
 
-    private static ApplicationContext applicationContext;
+    private static SpringApplication application;
 
     public static void main(String[] args) {
-        applicationContext = new SpringApplicationBuilder(App.class)
+        application = new SpringApplicationBuilder(App.class)
                 .headless(false)
                 .profiles("production")
-                .build()
-                .run(args);
+                .build();
         LauncherImpl.launchApplication(App.class, SplashPreLoader.class, args);
     }
 
@@ -39,7 +39,9 @@ public class App extends Application {
     @Override
     public void init() throws Exception {
         LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(0.25));
-        SpringFxmlLoader loader = applicationContext.getBean(SpringFxmlLoader.class);
+        String[] args = new String[getParameters().getRaw().size()];
+        getParameters().getRaw().toArray(args);
+        SpringFxmlLoader loader = application.run(args).getBean(SpringFxmlLoader.class);
         Parent root = (Parent) loader.load(FXMLS.LOGIN_FORM.toString());
         LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(0.50));
         scene = new Scene(root, 1024, 768);
