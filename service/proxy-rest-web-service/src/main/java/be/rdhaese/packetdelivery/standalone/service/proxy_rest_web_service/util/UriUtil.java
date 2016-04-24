@@ -1,6 +1,6 @@
-package be.rdhaese.packetdelivery.standalone.service.interfaces.util;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.util;
 
-import be.rdhaese.packetdelivery.standalone.service.interfaces.properties.BackEndProperties;
+import be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.properties.BackEndProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

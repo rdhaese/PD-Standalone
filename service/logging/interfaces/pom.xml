@@ -14,14 +14,6 @@
 
   <packaging>jar</packaging>
 
-  <name>interfaces</name>
-
-  <dependencies>
-    <dependency>
-      <groupId>be.rdhaese.packetdelivery.standalone.service</groupId>
-      <artifactId>interfaces</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
+  <name>standalone-service-logging-interfaces</name>
   
 </project>

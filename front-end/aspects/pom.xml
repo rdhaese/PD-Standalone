@@ -19,5 +19,5 @@
 
   <packaging>pom</packaging>
 
-  <name>aspects</name>
+  <name>standalone-front-end-aspects</name>
 </project>

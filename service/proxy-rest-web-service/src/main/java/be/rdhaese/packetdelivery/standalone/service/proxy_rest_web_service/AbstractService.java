@@ -1,6 +1,6 @@
-package be.rdhaese.packetdelivery.standalone.service.interfaces;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service;
 
-import be.rdhaese.packetdelivery.standalone.service.interfaces.util.UriUtil;
+import be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.util.UriUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 

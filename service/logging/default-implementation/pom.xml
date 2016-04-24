@@ -14,7 +14,7 @@
 
   <packaging>jar</packaging>
 
-  <name>interfaces</name>
+  <name>standalone-service-logging-default-implementation</name>
 
   <dependencies>
     <dependency>

@@ -13,6 +13,8 @@
     <artifactId>java-fx</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
+    <name>standalone-application-java-fx</name>
+
     <dependencies>
         <dependency>
             <groupId>be.rdhaese.packetdelivery.standalone.front-end</groupId>
@@ -27,6 +29,11 @@
 		<dependency>
             <groupId>be.rdhaese.packetdelivery.standalone.service</groupId>
             <artifactId>proxy-rest-web-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>be.rdhaese.packetdelivery.standalone.service.logging</groupId>
+            <artifactId>default-implementation</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.service.interfaces.config;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

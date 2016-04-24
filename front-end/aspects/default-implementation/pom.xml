@@ -14,7 +14,7 @@
 
   <packaging>jar</packaging>
 
-  <name>aspects</name>
+  <name>standalone-front-end-aspects-default-implementation</name>
 
   <dependencies>
     <dependency>

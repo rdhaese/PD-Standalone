@@ -20,5 +20,5 @@
 
   <packaging>pom</packaging>
 
-  <name>service</name>
+  <name>standalone-service</name>
 </project>

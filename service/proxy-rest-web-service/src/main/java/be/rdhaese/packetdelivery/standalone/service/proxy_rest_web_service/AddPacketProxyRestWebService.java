@@ -1,10 +1,8 @@
-package be.rdhaese.packetdelivery.standalone.service.interfaces;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service;
 
 import be.rdhaese.packetdelivery.back_end.web_service.interfaces.AddPacketWebService;
 import be.rdhaese.packetdelivery.dto.PacketDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * Created on 30/12/2015.

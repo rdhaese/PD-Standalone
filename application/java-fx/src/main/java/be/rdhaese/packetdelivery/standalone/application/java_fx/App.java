@@ -12,24 +12,20 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.*;
 
 /**
  * Created on 30/12/2015.
  *
  * @author Robin D'Haese
  */
-@SpringBootApplication (scanBasePackages = "be.rdhaese.packetdelivery.standalone")
-@EnableAspectJAutoProxy
+@SpringBootApplication(scanBasePackages = "be.rdhaese.packetdelivery.standalone")
 public class App extends Application {
 
     private static SpringApplication application;
 
     public static void main(String[] args) {
         application = new SpringApplicationBuilder(App.class)
-                .headless(false)
-                .profiles("production")
+                .headless(false) // Not (yet, small change in framework, working on pull request) possible to specify in application.properties
                 .build();
         LauncherImpl.launchApplication(App.class, SplashPreLoader.class, args);
     }

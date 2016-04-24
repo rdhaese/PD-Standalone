@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.service.interfaces;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service;
 
 import be.rdhaese.packetdelivery.back_end.web_service.interfaces.ContactInformationWebService;
 import be.rdhaese.packetdelivery.dto.ContactDetailsDTO;

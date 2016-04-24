@@ -1,9 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.service.logging.default_implementation;
 
 import be.rdhaese.packetdelivery.dto.PacketDTO;
-
 import be.rdhaese.packetdelivery.standalone.service.logging.interfaces.AddPacketLogger;
-import be.rdhaese.packetdelivery.standalone.service.interfaces.AuthenticationWebServiceExtended;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,24 +17,26 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Aspect
-public class AddPacketLoggerImpl implements AddPacketLogger {
+public class AddPacketLoggerImpl extends AbstractLogger implements AddPacketLogger {
 
     @Autowired
-    @Qualifier("addPacketLoggerBean")
+    @Qualifier("addPacketLogger")
     private Logger logger;
-
-    @Autowired
-    private AuthenticationWebServiceExtended authenticationService;
 
     @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.back_end.web_service.interfaces.AddPacketWebService.addPacket(..))",
             returning = "packetId")
     public void afterAddingPacket(JoinPoint joinPoint, String packetId) {
-        String client = ((PacketDTO) joinPoint.getArgs()[0]).getClientName();
-        logger.info(
-                String.format("Packet added by: %s; For client: %s; With id: %s",
-                       authenticationService.getLoggedInUser(),
-                        client, packetId
-                )
+        PacketDTO packetDTO = getArg(joinPoint, 0);
+        String logText = String.format(
+                "Packet added by: [%s]; For client: [%s]; With id: [%s]",
+                getLoggedInUser(),
+                packetDTO.getClientName(), packetId
         );
+        info(logText);
+    }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
     }
 }

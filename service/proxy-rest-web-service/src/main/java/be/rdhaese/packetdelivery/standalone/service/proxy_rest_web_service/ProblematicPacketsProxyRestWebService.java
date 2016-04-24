@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.service.interfaces;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service;
 
 import be.rdhaese.packetdelivery.back_end.web_service.interfaces.ProblematicPacketsWebService;
 import be.rdhaese.packetdelivery.dto.DeliveryAddressDTO;
@@ -6,7 +6,6 @@ import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.dto.RegionDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.Collection;

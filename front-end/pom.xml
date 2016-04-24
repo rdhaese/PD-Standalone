@@ -20,5 +20,5 @@
 
   <packaging>pom</packaging>
 
-  <name>front-end</name>
+  <name>standalone-front-end</name>
 </project>

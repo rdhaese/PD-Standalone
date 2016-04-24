@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.service.interfaces.properties;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author Robin D'Haese
  */
 @Component
-@ConfigurationProperties(locations = "classpath:back-end.properties")
+@ConfigurationProperties(prefix="back_end")
 public class BackEndProperties {
     private String ip;
     private String port;

@@ -19,5 +19,5 @@
 
 	<packaging>pom</packaging>
 
-	<name>application</name>
+	<name>standalone-application</name>
 </project>

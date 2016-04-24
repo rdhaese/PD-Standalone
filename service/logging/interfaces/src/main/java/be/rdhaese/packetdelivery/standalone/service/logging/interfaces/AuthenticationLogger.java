@@ -8,5 +8,6 @@ import org.aspectj.lang.JoinPoint;
  * @author Robin D'Haese
  */
 public interface AuthenticationLogger {
-    void afterAuthenticationAttempt(JoinPoint joinPoint, boolean loggedIn);
+    void afterAuthenticate(JoinPoint joinPoint, String authenticationResult);
+    void beforeLogout(JoinPoint joinPoint);
 }

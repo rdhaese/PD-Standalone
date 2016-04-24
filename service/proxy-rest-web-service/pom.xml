@@ -14,7 +14,7 @@
 
   <packaging>jar</packaging>
 
-  <name>proxy-rest-web-service</name>
+  <name>standalone-service-proxy-rest-web-service</name>
 
   <dependencies>
     <dependency>

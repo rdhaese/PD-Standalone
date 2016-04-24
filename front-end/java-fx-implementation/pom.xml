@@ -14,7 +14,7 @@
 
   <packaging>jar</packaging>
 
-  <name>java-fx-implementation</name>
+  <name>standalone-front-end-java-fx-implementation</name>
 
   <dependencies>
     <dependency>
