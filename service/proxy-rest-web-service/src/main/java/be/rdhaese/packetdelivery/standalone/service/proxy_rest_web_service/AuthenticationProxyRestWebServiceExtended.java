@@ -1,6 +1,7 @@
 package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service;
 
 
+import be.rdhaese.packetdelivery.standalone.service.interfaces.AuthenticationWebServiceExtended;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +15,7 @@ public class AuthenticationProxyRestWebServiceExtended extends AbstractService i
     private String loggedInUser = null;
 
     public String authenticate(String username, String password) {
-        String authenticationResponse = getRestTemplate().postForObject(getUris().getAuthenticatePath(), password, String.class, username);
+        String authenticationResponse = getRestTemplate().postForObject(getBackEndProperties().getUris().getAuthenticate(), password, String.class, username);
         if ("GRANTED".equals(authenticationResponse)) {
             loggedInUser = username;
         }

@@ -113,7 +113,6 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
         lblDeliveryCity.setText(problematicPacket.getDeliveryCity());
         lblDeliveryPostalCode.setText(problematicPacket.getDeliveryPostalCode());
         String deliveryRegionName;
-        //TODO test if this works...
         Locale locale = LocaleContextHolder.getLocale();
         if (Locale.forLanguageTag("nl").equals(locale)){
             deliveryRegionName = problematicPacket.getDeliveryRegionNameNl();
@@ -165,11 +164,10 @@ public class ProblematicDeliveryControllerImpl extends AbstractWithMenuAndStatus
       Collection<RegionDtoLocaleAwareToString> regions = RegionDtoLocaleAwareToString.mapCollection(regionService.regions(), LocaleContextHolder.getLocale());
 
         ChoiceDialog<RegionDtoLocaleAwareToString> dialog = new ChoiceDialog<>(null, regions);
-        dialog.setTitle("Pick Region"); //TODO i18n
-        dialog.setHeaderText("The delivery address you are setting, needs a region");
-        dialog.setContentText("Pick a region: ");
+        dialog.setTitle(getMessage("askForRegion.title"));
+        dialog.setHeaderText(getMessage("askForRegion.header"));
+        dialog.setContentText(getMessage("askForRegion.content"));
 
-// Traditional way to get the response value.
         Optional<RegionDtoLocaleAwareToString> selectedRegion = dialog.showAndWait();
         if (selectedRegion.isPresent()){
             problematicPacketsService.returnToSender(currentPacket, selectedRegion.get());

@@ -57,8 +57,8 @@
             <appender-ref ref="STDOUT" />
         </root>
 
-        <logger name="be.rdhaese.packetdelivery.standalone.service.logging" level="INFO">
-            <appender-ref ref="PACKET_DELIVERY_FILE" />
+        <logger name="be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.logging" level="DEBUG">
+            <appender-ref ref="DEBUG_PACKET_DELIVERY_FILE" />
         </logger>
 
         <logger name="org.springframework" level="WARN" />
@@ -71,8 +71,8 @@
             <appender-ref ref="STDOUT" />
         </root>
 
-        <logger name="be.rdhaese.packetdelivery.standalone.service.logging" level="INFO">
-            <appender-ref ref="DEV_PACKET_DELIVERY_FILE" />
+        <logger name="be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.logging" level="DEBUG">
+            <appender-ref ref="DEBUG_PACKET_DELIVERY_FILE" />
         </logger>
 
         <logger name="org.springframework" level="INFO" />
@@ -85,7 +85,7 @@
             <appender-ref ref="STDOUT" />
         </root>
 
-        <logger name="be.rdhaese.packetdelivery.standalone.service.logging" level="DEBUG">
+        <logger name="be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.logging" level="DEBUG">
             <appender-ref ref="DEBUG_PACKET_DELIVERY_FILE" />
         </logger>
 

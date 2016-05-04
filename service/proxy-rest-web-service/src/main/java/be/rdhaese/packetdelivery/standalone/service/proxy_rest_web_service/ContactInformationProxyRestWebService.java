@@ -13,16 +13,16 @@ import org.springframework.stereotype.Service;
 public class ContactInformationProxyRestWebService extends AbstractService implements ContactInformationWebService {
 
     public ContactDetailsDTO get() {
-        return getRestTemplate().getForEntity(getUris().getContactInformationPath(), ContactDetailsDTO.class).getBody();
+        return getRestTemplate().getForEntity(getBackEndProperties().getUris().getContactInformation(), ContactDetailsDTO.class).getBody();
     }
 
     @Override
     public boolean post(ContactDetailsDTO contactDetailsDTO) {
-        return getRestTemplate().postForObject(getUris().getSaveContactInformationPath(), contactDetailsDTO, boolean.class);
+        return getRestTemplate().postForObject(getBackEndProperties().getUris().getSaveContactInformation(), contactDetailsDTO, boolean.class);
     }
 
     @Override
     public String getCompanyName() {
-        return getRestTemplate().getForObject(getUris().getCompanyNamePath(), String.class);
+        return getRestTemplate().getForObject(getBackEndProperties().getUris().getCompanyName(), String.class);
     }
 }

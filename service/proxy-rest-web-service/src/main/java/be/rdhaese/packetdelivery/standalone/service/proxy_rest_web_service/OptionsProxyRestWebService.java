@@ -14,11 +14,11 @@ public class OptionsProxyRestWebService extends AbstractService implements Optio
 
     @Override
     public OptionsDTO getFor(String username) {
-        return getRestTemplate().getForObject(getUris().getOptionsPath(), OptionsDTO.class, username);
+        return getRestTemplate().getForObject(getBackEndProperties().getUris().getOptions(), OptionsDTO.class, username);
     }
 
     @Override
     public Boolean save(OptionsDTO optionsDTO) {
-        return getRestTemplate().postForObject(getUris().getOptionsSavePath(), optionsDTO, Boolean.class);
+        return getRestTemplate().postForObject(getBackEndProperties().getUris().getOptionsSave(), optionsDTO, Boolean.class);
     }
 }

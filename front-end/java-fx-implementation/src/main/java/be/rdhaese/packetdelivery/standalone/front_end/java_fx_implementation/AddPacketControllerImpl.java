@@ -8,24 +8,15 @@ import be.rdhaese.packetdelivery.standalone.front_end.interfaces.AddPacketContro
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.RegionDTOLocaleAwareToString.RegionDtoLocaleAwareToString;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
-import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loader.SplashPreLoader;
-import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.validation.Validator;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.from_url.FromUrlResultHolder;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.*;
 
@@ -38,12 +29,15 @@ import java.util.*;
 public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarController implements AddPacketController {
 
     private static final String COMBOBOX_ERROR_STYLE_CLASS = "cberror";
+    public static final String PACKET_STATUS_NORMAL = "NORMAL";
     @Autowired
     private AddPacketWebService addPacketService;
     @Autowired
     private RegionsWebService regionsService;
     @Autowired
     private AlertTool alertTool;
+    @Autowired
+    private FromUrlResultHolder fromUrlResultHolder;
 
     @FXML
     private TextField txtClientName;
@@ -86,17 +80,37 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.initialize(location, resources);
-        if (cmbbxDeliveryRegion == null){
+        if (cmbbxDeliveryRegion == null) {
             cmbbxDeliveryRegion = new ComboBox<>();
         }
         Collection<RegionDtoLocaleAwareToString> regions = new ArrayList<>();
-        for (RegionDTO regionDTO : regionsService.regions()){
+        for (RegionDTO regionDTO : regionsService.regions()) {
             regions.add(new RegionDtoLocaleAwareToString(LocaleContextHolder.getLocale(), regionDTO));
         }
         cmbbxDeliveryRegion.getItems().addAll(regions);
+
+
+        txtClientName.textProperty().bindBidirectional(fromUrlResultHolder.clientNameProperty());
+        txtClientPhone.textProperty().bindBidirectional(fromUrlResultHolder.clientPhoneProperty());
+        txtClientEmail.textProperty().bindBidirectional(fromUrlResultHolder.clientEmailProperty());
+        txtClientStreet.textProperty().bindBidirectional(fromUrlResultHolder.clientStreetProperty());
+        txtClientNumber.textProperty().bindBidirectional(fromUrlResultHolder.clientNumberProperty());
+        txtClientMailbox.textProperty().bindBidirectional(fromUrlResultHolder.clientMailboxProperty());
+        txtClientPostalCode.textProperty().bindBidirectional(fromUrlResultHolder.clientPostalCodeProperty());
+        txtClientCity.textProperty().bindBidirectional(fromUrlResultHolder.clientCityProperty());
+
+        txtDeliveryName.textProperty().bindBidirectional(fromUrlResultHolder.deliveryNameProperty());
+        txtDeliveryPhone.textProperty().bindBidirectional(fromUrlResultHolder.deliveryPhoneProperty());
+        txtDeliveryEmail.textProperty().bindBidirectional(fromUrlResultHolder.deliveryEmailProperty());
+        txtDeliveryStreet.textProperty().bindBidirectional(fromUrlResultHolder.deliveryStreetProperty());
+        txtDeliveryNumber.textProperty().bindBidirectional(fromUrlResultHolder.deliveryNumberProperty());
+        txtDeliveryMailbox.textProperty().bindBidirectional(fromUrlResultHolder.deliveryMailboxProperty());
+        txtDeliveryPostalCode.textProperty().bindBidirectional(fromUrlResultHolder.deliveryPostalCodeProperty());
+        txtDeliveryCity.textProperty().bindBidirectional(fromUrlResultHolder.deliveryCityProperty());
     }
 
     public void informationFromURL() {
+        cmbbxDeliveryRegion.requestFocus();
         showInNewWindow(FXMLS.FROM_URL, "fromUrl.title", 450, 100, false);
     }
 
@@ -107,6 +121,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
                 Optional<ButtonType> result = alertTool.getCancelAlert().showAndWait();
 
                 if (result.get() == ButtonType.OK) {
+                    clearFromUrlResultHolder();
                     showOverview(txtClientName.getScene(), null);
                 }
             }
@@ -116,12 +131,33 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     public void addPacket() {
         PacketDTO packetDTO = new PacketDTO();
         if (allInputIsValid(packetDTO)) {
-            packetDTO.setPacketStatus("NORMAL");
+            packetDTO.setPacketStatus(PACKET_STATUS_NORMAL);
             packetDTO.setStatusChangedOn(new Date());
             addPacketService.addPacket(packetDTO);
+            clearFromUrlResultHolder();
             showOverview(txtClientName.getScene(), getMessage("toolbar.message.packetAddedSuccessful"));
         }
         //Do nothing -> Keep showing form, so input can be corrected.
+    }
+
+    private void clearFromUrlResultHolder() {
+        fromUrlResultHolder.setClientName(null);
+        fromUrlResultHolder.setClientPhone(null);
+        fromUrlResultHolder.setClientEmail(null);
+        fromUrlResultHolder.setClientStreet(null);
+        fromUrlResultHolder.setClientNumber(null);
+        fromUrlResultHolder.setClientMailbox(null);
+        fromUrlResultHolder.setClientPostalCode(null);
+        fromUrlResultHolder.setClientCity(null);
+
+        fromUrlResultHolder.setDeliveryName(null);
+        fromUrlResultHolder.setDeliveryPhone(null);
+        fromUrlResultHolder.setDeliveryEmail(null);
+        fromUrlResultHolder.setDeliveryStreet(null);
+        fromUrlResultHolder.setDeliveryNumber(null);
+        fromUrlResultHolder.setDeliveryMailbox(null);
+        fromUrlResultHolder.setDeliveryPostalCode(null);
+        fromUrlResultHolder.setDeliveryCity(null);
     }
 
     private boolean allInputIsValid(PacketDTO packetDTO) {
@@ -195,7 +231,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateClientMailbox(PacketDTO packetDTO) {
-        if (validator.isValidMailbox(txtClientMailbox.getText())){
+        if (validator.isValidMailbox(txtClientMailbox.getText())) {
             packetDTO.setClientMailbox(txtClientMailbox.getText());
             removeErrorStyleIfNeeded(txtClientMailbox);
             return true;
@@ -275,7 +311,7 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
     }
 
     private boolean validateDeliveryMailbox(PacketDTO packetDTO) {
-        if (validator.isValidMailbox(txtDeliveryMailbox.getText())){
+        if (validator.isValidMailbox(txtDeliveryMailbox.getText())) {
             packetDTO.setClientMailbox(txtDeliveryMailbox.getText());
             removeErrorStyleIfNeeded(txtDeliveryMailbox);
             return true;

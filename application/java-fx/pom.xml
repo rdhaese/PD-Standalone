@@ -31,11 +31,6 @@
             <artifactId>proxy-rest-web-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>be.rdhaese.packetdelivery.standalone.service.logging</groupId>
-            <artifactId>default-implementation</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>

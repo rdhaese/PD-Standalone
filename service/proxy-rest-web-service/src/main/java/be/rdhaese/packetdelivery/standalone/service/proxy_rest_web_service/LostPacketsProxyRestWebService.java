@@ -19,17 +19,17 @@ public class LostPacketsProxyRestWebService extends AbstractService implements L
 
     @Override
     public Collection<PacketDTO> getLostPackets() {
-        ResponseEntity<PacketDTO[]> response = getRestTemplate().getForEntity(getUris().getLostPacketsPath(), PacketDTO[].class);
+        ResponseEntity<PacketDTO[]> response = getRestTemplate().getForEntity(getBackEndProperties().getUris().getLostPackets(), PacketDTO[].class);
         return Arrays.asList(response.getBody());
     }
 
     @Override
     public Boolean markAsFound(Collection<String> foundPackets) {
-        return getRestTemplate().postForEntity(getUris().getMarkLostPacketsAsFoundPath(), foundPackets, Boolean.class).getBody();
+        return getRestTemplate().postForEntity(getBackEndProperties().getUris().getMarkLostPacketsAsFound(), foundPackets, Boolean.class).getBody();
     }
 
     @Override
     public Boolean removeFromSystem(Collection<String> removedPackets) {
-        return getRestTemplate().postForEntity(getUris().getRemoveLostPacketsFromSystemPath(), removedPackets, Boolean.class).getBody();
+        return getRestTemplate().postForEntity(getBackEndProperties().getUris().getRemoveLostPacketsFromSystem(), removedPackets, Boolean.class).getBody();
     }
 }

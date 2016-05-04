@@ -27,6 +27,12 @@ import java.util.ResourceBundle;
 @Controller
 public class LoginFormControllerImpl extends AbstractInitializeableController implements LoginFormController {
 
+    public static final String AUTHENTICATION_RESULT_GRANTED = "GRANTED";
+    public static final String AUTHENTICATION_RESULT_WRONG_PASSWORD = "WRONG_PASSWORD";
+    public static final String AUTHENTICATION_RESULT_NOT_KNOWN = "NOT_KNOWN";
+    public static final String PROPERTY_KEY_PRINT = "print";
+    public static final String PROPERTY_KEY_IMAGE_VIEWER = "imageViewer";
+
     @Autowired
     private OptionsWebService optionsService;
 
@@ -44,16 +50,23 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String companyName = contactInformationService.getCompanyName();
+        String companyName = null;
+        try {
+            companyName = contactInformationService.getCompanyName();
+        } catch (Exception e) {
+            //Do nothing, exception should already be logged and handled by aspects
+            //Throw a runtime exception so this exception is not swallowed if for some reason the aspects are not working
+            throw new RuntimeException(e);
+        }
         lblCompanyName.setText(companyName);
     }
 
-    public void authenticate() {
+    public void authenticate() throws Exception{
         clearErrors();
         if (isInputValid()) {
             String encryptedPassword = passwordEncoder.encode(txtPassword.getText());
             switch (authenticationService.authenticate(txtUsername.getText(), encryptedPassword)) {
-                case "GRANTED":
+                case AUTHENTICATION_RESULT_GRANTED:
                     //First load options for user
                     OptionsDTO optionsDTO = optionsService.getFor(txtUsername.getText());
                     if (OptionsWebService.NL.equals(optionsDTO.getLanguage())) {
@@ -65,16 +78,16 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
                     } else {
                         Locale.setDefault(Locale.ENGLISH);
                     }
-                    System.setProperty("print", optionsDTO.getPrint().toString());
-                    System.setProperty("imageViewer", optionsDTO.getImageViewer().toString());
+                    System.setProperty(PROPERTY_KEY_PRINT, optionsDTO.getPrint().toString());
+                    System.setProperty(PROPERTY_KEY_IMAGE_VIEWER, optionsDTO.getImageViewer().toString());
                     //Show the overview
                     showOverview(lblErrorMessage.getScene(), null);
                     break;
-                case "WRONG_PASSWORD":
+                case AUTHENTICATION_RESULT_WRONG_PASSWORD:
                     markForError(txtPassword, "login.tooltip.password");
                     showErrorMessage("login.wrongPassword");
                     break;
-                case "NOT_KNOWN":
+                case AUTHENTICATION_RESULT_NOT_KNOWN:
                     markForError(txtUsername, "login.tooltip.username");
                     showErrorMessage("login.unknownUsername");
                     break;

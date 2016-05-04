@@ -38,14 +38,15 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     private static final String IMAGE_TEXT = "Packet ID";
     private static final String LOCATION_TO_SAVE = String.format("%s%spacket-delivery-system%scodes%s",
             System.getProperty("user.home"), File.separator, File.separator, File.separator);
+    public static final String PROPERTY_KEY_IMAGE_VIEWER = "imageViewer";
+    public static final String PROPERTY_KEY_PRINT = "print";
 
     @Autowired
     private MessageSource messageSource;
 
     @Override
     @AfterReturning(pointcut = "execution(* be.rdhaese.packetdelivery.back_end.web_service.interfaces.AddPacketWebService.addPacket(..))", returning = "packetId")
-    public void afterAddingPacket(String packetId) {
-        try {
+    public void afterAddingPacket(String packetId) throws Exception {
             //Create the qr as image
             BufferedImage image = createQRCodeImage(packetId);
 
@@ -54,7 +55,7 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
 
             //Check how user likes to handle qr-codes
             //never ask to print and don't print, ask before print or print automatically
-            switch (System.getProperty("print")){
+            switch (System.getProperty(PROPERTY_KEY_PRINT)){
                 case "0": //NEVER
                     break;
                 case "2": //PRINT
@@ -67,14 +68,11 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
             }
 
             //Show qr code in system image viewer if user wants this
-            String showInImageViewer = System.getProperty("imageViewer");
+            String showInImageViewer = System.getProperty(PROPERTY_KEY_IMAGE_VIEWER);
             if ("true".equals(showInImageViewer)) {
                 Desktop.getDesktop().open(qrCode);
             }
-        } catch (IOException ioe) {
-            //TODO log error
-            ioe.printStackTrace();
-        }
+
     }
 
     private void askForPrint(String packetID, File qrCode) throws IOException {
@@ -92,7 +90,7 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     }
 
     private File saveImage(String packetID, BufferedImage image) throws IOException {
-        File f = new File(String.format("%s%s.%s", LOCATION_TO_SAVE, packetID, IMAGE_EXTENSION)); //TODO, location on mac and linux? Should be known before presenting
+        File f = new File(String.format("%s%s.%s", LOCATION_TO_SAVE, packetID, IMAGE_EXTENSION));
         if (!f.exists()) {
             f.createNewFile();
         }

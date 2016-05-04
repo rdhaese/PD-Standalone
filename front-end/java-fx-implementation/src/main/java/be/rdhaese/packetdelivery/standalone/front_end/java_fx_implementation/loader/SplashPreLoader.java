@@ -22,13 +22,15 @@ import org.springframework.stereotype.Component;
 public class SplashPreLoader extends Preloader {
 
     public static final Image ICON = new Image(SplashPreLoader.class.getResourceAsStream("/img/icon.png"));
+    private static final String LOADING_TEXT = "Loading...";
+    private static final String LOADING_TEXT_FONT = "monospaced";
 
     Stage stage;
 
     private Scene createPreloaderScene() {
         ImageView imageView = new ImageView(ICON);
-        Label lblLoading = new Label("Loading..."); //TODO Internationalize
-        lblLoading.setFont(Font.font("monospaced", FontWeight.LIGHT, 24));
+        Label lblLoading = new Label(LOADING_TEXT);
+        lblLoading.setFont(Font.font(LOADING_TEXT_FONT, FontWeight.LIGHT, 24));
         BorderPane p = new BorderPane();
         p.setTop(lblLoading);
         p.setCenter(imageView);

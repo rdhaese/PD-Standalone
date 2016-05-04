@@ -16,6 +16,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -34,12 +35,12 @@ public class BackEndExceptionsAspectImpl implements BackEndExceptionsAspect {
 
     @Override
     @Around("execution(* be.rdhaese.packetdelivery.back_end.web_service.interfaces.*.*(..))")
+    @Order(1) //So logger aspects with order set to 2 will run inside this aspect, this way all logs are made
     public Object showDialogOnExceptionAndExit(ProceedingJoinPoint joinPoint) {
         Object value = null;
         try {
             value =  joinPoint.proceed();
         } catch (Throwable throwable) {
-            throwable.printStackTrace();
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {

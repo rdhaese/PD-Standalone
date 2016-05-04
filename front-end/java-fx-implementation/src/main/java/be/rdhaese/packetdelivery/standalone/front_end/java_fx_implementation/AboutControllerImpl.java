@@ -17,13 +17,14 @@ import java.util.ResourceBundle;
 public class AboutControllerImpl implements AboutController {
 
 
+    public static final String FILE_ABOUT_HTML = "/html/about.html";
     @FXML
     private WebView wvAbout;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String url = AboutControllerImpl.class.getResource("/html/about.html").toExternalForm();
+        String url = AboutControllerImpl.class.getResource(FILE_ABOUT_HTML).toExternalForm();
         wvAbout.getEngine().load(url);
         wvAbout.setContextMenuEnabled(false);
     }

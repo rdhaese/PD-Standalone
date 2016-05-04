@@ -87,7 +87,14 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             }
         });
 
-        ContactDetailsDTO contactDetailsDTO = contactInformationService.get();
+        ContactDetailsDTO contactDetailsDTO = null;
+        try {
+            contactDetailsDTO = contactInformationService.get();
+        } catch (Exception e) {
+            //Do nothing, exception should already be logged and handled by aspects
+            //Throw a runtime exception so this exception is not swallowed if for some reason the aspects are not working
+            throw new RuntimeException(e);
+        }
         if (contactDetailsDTO != null) {
             txtCompanyName.setText(contactDetailsDTO.getCompanyName());
             taAboutText.setText(contactDetailsDTO.getAboutText());
@@ -141,7 +148,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     private void addContextMenu(ListView<?> listView) {
-        MenuItem menuItem = new MenuItem("Remove");
+        MenuItem menuItem = new MenuItem(getMessage("menuItem.remove"));
         menuItem.setOnAction(new RemoveListItemAction(listView));
         contextMenu = new ContextMenu(menuItem);
         listView.setContextMenu(contextMenu);
@@ -158,7 +165,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
         });
     }
 
-    public void save() {
+    public void save() throws Exception{
         ContactDetailsDTO contactDetailsDTO = new ContactDetailsDTO();
         if (validateInput(contactDetailsDTO)) {
             addPhoneNumbersBeforeSave(contactDetailsDTO);
@@ -291,7 +298,6 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
     }
 
     public void addPhoneNumber() {
-        //TODO validate input ->  number format
         PhoneNumberListItem phoneNumberListItem = new PhoneNumberListItem(messageSource);
         if (validateInput(phoneNumberListItem)) {
             int index;

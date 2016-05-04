@@ -14,6 +14,9 @@ import java.util.Locale;
  */
 public class RegionDtoLocaleAwareToString extends RegionDTO {
 
+    public static final String LANUAGE_TAG_NL = "nl";
+    public static final String LANUAGE_TAG_FR = "fr";
+    public static final String LANUAGE_TAG_DE = "de";
     private Locale locale;
     private RegionDTO regionDTO;
 
@@ -72,12 +75,11 @@ public class RegionDtoLocaleAwareToString extends RegionDTO {
 
     @Override
     public String toString() {
-        //TODO test if this works...
-        if (Locale.forLanguageTag("nl").equals(locale)){
+        if (Locale.forLanguageTag(LANUAGE_TAG_NL).equals(locale)){
             return getNameNl();
-        } else if(Locale.forLanguageTag("fr").equals(locale)){
+        } else if(Locale.forLanguageTag(LANUAGE_TAG_FR).equals(locale)){
             return getNameFr();
-        } else if(Locale.forLanguageTag("de").equals(locale)){
+        } else if(Locale.forLanguageTag(LANUAGE_TAG_DE).equals(locale)){
             return getNameDe();
         } else {
             return  getNameEn();

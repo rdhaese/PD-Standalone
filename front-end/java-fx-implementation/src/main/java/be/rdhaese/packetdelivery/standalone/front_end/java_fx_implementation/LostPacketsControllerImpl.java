@@ -219,7 +219,6 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
 
     @Override
     public void save() {
-        //TODO perform selected actions
         List<String> foundPackets = new ArrayList<>();
         List<String> removedPackets = new ArrayList<>();
         for (LostPacketTableItem lostPacketTableItem : tvLostPackets.getItems()) {

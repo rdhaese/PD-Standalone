@@ -9,14 +9,11 @@ import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.loa
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 
-import java.awt.*;
 import java.net.URL;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -28,6 +25,8 @@ import java.util.ResourceBundle;
 @Controller
 public class OptionsControllerImpl extends AbstractInitializeableController implements OptionsController {
 
+    public static final String PROPERTY_KEY_PRINT = "print";
+    public static final String PROPERTY_KEY_IMAGE_VIEWER = "imageViewer";
     @Autowired
     private OverviewController overviewController;
 
@@ -63,7 +62,14 @@ public class OptionsControllerImpl extends AbstractInitializeableController impl
         cmbbxLanguage.getItems().addAll(OptionsWebService.SUPPORTED_LANGUAGES);
 
         //Get options for logged in user from back-end
-        OptionsDTO optionsDTO = optionsService.getFor(authenticationService.getLoggedInUser());
+        OptionsDTO optionsDTO = null;
+        try {
+            optionsDTO = optionsService.getFor(authenticationService.getLoggedInUser());
+        } catch (Exception e) {
+            //Do nothing, exception should already be logged and handled by aspects
+            //Throw a runtime exception so this exception is not swallowed if for some reason the aspects are not working
+            throw new RuntimeException(e);
+        }
 
         //Select language in combobox that is set in dto
         cmbbxLanguage.getSelectionModel().select(optionsDTO.getLanguage());
@@ -102,7 +108,7 @@ public class OptionsControllerImpl extends AbstractInitializeableController impl
     }
 
     @Override
-    public void save() {
+    public void save() throws Exception{
         //Create optionsDTO to send to back-end
         OptionsDTO optionsDTO = new OptionsDTO();
 
@@ -128,8 +134,8 @@ public class OptionsControllerImpl extends AbstractInitializeableController impl
         optionsService.save(optionsDTO);
 
         //Save the print and imageViewer options in the system properties
-        System.setProperty("print", optionsDTO.getPrint().toString());
-        System.setProperty("imageViewer", optionsDTO.getImageViewer().toString());
+        System.setProperty(PROPERTY_KEY_PRINT, optionsDTO.getPrint().toString());
+        System.setProperty(PROPERTY_KEY_IMAGE_VIEWER, optionsDTO.getImageViewer().toString());
 
         //Check if language has changed
         if (!originalLanguage.equals(optionsDTO.getLanguage())){

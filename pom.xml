@@ -32,6 +32,7 @@
 		<qrgen.version>2.1.0</qrgen.version>
 		<pd.dto.version>1.0-SNAPSHOT</pd.dto.version>
 		<pd.back-end.web-service.interfaces.version>1.0-SNAPSHOT</pd.back-end.web-service.interfaces.version>
+		<pd.back-end.web-service.logging.interfaces.version>1.0-SNAPSHOT</pd.back-end.web-service.logging.interfaces.version>
 		<nexus-repo.id>packet_delivery</nexus-repo.id>
 		<nexus-repo.url>http://localhost:8081/nexus/content/repositories/packet_delivery</nexus-repo.url>
 		<jitpack-repo.id>jitpack.io</jitpack-repo.id>

@@ -21,33 +21,33 @@ public class ProblematicPacketsProxyRestWebService extends AbstractService imple
 
     @Override
     public Collection<PacketDTO> getProblematicPackets() {
-        ResponseEntity<PacketDTO[]> response = getRestTemplate().getForEntity(getUris().getProblematicPacketsPath(), PacketDTO[].class);
+        ResponseEntity<PacketDTO[]> response = getRestTemplate().getForEntity(getBackEndProperties().getUris().getProblematicPackets(), PacketDTO[].class);
         return Arrays.asList(response.getBody());
     }
 
     @Override
     public PacketDTO getProblematicPacket(String packetId) {
-        ResponseEntity<PacketDTO> response = getRestTemplate().getForEntity(getUris().getProblematicPacketPath(), PacketDTO.class, packetId);
+        ResponseEntity<PacketDTO> response = getRestTemplate().getForEntity(getBackEndProperties().getUris().getProblematicPacket(), PacketDTO.class, packetId);
         return response.getBody();
     }
 
     @Override
     public Boolean reSend(String packetId) {
-        return getRestTemplate().postForEntity(getUris().getReSendProblematicPacketPath(), packetId, Boolean.class).getBody();
+        return getRestTemplate().postForEntity(getBackEndProperties().getUris().getReSendProblematicPacket(), packetId, Boolean.class).getBody();
     }
 
     @Override
     public Boolean returnToSender(String packetId, RegionDTO region) {
-        return getRestTemplate().postForEntity(getUris().getReturnToSenderProblematicPacketPath(), region, Boolean.class, packetId).getBody();
+        return getRestTemplate().postForEntity(getBackEndProperties().getUris().getReturnToSenderProblematicPacket(), region, Boolean.class, packetId).getBody();
     }
 
     @Override
     public DeliveryAddressDTO getDeliveryAddress(String packetId) {
-        return getRestTemplate().getForEntity(getUris().getProblematicPacketDeliveryAddressPath(), DeliveryAddressDTO.class, packetId).getBody();
+        return getRestTemplate().getForEntity(getBackEndProperties().getUris().getProblematicPacketDeliveryAddress(), DeliveryAddressDTO.class, packetId).getBody();
     }
 
     @Override
     public Boolean saveDeliveryAddress(DeliveryAddressDTO deliveryAddressDTO) {
-        return getRestTemplate().postForObject(getUris().getSaveProblematicPacketDeliveryAddressPath(), deliveryAddressDTO, Boolean.class);
+        return getRestTemplate().postForObject(getBackEndProperties().getUris().getSaveProblematicPacketDeliveryAddress(), deliveryAddressDTO, Boolean.class);
     }
 }

@@ -4,7 +4,7 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.MenuController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
-import be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.AuthenticationWebServiceExtended;
+import be.rdhaese.packetdelivery.standalone.service.interfaces.AuthenticationWebServiceExtended;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

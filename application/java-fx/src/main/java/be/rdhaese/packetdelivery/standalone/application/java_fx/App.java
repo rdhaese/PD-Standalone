@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * Created on 30/12/2015.
