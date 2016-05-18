@@ -1,5 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service;
 
+import be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.config.TestConfig;
 import be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.properties.BackEndProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(TestConfig.class)
-public class AbstractProxyRestWebServiceTest extends TestCase {
+public abstract class AbstractProxyRestWebServiceTest extends TestCase {
 
     @Autowired
     private RestTemplate restTemplate;

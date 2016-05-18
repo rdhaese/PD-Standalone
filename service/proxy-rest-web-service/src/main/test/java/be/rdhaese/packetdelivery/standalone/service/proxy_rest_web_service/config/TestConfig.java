@@ -1,4 +1,4 @@
-package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service;
+package be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.config;
 
 import be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service.properties.BackEndProperties;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan
+@ComponentScan(basePackages = "be.rdhaese.packetdelivery.standalone.service.proxy_rest_web_service")
 public class TestConfig {
 
     @Bean

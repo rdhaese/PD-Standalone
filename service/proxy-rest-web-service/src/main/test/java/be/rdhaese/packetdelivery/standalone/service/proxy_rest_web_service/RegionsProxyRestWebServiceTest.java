@@ -33,7 +33,7 @@ public class RegionsProxyRestWebServiceTest extends AbstractProxyRestWebServiceT
 
     @Autowired
     private RegionsWebService regionsWebService;
-    
+
     @Test
     public void testRegions() throws Exception {
         RegionDTO regionDto1 = new RegionDTO("nl1", "fr1", "de1", "en1", "CODE1");
