@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Validator {
 
-    private static final Integer MAX_LENGHT = 200;
+    public static final Integer MAX_LENGHT = 200;
 
     public Boolean isNotNull(String s) {
         return s != null;
@@ -24,8 +24,15 @@ public class Validator {
         return isNotNull(s) && isNotEmpty(s);
     }
 
+    public Boolean isNotToLong(String s) {
+        if (s == null) {
+            return true;
+        }
+        return s.length() <= MAX_LENGHT;
+    }
+
     public Boolean isValidInput(String s) {
-        return isNotNullNorEmpty(s) && s.length() <= MAX_LENGHT;
+        return isNotNullNorEmpty(s) && isNotToLong(s);
     }
 
     public Boolean isValidPhoneNumber(String s) {
@@ -42,7 +49,12 @@ public class Validator {
     }
 
     public Boolean isValidEmailAddress(String s) {
-        return isNotNullNorEmpty(s) && s.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}");
+        if (isNotNullNorEmpty(s)){
+            if (!s.contains(" ")){
+                return s.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])");
+            }
+        }
+        return false;
     }
 
     public Boolean isValidCity(String s) {
@@ -62,7 +74,7 @@ public class Validator {
     }
 
     public Boolean isValidMailbox(String s) {
-        return true;
+        return isNotToLong(s);
     }
 
     public Boolean isValidClientName(String s) {
@@ -73,11 +85,11 @@ public class Validator {
         return isValidInput(s);
     }
 
-    public Boolean isValidPassWord(String s){
+    public Boolean isValidPassWord(String s) {
         return isValidInput(s);
     }
 
-    public Boolean isValidWebServiceUrl(String s){
+    public Boolean isValidWebServiceUrl(String s) {
         return isNotNullNorEmpty(s);
     }
 }

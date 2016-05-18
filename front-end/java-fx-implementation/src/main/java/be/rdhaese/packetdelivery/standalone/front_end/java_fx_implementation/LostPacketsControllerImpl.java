@@ -4,7 +4,7 @@ import be.rdhaese.packetdelivery.back_end.web_service.interfaces.LostPacketsWebS
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.LostPacketsController;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.alert.AlertTool;
-import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.StringAsDateComparator;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.dateAsStringComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.table_item.LostPacketTableItem;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -144,7 +144,7 @@ public class LostPacketsControllerImpl extends AbstractWithMenuAndStatusBarContr
     private void initializeTableColumns() {
         tcPacketId.setCellValueFactory(f -> f.getValue().packetIdProperty());
         tcDateMarkedAsLost.setCellValueFactory(f -> f.getValue().dateMarkedAsLostProperty());
-        tcDateMarkedAsLost.setComparator(new StringAsDateComparator(dateFormat));
+        tcDateMarkedAsLost.setComparator(new dateAsStringComparator(dateFormat));
         tcClient.setCellValueFactory(f -> f.getValue().clientProperty());
         tcDelivery.setCellValueFactory(f -> f.getValue().deliveryProperty());
         tcFound.setCellValueFactory(f -> f.getValue().foundProperty());

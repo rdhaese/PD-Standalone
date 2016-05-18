@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class BackEndProperties {
     private String ip;
     private String port;
+    private String serverPath;
     private Uris uris;
 
     public String getIp() {
@@ -29,6 +30,14 @@ public class BackEndProperties {
 
     public void setPort(String port) {
         this.port = port;
+    }
+
+    public String getServerPath() {
+        return serverPath;
+    }
+
+    public void setServerPath(String serverPath) {
+        this.serverPath = serverPath;
     }
 
     public Uris getUris() {

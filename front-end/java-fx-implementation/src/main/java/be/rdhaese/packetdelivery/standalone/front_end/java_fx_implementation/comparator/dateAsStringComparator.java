@@ -10,11 +10,11 @@ import java.util.Date;
  *
  * @author Robin D'Haese
  */
-public class StringAsDateComparator implements Comparator<String> {
+public class dateAsStringComparator implements Comparator<String> {
 
     private DateFormat dateFormat;
 
-    public StringAsDateComparator(DateFormat dateFormat){
+    public dateAsStringComparator(DateFormat dateFormat){
         this.dateFormat =dateFormat;
     }
 

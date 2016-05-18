@@ -51,6 +51,8 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.getIcons().add(SplashPreLoader.ICON);
         primaryStage.setScene(scene);
+        primaryStage.setMinHeight(scene.getHeight() + 50); //+50 to compensate borders and stuff
+        primaryStage.setMinWidth(scene.getWidth() + 25); //+25 to compensate borders and stuff
         primaryStage.show();
     }
 }

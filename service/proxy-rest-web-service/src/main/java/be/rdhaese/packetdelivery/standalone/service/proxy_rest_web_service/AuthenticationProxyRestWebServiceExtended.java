@@ -22,6 +22,7 @@ public class AuthenticationProxyRestWebServiceExtended extends AbstractService i
         return authenticationResponse;
     }
 
+
     public void logout() {
         loggedInUser = null;
     }

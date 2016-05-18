@@ -133,7 +133,13 @@ public class AddPacketControllerImpl extends AbstractWithMenuAndStatusBarControl
         if (allInputIsValid(packetDTO)) {
             packetDTO.setPacketStatus(PACKET_STATUS_NORMAL);
             packetDTO.setStatusChangedOn(new Date());
-            addPacketService.addPacket(packetDTO);
+            try {
+                addPacketService.addPacket(packetDTO);
+            } catch (Exception e) {
+                //Do nothing, exception should already be logged and handled by aspects
+                //Throw a runtime exception so this exception is not swallowed if for some reason the aspects are not working
+                throw new RuntimeException(e);
+            }
             clearFromUrlResultHolder();
             showOverview(txtClientName.getScene(), getMessage("toolbar.message.packetAddedSuccessful"));
         }

@@ -4,7 +4,7 @@ import be.rdhaese.packetdelivery.back_end.web_service.interfaces.ProblematicPack
 import be.rdhaese.packetdelivery.dto.PacketDTO;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveriesController;
 import be.rdhaese.packetdelivery.standalone.front_end.interfaces.ProblematicDeliveryController;
-import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.StringAsDateComparator;
+import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.comparator.dateAsStringComparator;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums.FXMLS;
 import be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.table_item.ProblematicPacketTableItem;
 import javafx.application.Platform;
@@ -144,7 +144,7 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
     private void initializeTableColumns() {
         tcPacketId.setCellValueFactory(f -> f.getValue().packetIdProperty());
         tcDateMarkedAsProblematic.setCellValueFactory(f -> f.getValue().dateMarkedAsProblematicProperty());
-        tcDateMarkedAsProblematic.setComparator(new StringAsDateComparator(dateFormat));
+        tcDateMarkedAsProblematic.setComparator(new dateAsStringComparator(dateFormat));
         tcClient.setCellValueFactory(f -> f.getValue().clientProperty());
         tcDelivery.setCellValueFactory(f -> f.getValue().deliveryProperty());
         tvProblematicPackets.getSortOrder().add(tcDateMarkedAsProblematic);

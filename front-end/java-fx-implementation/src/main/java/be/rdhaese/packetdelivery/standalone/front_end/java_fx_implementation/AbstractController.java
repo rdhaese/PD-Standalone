@@ -48,7 +48,7 @@ public abstract class AbstractController {
         lastScene = newScene;
         Stage stage = (Stage) oldScene.getWindow();
         Parent parent = (Parent) loader.load(newScene.toString());
-        Scene scene = new Scene(parent, 1024, 768);
+        Scene scene = new Scene(parent, oldScene.getWidth(), oldScene.getHeight());
         stage.setScene(scene);
 
     }
