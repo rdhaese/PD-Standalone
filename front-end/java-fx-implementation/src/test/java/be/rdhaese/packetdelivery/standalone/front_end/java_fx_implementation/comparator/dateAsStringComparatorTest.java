@@ -2,24 +2,20 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.co
 
 
 import junit.framework.TestCase;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.util.StringUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
-import java.util.TreeSet;
 
 /**
- * Created on 17/05/2016.
  *
  * @author Robin D'Haese
  */
 public class DateAsStringComparatorTest extends TestCase{
 
-    private static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     private Comparator<String> dateAsStringComparator;
 
@@ -29,7 +25,7 @@ public class DateAsStringComparatorTest extends TestCase{
 
     @Before
     public void setUp(){
-        dateAsStringComparator = new dateAsStringComparator(dateFormat);
+        dateAsStringComparator = new dateAsStringComparator(DATE_FORMAT);
 
         date1 = "17/04/2016";
         date2 = "20/04/2016";
@@ -41,5 +37,6 @@ public class DateAsStringComparatorTest extends TestCase{
         assertTrue(dateAsStringComparator.compare(date1, date2) < 0);
         assertTrue(dateAsStringComparator.compare(date2, date1) > 0);
         assertTrue(dateAsStringComparator.compare(date1, date3) == 0);
+        assertTrue(dateAsStringComparator.compare(date1, "unparseable date") < 0);
     }
 }

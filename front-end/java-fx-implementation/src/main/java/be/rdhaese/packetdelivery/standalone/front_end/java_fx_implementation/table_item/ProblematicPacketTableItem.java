@@ -3,7 +3,6 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.ta
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Created on 16/01/2016.
  *
  * @author Robin D'Haese
  */

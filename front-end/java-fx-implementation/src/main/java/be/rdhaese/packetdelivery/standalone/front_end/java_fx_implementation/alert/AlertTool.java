@@ -9,7 +9,6 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 /**
- * Created on 18/04/2016.
  *
  * @author Robin D'Haese
  */

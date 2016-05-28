@@ -14,7 +14,6 @@ import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Created on 18/05/2016.
  *
  * @author Robin D'Haese
  */

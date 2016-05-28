@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Created on 18/05/2016.
  *
  * @author Robin D'Haese
  */

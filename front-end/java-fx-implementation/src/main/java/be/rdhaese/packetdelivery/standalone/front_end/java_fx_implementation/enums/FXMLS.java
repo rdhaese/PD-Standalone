@@ -1,7 +1,6 @@
 package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.enums;
 
 /**
- * Created on 13/01/2016.
  *
  * @author Robin D'Haese
  */

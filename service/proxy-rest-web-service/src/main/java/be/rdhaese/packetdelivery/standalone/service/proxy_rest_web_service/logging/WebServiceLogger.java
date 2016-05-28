@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 /**
- * Created on 25/04/2016.
  *
  * @author Robin D'Haese
  */
@@ -22,7 +21,7 @@ import java.util.Arrays;
 @Aspect
 public class WebServiceLogger {
 
-    private Logger logger = LoggerFactory.getLogger(WebServiceLogger.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebServiceLogger.class);
 
     @Autowired
     private AuthenticationWebServiceExtended authenticationService;
@@ -47,7 +46,7 @@ public class WebServiceLogger {
                 getMethod(joinPoint),
                 authenticationService.getLoggedInUser()
         );
-        logger.info(logText);
+        LOGGER.info(logText);
     }
 
     private void before(JoinPoint joinPoint) {
@@ -56,20 +55,20 @@ public class WebServiceLogger {
                 getMethod(joinPoint),
                 authenticationService.getLoggedInUser()
         );
-        logger.info(logText);
+        LOGGER.info(logText);
 
-        if (logger.isDebugEnabled()) {
+        if (LOGGER.isDebugEnabled()) {
             logArguments(joinPoint);
         }
     }
 
     private void logArguments(JoinPoint joinPoint) {
-        logger.debug("Arguments:");
+        LOGGER.debug("Arguments:");
         for (Object o : joinPoint.getArgs()) {
             if (o instanceof Object[]) {
-                logger.debug(Arrays.toString((Object[]) o));
+                LOGGER.debug(Arrays.toString((Object[]) o));
             } else {
-                logger.debug(o.toString());
+                LOGGER.debug(o.toString());
             }
         }
     }
@@ -90,7 +89,7 @@ public class WebServiceLogger {
                 "Exception while performing method [%s]",
                 getMethod(joinPoint)
         );
-        logger.warn(logText, t);
+        LOGGER.warn(logText, t);
         throw t;
     }
 

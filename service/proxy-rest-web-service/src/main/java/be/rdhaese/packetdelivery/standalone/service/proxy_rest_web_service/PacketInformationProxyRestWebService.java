@@ -6,7 +6,6 @@ import be.rdhaese.packetdelivery.standalone.service.interfaces.PacketInformation
 import org.springframework.stereotype.Service;
 
 /**
- * Created on 30/04/2016.
  *
  * @author Robin D'Haese
  */

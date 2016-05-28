@@ -22,7 +22,6 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 
 /**
- * Created on 18/05/2016.
  *
  * @author Robin D'Haese
  */

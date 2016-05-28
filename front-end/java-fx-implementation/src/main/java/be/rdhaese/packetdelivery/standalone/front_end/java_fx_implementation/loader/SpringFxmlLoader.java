@@ -17,6 +17,10 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ *
+ * @author Robin D'Haese
+ */
 @Component
 public class SpringFxmlLoader{
 

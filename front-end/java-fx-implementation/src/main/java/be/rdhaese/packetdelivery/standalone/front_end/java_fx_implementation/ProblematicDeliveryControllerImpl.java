@@ -21,7 +21,6 @@ import java.text.DateFormat;
 import java.util.*;
 
 /**
- * Created on 14/01/2016.
  *
  * @author Robin D'Haese
  */

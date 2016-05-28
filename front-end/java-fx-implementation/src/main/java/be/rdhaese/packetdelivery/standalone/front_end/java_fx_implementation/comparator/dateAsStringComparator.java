@@ -6,7 +6,6 @@ import java.util.Comparator;
 import java.util.Date;
 
 /**
- * Created on 12/02/2016.
  *
  * @author Robin D'Haese
  */

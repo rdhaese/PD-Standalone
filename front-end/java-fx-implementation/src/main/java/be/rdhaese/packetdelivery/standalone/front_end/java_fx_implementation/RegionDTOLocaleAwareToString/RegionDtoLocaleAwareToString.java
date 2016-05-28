@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.Locale;
 
 /**
- * Created on 15/04/2016.
  *
  * @author Robin D'Haese
  */
@@ -71,6 +70,24 @@ public class RegionDtoLocaleAwareToString extends RegionDTO {
 
     public void setCode(String code) {
         regionDTO.setCode(code);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        RegionDtoLocaleAwareToString that = (RegionDtoLocaleAwareToString) o;
+
+        return !(regionDTO != null ? !regionDTO.equals(that.regionDTO) : that.regionDTO != null);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (regionDTO != null ? regionDTO.hashCode() : 0);
+        return result;
     }
 
     @Override

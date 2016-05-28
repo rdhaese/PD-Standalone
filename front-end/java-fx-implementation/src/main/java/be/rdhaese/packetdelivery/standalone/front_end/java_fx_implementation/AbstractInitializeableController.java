@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created on 9/01/2016.
  *
  * @author Robin D'Haese
  */
