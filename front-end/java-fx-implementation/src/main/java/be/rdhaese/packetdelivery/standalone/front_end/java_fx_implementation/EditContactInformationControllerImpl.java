@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 
 
 /**
- * Created on 26/12/2015.
  *
  * @author Robin D'Haese
  */

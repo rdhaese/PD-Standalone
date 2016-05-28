@@ -4,6 +4,7 @@ import be.rdhaese.packetdelivery.standalone.front_end.aspects.interfaces.PacketA
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import net.glxn.qrgen.javase.QRCode;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -16,15 +17,14 @@ import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.Image;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.ConnectException;
+
 import java.util.Optional;
 
 /**
- * Created on 31/12/2015.
  *
  * @author Robin D'Haese
  */
@@ -32,7 +32,7 @@ import java.util.Optional;
 @Aspect
 public class PacketAddedAspectImpl implements PacketAddedAspect {
 
-    public static final javafx.scene.image.Image ICON = new javafx.scene.image.Image(PacketAddedAspectImpl.class.getResourceAsStream("/img/icon.png"));
+    public static final Image ICON = new Image(PacketAddedAspectImpl.class.getResourceAsStream("/img/icon.png"));
 
     private static final String IMAGE_EXTENSION = "JPEG";
     private static final String IMAGE_TEXT = "Packet ID";

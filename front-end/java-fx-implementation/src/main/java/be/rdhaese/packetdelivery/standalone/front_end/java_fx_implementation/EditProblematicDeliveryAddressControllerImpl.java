@@ -20,14 +20,9 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
- * Created on 16/01/2016.
- *
  * @author Robin D'Haese
  */
 @Controller
@@ -68,16 +63,19 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
             }
         });
 
-        Collection<RegionDtoLocaleAwareToString> regions = new ArrayList<>();
-        for (RegionDTO regionDTO : regionsService.regions()){
+        List<RegionDtoLocaleAwareToString> regions = new ArrayList<>();
+        for (RegionDTO regionDTO : regionsService.regions()) {
             regions.add(new RegionDtoLocaleAwareToString(LocaleContextHolder.getLocale(), regionDTO));
         }
         cmbbxRegions.getItems().addAll(regions);
 
         DeliveryAddressDTO deliveryAddressDTO = problematicPacketsService.getDeliveryAddress(currentPacket);
 
+
         RegionDTO currentRegion = new RegionDTO(deliveryAddressDTO.getRegionNameNl(), deliveryAddressDTO.getRegionNameFr(), deliveryAddressDTO.getRegionNameDe(), deliveryAddressDTO.getRegionNameEn(), deliveryAddressDTO.getRegionCode());
-        cmbbxRegions.getSelectionModel().select(currentRegion);
+        RegionDtoLocaleAwareToString currentRegionDtoLocaleAwareToString = new RegionDtoLocaleAwareToString(LocaleContextHolder.getLocale(), currentRegion);
+        cmbbxRegions.getSelectionModel().select(currentRegionDtoLocaleAwareToString);
+
 
         txtStreet.setText(deliveryAddressDTO.getStreet());
         txtNumber.setText(deliveryAddressDTO.getNumber());
@@ -96,7 +94,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
         deliveryAddressDTO.setRegionNameDe(selectedRegion.getNameDe());
         deliveryAddressDTO.setRegionNameEn(selectedRegion.getNameEn());
         deliveryAddressDTO.setRegionCode(selectedRegion.getCode());
-        if (validateInput(deliveryAddressDTO)){
+        if (validateInput(deliveryAddressDTO)) {
             problematicPacketsService.saveDeliveryAddress(deliveryAddressDTO);
             messageHolder.setMessage(getMessage("toolbar.message.addressChanged"));
             problematicDeliveryController.update();
@@ -176,7 +174,7 @@ public class EditProblematicDeliveryAddressControllerImpl extends AbstractInitia
         stage.close();
     }
 
-    public  void setCurrentPacket(String currentPacket) {
+    public void setCurrentPacket(String currentPacket) {
         this.currentPacket = currentPacket;
     }
 }

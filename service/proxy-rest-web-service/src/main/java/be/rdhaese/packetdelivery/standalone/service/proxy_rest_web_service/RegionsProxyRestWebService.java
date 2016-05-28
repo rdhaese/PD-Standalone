@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * Created on 28/03/2016.
  *
  * @author Robin D'Haese
  */

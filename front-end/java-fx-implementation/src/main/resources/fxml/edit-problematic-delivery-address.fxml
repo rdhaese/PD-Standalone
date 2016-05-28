@@ -47,7 +47,7 @@
       <TextField fx:id="txtMailbox" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
        <TextField fx:id="txtCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
        <TextField fx:id="txtPostalCode" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-       <ComboBox fx:id="cmbbxRegions" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" promptText="%problematicDelivery.editAddress.pickRegion"/>
+       <ComboBox fx:id="cmbbxRegions" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="%problematicDelivery.editAddress.pickRegion" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

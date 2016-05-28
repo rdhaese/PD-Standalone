@@ -11,13 +11,11 @@ import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * Created on 16/01/2016.
  *
  * @author Robin D'Haese
  */
 @Service
 public class ProblematicPacketsProxyRestWebService extends AbstractService implements ProblematicPacketsWebService {
-
 
     @Override
     public Collection<PacketDTO> getProblematicPackets() {

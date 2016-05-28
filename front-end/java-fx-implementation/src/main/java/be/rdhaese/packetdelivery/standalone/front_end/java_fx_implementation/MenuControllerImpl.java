@@ -16,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import java.util.Optional;
 
 /**
- * Created on 22/12/2015.
  *
  * @author Robin D'Haese
  */

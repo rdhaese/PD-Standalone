@@ -3,7 +3,6 @@ package be.rdhaese.packetdelivery.standalone.front_end.aspects.interfaces;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
- * Created on 18/04/2016.
  *
  * @author Robin D'Haese
  */

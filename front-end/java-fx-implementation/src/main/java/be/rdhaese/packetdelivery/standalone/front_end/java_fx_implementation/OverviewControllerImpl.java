@@ -16,7 +16,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created on 22/12/2015.
  *
  * @author Robin D'Haese
  */

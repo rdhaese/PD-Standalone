@@ -20,7 +20,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * Created on 18/04/2016.
  *
  * @author Robin D'Haese
  */

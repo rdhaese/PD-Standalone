@@ -4,7 +4,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 
 /**
- * Created on 27/12/2015.
  *
  * @author Robin D'Haese
  */

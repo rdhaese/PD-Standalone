@@ -154,7 +154,7 @@
                                 <TextField fx:id="txtDeliveryMailbox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                 <TextField fx:id="txtDeliveryCity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
                                 <TextField fx:id="txtDeliveryPostalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                <ComboBox fx:id="cmbbxDeliveryRegion" prefHeight="31.0" prefWidth="148.0" promptText="%addPacket.pickRegion" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" />
+                                <ComboBox fx:id="cmbbxDeliveryRegion" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="148.0" promptText="%addPacket.pickRegion" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" />
                                 <Label text="%addPacket.optional" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                     <font>
                                         <Font size="10.0" />

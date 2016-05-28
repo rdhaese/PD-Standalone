@@ -3,7 +3,6 @@ package be.rdhaese.packetdelivery.standalone.front_end.java_fx_implementation.va
 import org.springframework.stereotype.Component;
 
 /**
- * Created on 14/04/2016.
  *
  * @author Robin D'Haese
  */

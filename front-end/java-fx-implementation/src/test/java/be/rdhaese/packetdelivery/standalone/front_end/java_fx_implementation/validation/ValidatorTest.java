@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created on 17/05/2016.
  *
  * @author Robin D'Haese
  */

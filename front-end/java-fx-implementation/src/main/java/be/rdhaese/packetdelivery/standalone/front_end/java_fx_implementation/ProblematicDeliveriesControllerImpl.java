@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * Created on 14/01/2016.
  *
  * @author Robin D'Haese
  */
@@ -90,8 +89,7 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
             public void handle(KeyEvent event) {
                 if (KeyCode.F5.equals(event.getCode())) {
                     btnRefresh.fire();
-                } else
-                if ((KeyCode.SPACE.equals(event.getCode())) && (!tvProblematicPackets.getSelectionModel().isEmpty())) {
+                } else if ((KeyCode.SPACE.equals(event.getCode())) && (!tvProblematicPackets.getSelectionModel().isEmpty())) {
                     showPacketDetails();
                 }
             }
@@ -108,13 +106,18 @@ public class ProblematicDeliveriesControllerImpl extends AbstractWithMenuAndStat
                 }
             });
             return row;
-        } );
+        });
     }
 
     private void showPacketDetails() {
         String packetId = tvProblematicPackets.getSelectionModel().getSelectedItem().getPacketId();
-        problematicDeliveryController.setCurrentPacket(packetId);
-        showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
+        if (problematicPacketsService.getProblematicPacket(packetId) != null) {
+            problematicDeliveryController.setCurrentPacket(packetId);
+            showScene(tvProblematicPackets.getScene(), FXMLS.PROBLEMATIC_DELIVERY);
+        } else {
+            messageHolder.setMessage(getMessage("problematicDeliveries.packetAlreadyTreated"));
+            update();
+        }
     }
 
     private void bindIdFilter(FilteredList<ProblematicPacketTableItem> lostPackets) {

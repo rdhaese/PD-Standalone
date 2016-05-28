@@ -20,7 +20,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
- * Created on 21/12/2015.
  *
  * @author Robin D'Haese
  */
@@ -35,9 +34,6 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
 
     @Autowired
     private OptionsWebService optionsService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @FXML
     Label lblCompanyName;
@@ -64,8 +60,7 @@ public class LoginFormControllerImpl extends AbstractInitializeableController im
     public void authenticate() throws Exception{
         clearErrors();
         if (isInputValid()) {
-            String encryptedPassword = passwordEncoder.encode(txtPassword.getText());
-            switch (authenticationService.authenticate(txtUsername.getText(), encryptedPassword)) {
+            switch (authenticationService.authenticate(txtUsername.getText(), txtPassword.getText())) {
                 case AUTHENTICATION_RESULT_GRANTED:
                     //First load options for user
                     OptionsDTO optionsDTO = optionsService.getFor(txtUsername.getText());

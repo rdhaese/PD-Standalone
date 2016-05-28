@@ -14,7 +14,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
- * Created on 9/01/2016.
  *
  * @author Robin D'Haese
  */
@@ -48,8 +47,4 @@ public class FrontEndConfig {
         return new SimpleDateFormat(DATE_PATTERN);
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(11);
-    }
 }

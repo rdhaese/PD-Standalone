@@ -18,7 +18,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
- * Created on 29/02/2016.
  *
  * @author Robin D'Haese
  */

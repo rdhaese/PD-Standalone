@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Created on 31/12/2015.
  *
  * @author Robin D'Haese
  */

@@ -5,7 +5,6 @@ import be.rdhaese.packetdelivery.standalone.service.interfaces.AuthenticationWeb
 import org.springframework.stereotype.Service;
 
 /**
- * Created on 30/12/2015.
  *
  * @author Robin D'Haese
  */

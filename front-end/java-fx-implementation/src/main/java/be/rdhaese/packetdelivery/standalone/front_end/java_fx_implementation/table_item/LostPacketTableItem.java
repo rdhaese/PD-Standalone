@@ -4,7 +4,6 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Created on 14/01/2016.
  *
  * @author Robin D'Haese
  */

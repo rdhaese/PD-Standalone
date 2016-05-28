@@ -5,7 +5,6 @@ import be.rdhaese.packetdelivery.dto.OptionsDTO;
 import org.springframework.stereotype.Service;
 
 /**
- * Created on 17/04/2016.
  *
  * @author Robin D'Haese
  */
