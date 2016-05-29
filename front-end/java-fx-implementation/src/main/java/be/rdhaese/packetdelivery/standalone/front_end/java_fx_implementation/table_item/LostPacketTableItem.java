@@ -30,13 +30,6 @@ public class LostPacketTableItem {
         this.remove.set(remove);
     }
 
-//    public static void main(String... args){
-        //TODO in test
-//        LostPacketTableItem lostPacketTableItem = new LostPacketTableItem("bla", "bla", "bla", "bla", false, false);
-//        lostPacketTableItem.setRemove(true);
-//        lostPacketTableItem.setFound(true);
-//        System.out.println(lostPacketTableItem.getRemove());
-//    }
     public String getPacketId() {
         return packetId.get();
     }
