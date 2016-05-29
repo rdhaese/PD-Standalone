@@ -170,6 +170,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             addPhoneNumbersBeforeSave(contactDetailsDTO);
             addFaxNumbersBeforeSave(contactDetailsDTO);
             addEmailAddressesBeforeSave(contactDetailsDTO);
+            contactDetailsDTO.setAboutText(taAboutText.getText());
             if (contactInformationService.post(contactDetailsDTO)) {
                 ((Stage) txtCompanyName.getScene().getWindow()).setTitle(contactDetailsDTO.getCompanyName());
                 showOverview(txtCompanyName.getScene(), getMessage("toolbar.message.contactDetailsEditedSuccessful"));
@@ -204,8 +205,7 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
                 & validateNumber(contactDetailsDTO)
                 & validateMailbox(contactDetailsDTO)
                 & validateCity(contactDetailsDTO)
-                & validatePostalCode(contactDetailsDTO)
-                & validateAboutText(contactDetailsDTO);
+                & validatePostalCode(contactDetailsDTO);
     }
 
     private boolean validateCompanyName(ContactDetailsDTO contactDetailsDTO) {
@@ -265,16 +265,6 @@ public class EditContactInformationControllerImpl extends AbstractWithMenuAndSta
             return true;
         }
         markForError(txtPostalCode, "contactInformation.tooltip.postalCode");
-        return false;
-    }
-
-    private boolean validateAboutText(ContactDetailsDTO contactDetailsDTO) {
-        if (validator.isNotNullNorEmpty(taAboutText.getText())) {
-            contactDetailsDTO.setAboutText(taAboutText.getText());
-            removeErrorStyleIfNeeded(taAboutText);
-            return true;
-        }
-        markForError(taAboutText, "contactInformation.tooltip.aboutText");
         return false;
     }
 

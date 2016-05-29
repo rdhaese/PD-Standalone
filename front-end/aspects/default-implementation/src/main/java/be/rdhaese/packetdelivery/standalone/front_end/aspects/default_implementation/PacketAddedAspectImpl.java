@@ -90,6 +90,10 @@ public class PacketAddedAspectImpl implements PacketAddedAspect {
     }
 
     private File saveImage(String packetID, BufferedImage image) throws IOException {
+        File dir = new File(LOCATION_TO_SAVE);
+        if (!dir.exists()){
+            dir.mkdirs();
+        }
         File f = new File(String.format("%s%s.%s", LOCATION_TO_SAVE, packetID, IMAGE_EXTENSION));
         if (!f.exists()) {
             f.createNewFile();
